@@ -60,11 +60,6 @@ async def on_message(message):
             await message.channel.send(file=picture)
         return
 
-    if "balls" in message.content.lower():
-        response = "Ooh, wee! I hear Rob doesn't miss!"
-        await message.channel.send(response)
-        return
-
     if "rob" in message.content.lower():
         response = "Ooh, wee! I hear Rob doesn't miss!"
         await message.channel.send(response)
