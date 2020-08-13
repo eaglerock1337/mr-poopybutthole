@@ -49,6 +49,21 @@ async def on_message(message):
             await message.channel.send(file=picture)
         return
 
+    matches = ['balls', 'duke', 'nukem', 'steel']
+
+    if any(c in message.content.lower() for c in matches):
+        response = "Ooh, wee! I've got balls of steel!"
+        await message.channel.send(response)
+        with open(os.path.join('resources', 'nukem.png'), 'rb') as file:
+            picture = discord.File(file)
+            await message.channel.send(file=picture)
+        return
+
+    if "balls" in message.content.lower():
+        response = "Ooh, wee! I hear Rob doesn't miss!"
+        await message.channel.send(response)
+        return
+
     if "rob" in message.content.lower():
         response = "Ooh, wee! I hear Rob doesn't miss!"
         await message.channel.send(response)
