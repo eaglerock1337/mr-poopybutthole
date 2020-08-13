@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
-CHRIS_ID = "533873187780558848"
+CHRIS_ID = 533873187780558848
 GAY_FILES = ['gay1.jpg', 'gay2.jpg', 'gay3.jpg', 'gay4.jpg', 'gay5.jpg', 'gay6.jpg']
 
 client = discord.Client()
@@ -29,9 +29,9 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.author == CHRIS_ID:
-        response = "Ooh, wee! Nice comment there, cheesecake!"
-        await message.channel.send(response)
+    if message.author.id == CHRIS_ID:
+        chris = "Ooh, wee! Nice comment there, cheesecake!"
+        await message.channel.send(chris)
 
     if message.content.lower().startswith("!gay"):
         response = "Ooh, wee! Here's how gay that shot was!"
