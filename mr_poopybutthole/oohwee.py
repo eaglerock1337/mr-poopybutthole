@@ -32,7 +32,6 @@ async def on_message(message):
     if message.author == CHRIS_ID:
         response = "Ooh, wee! Nice comment there, cheesecake!"
         await message.channel.send(response)
-        return
 
     if message.content.lower().startswith("!gay"):
         response = "Ooh, wee! Here's how gay that shot was!"
