@@ -8,6 +8,9 @@ from dotenv import load_dotenv
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
+CHRIS_ID = "533873187780558848"
+GAY_FILES = ['gay1.jpg', 'gay2.jpg', 'gay3.jpg', 'gay4.jpg', 'gay5.jpg', 'gay6.jpg']
+
 client = discord.Client()
 
 @client.event
@@ -24,6 +27,24 @@ async def on_member_join(member):
 @client.event
 async def on_message(message):
     if message.author == client.user:
+        return
+
+    if message.author == CHRIS_ID:
+        response = "Ooh, wee! Nice comment there, cheesecake!"
+        await message.channel.send(response)
+        return
+
+    if message.content.lower().startswith("!gay"):
+        response = "Ooh, wee! Here's how gay that shot was!"
+        await message.channel.send(response)
+        with open(os.path.join('resources', random.choice(GAY_FILES)), 'rb') as file:
+            picture = discord.File(file)
+            await message.channel.send(file=picture)
+        return
+
+    if "rob" in message.content.lower():
+        response = "Ooh, wee! I hear Rob doesn't miss!"
+        await message.channel.send(response)
         return
 
     matches = ['ooh', 'wee']
