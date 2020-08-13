@@ -33,6 +33,14 @@ async def on_message(message):
         chris = "Ooh, wee! Nice comment there, cheesecake!"
         await message.channel.send(chris)
 
+    if message.content.lower().startswith("!ole"):
+        response = "Ooh, wee!"
+        await message.channel.send(response)
+        with open(os.path.join('resources', 'ole.jpg'), 'rb') as file:
+            picture = discord.File(file)
+            await message.channel.send(file=picture)
+        return
+
     if message.content.lower().startswith("!gay"):
         response = "Ooh, wee! Here's how gay that shot was!"
         await message.channel.send(response)
@@ -44,6 +52,14 @@ async def on_message(message):
     if "rob" in message.content.lower():
         response = "Ooh, wee! I hear Rob doesn't miss!"
         await message.channel.send(response)
+        return
+
+    if "peter" in message.content.lower():
+        response = "Ooh, wee!"
+        await message.channel.send(response)
+        with open(os.path.join('resources', 'peter.jpg'), 'rb') as file:
+            picture = discord.File(file)
+            await message.channel.send(file=picture)
         return
 
     matches = ['ooh', 'wee']
