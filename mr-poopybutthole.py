@@ -14,10 +14,10 @@ def get_logger():
     log = logging.getLogger()
     stdout_handler = logging.StreamHandler(sys.stdout)
     stdout_handler.setFormatter(logging.Formatter("%(message)s"))
-    stdout_handler.setLevel(logging.DEBUG)
+    stdout_handler.setLevel(logging.INFO)
 
     log.addHandler(stdout_handler)
-    log.setLevel(logging.DEBUG)
+    log.setLevel(logging.INFO)
 
 
 def oohwee():
