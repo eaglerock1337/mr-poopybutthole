@@ -1,6 +1,9 @@
 import logging
+import os
 import sys
 
+from discord.ext import commands
+from dotenv import load_dotenv
 from mr_poopybutthole import Oohwee
 
 
@@ -22,7 +25,12 @@ def oohwee():
     Main routine. Creates a logger and instantiates the Oohwee class.
     """
     get_logger()
-    Oohwee()
+    load_dotenv()
+    TOKEN = os.getenv("DISCORD_TOKEN")
+
+    bot = commands.Bot(command_prefix="!")
+    bot.add_cog(Oohwee(bot))
+    bot.run(TOKEN)
 
 
 if __name__ == "__main__":
