@@ -22,7 +22,7 @@ def get_logger():
 
 def oohwee():
     """
-    Main routine. Creates a logger and instantiates the Oohwee class.
+    Main routine. Creates a logger and instanciates the Oohwee class.
     """
     get_logger()
     load_dotenv()
@@ -32,6 +32,8 @@ def oohwee():
     bot.add_cog(Oohwee(bot))
     bot.run(TOKEN)
 
+# TODO: argparse function for taking in runtime arguments
+# TODO: toggle load_dotenv() only for running outside of k8s
 
 if __name__ == "__main__":
     oohwee()
