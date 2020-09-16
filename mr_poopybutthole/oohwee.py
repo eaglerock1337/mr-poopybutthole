@@ -73,6 +73,16 @@ class Oohwee(commands.Cog):
                 await message.channel.send(file=picture)
             return
 
+        matches = ["peloton", "pelaton"]
+
+        if any(c in message.content.lower() for c in matches):
+            response = "Ooh, wee! Nobody's laughing at that Peloton ad anymore, are they?"
+            await message.channel.send(response)
+            with open(os.path.join("mr_poopybutthole", "resources", "peloton.jpg"), "rb") as file:
+                picture = discord.File(file)
+                await message.channel.send(file=picture)
+            return
+
         male_matches = ["adonis", "superman"]
         female_matches = ["adonia", "superwoman"]
         matches = male_matches + female_matches
