@@ -74,7 +74,7 @@ class Oohwee(commands.Cog):
                 text = female_matches
 
             filename = f"{text[0]}.jpg"
-            response = f"Ooh, wee! I'm pretty sure that's something an {text[0]} {text[1]} would do!"
+            response = f"Ooh, wee! I'm pretty sure that's something an {text.pop(0)} {text.pop(0)} would do!"
             await message.channel.send(response)
             with open(os.path.join("mr_poopybutthole", "resources", filename), "rb") as file:
                 picture = discord.File(file)
