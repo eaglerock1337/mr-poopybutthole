@@ -41,8 +41,10 @@ class Oohwee(commands.Cog):
             await message.channel.send(chris)
 
         if message.author.id == ROB_ID:
-            rob = "Ooh, wee! I hear you don't like this song!\n" \
-                  "https://www.youtube.com/watch?v=W1B_poM9l7M"
+            rob = (
+                "Ooh, wee! I hear you don't like this song!\n"
+                "https://www.youtube.com/watch?v=W1B_poM9l7M"
+            )
             await message.channel.send(rob)
 
         if "rob" in message.content.lower():
