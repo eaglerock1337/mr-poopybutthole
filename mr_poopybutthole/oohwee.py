@@ -63,17 +63,23 @@ class Oohwee(commands.Cog):
                 await message.channel.send(file=picture)
             return
 
-        matches = ["adonis", "superman"]
+        male_matches = ["adonis", "superman"]
+        female_matches = ["adonia", "superwoman"]
+        matches = male_matches + female_matches
 
         if any(c in message.content.lower() for c in matches):
-            response = "Ooh, wee! I'm pretty sure that's something an adonis superman would do!"
+            if any(c in message.content.lower() for c in male_matches):
+                text = male_matches
+            else:
+                text = female_matches
+
+            filename = f"{text[0]}.jpg"
+            response = f"Ooh, wee! I'm pretty sure that's something an {text[0]} {text[1]} would do!"
             await message.channel.send(response)
-            with open(os.path.join("mr_poopybutthole", "resources", "adonis.jpg"), "rb") as file:
+            with open(os.path.join("mr_poopybutthole", "resources", filename), "rb") as file:
                 picture = discord.File(file)
                 await message.channel.send(file=picture)
             return
-
-        matches = ["adonia", "superwoman"]
 
         if any(c in message.content.lower() for c in matches):
             response = "Ooh, wee! I'm pretty sure that's something an adonia superwoman would do!"
