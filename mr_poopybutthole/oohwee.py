@@ -68,7 +68,7 @@ class Oohwee(commands.Cog):
         if any(c in message.content.lower() for c in matches):
             response = "Ooh, wee! That there's a spicy, spicy boi!"
             await message.channel.send(response)
-            with open(os.path.join("mr_poopybutthole", "resources", "spicyboi.png"), "rb") as file:
+            with open(os.path.join("mr_poopybutthole", "resources", "spicyboi.jpg"), "rb") as file:
                 picture = discord.File(file)
                 await message.channel.send(file=picture)
             return
