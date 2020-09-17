@@ -121,7 +121,7 @@ class Oohwee(commands.Cog):
 
         if any(c in message.content.lower() for c in matches):
             response = (
-                "OOH, WEE! I CARRIED AN M16 AND YOU...\n
+                "OOH, WEE! I CARRIED AN M16 AND YOU...\n"
                 "YOU CARRY THAT, THAT...GUITAR!!!"
             )
             await message.channel.send(response)
@@ -201,4 +201,3 @@ class Oohwee(commands.Cog):
             picture = discord.File(file)
             await ctx.channel.send(file=picture)
         return
-d
