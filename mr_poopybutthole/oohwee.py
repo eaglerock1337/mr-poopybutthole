@@ -105,12 +105,28 @@ class Oohwee(commands.Cog):
         if any(c in message.content.lower() for c in matches):
             response = (
                 "Ooh, wee, Jon. You stupid fuck. How could you...Jon?\n"
-                "You were my amigo, my compadre! Jon...\n"
-                "...make me God! I'm gonna eat everything!"
+                "You were my amigo, Jon. My muchaho, my compadre! Jon...\n"
+                "...make me God! Being a celestial body is exhausting!\n"
+                "I'm gonna eat everything!"
             )
             await message.channel.send(response)
             with open(
                 os.path.join("mr_poopybutthole", "resources", "garfielf.png"), "rb"
+            ) as file:
+                picture = discord.File(file)
+                await message.channel.send(file=picture)
+            return
+
+        matches = ["m16", "twisted", "sister", "guitar"]
+
+        if any(c in message.content.lower() for c in matches):
+            response = (
+                "OOH, WEE! I CARRIED AN M16 AND YOU...\n
+                "YOU CARRY THAT, THAT...GUITAR!!!"
+            )
+            await message.channel.send(response)
+            with open(
+                os.path.join("mr_poopybutthole", "resources", "m16.jpg"), "rb"
             ) as file:
                 picture = discord.File(file)
                 await message.channel.send(file=picture)
@@ -185,3 +201,4 @@ class Oohwee(commands.Cog):
             picture = discord.File(file)
             await ctx.channel.send(file=picture)
         return
+d
