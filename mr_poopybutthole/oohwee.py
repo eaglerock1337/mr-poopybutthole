@@ -106,7 +106,7 @@ class Oohwee(commands.Cog):
             response = (
                 "Ooh, wee, Jon. You stupid fuck. How could you...Jon?\n"
                 "You were my amigo, my compadre! Jon...\n"
-                "...make me God!"
+                "...make me God! I'm gonna eat everything!"
             )
             await message.channel.send(response)
             with open(
