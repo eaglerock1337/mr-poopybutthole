@@ -105,8 +105,8 @@ class Oohwee(commands.Cog):
         if any(c in message.content.lower() for c in matches):
             response = (
                 "Ooh, wee, Jon. You stupid fuck. How could you...Jon?\n"
-                "You were my amigo, my compadre!\n"
-                "...Make me God!"
+                "You were my amigo, my compadre! Jon...\n"
+                "...make me God!"
             )
             await message.channel.send(response)
             with open(
