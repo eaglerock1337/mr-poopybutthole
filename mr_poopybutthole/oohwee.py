@@ -41,7 +41,7 @@ class Oohwee(commands.Cog):
         if message.author.id == CHRIS_ID:
             if "i made a doody" in message.content.lower():
                 self.chris_responder = False
-                response = "Ooh, wee! I think the cheesecake needs a break!"ds
+                response = "Ooh, wee! I think the cheesecake needs a break!"
                 await message.channel.send(response)
                 return
             elif self.chris_responder:
