@@ -21,6 +21,8 @@ class Oohwee(commands.Cog):
     def __init__(self, bot):
         self.logger = logging.getLogger(__name__)
         self.bot = bot
+        self.chris_responder = True
+        self.rob_responder = True
 
     @commands.Cog.listener()
     async def on_ready(self):
@@ -37,15 +39,27 @@ class Oohwee(commands.Cog):
             return
 
         if message.author.id == CHRIS_ID:
-            chris = "Ooh, wee! Nice comment there, cheesecake!"
-            await message.channel.send(chris)
+            if "i made a doody" in message.content.lower():
+                self.chris_responder = False
+                response = "Ooh, wee! I think the cheesecake needs a break!"ds
+                await message.channel.send(response)
+                return
+            elif self.chris_responder:
+                chris = "Ooh, wee! Nice comment there, cheesecake!"
+                await message.channel.send(chris)
 
         if message.author.id == ROB_ID:
-            rob = (
-                "Ooh, wee! I hear you don't like this song!\n"
-                "https://www.youtube.com/watch?v=W1B_poM9l7M"
-            )
-            await message.channel.send(rob)
+            if "i made a doody" in message.content.lower():
+                self.rob_responder = False
+                response = "Ooh, wee! I think Rob is looking for a break from all the awesome tunes!"
+                await message.channel.send(response)
+                return
+            elif self.rob_responder:
+                rob = (
+                    "Ooh, wee! I hear you don't like this song!\n"
+                    "https://www.youtube.com/watch?v=W1B_poM9l7M"
+                )
+                await message.channel.send(rob)
 
         if "rob" in message.content.lower():
             response = "Ooh, wee! I hear Rob doesn't miss!"
