@@ -39,7 +39,7 @@ class Oohwee(commands.Cog):
             return
 
         if message.author.id == CHRIS_ID:
-            if "i made a doody" in message.content.lower():
+            if "i made a doody" in message.content.lower() and not self.chris_responder:
                 self.chris_responder = False
                 response = "Ooh, wee! I think the cheesecake needs a break!"
                 await message.channel.send(response)
@@ -49,7 +49,7 @@ class Oohwee(commands.Cog):
                 await message.channel.send(chris)
 
         if message.author.id == ROB_ID:
-            if "i made a doody" in message.content.lower():
+            if "i made a doody" in message.content.lower() and not self.rob_responder:
                 self.rob_responder = False
                 response = "Ooh, wee! I think Rob is looking for a break from all the awesome tunes!"
                 await message.channel.send(response)
