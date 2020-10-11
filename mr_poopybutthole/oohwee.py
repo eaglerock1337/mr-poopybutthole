@@ -239,3 +239,36 @@ class Oohwee(commands.Cog):
             picture = discord.File(file)
             await ctx.channel.send(file=picture)
         return
+
+    @commands.command()
+    async def oof(self, ctx):
+        response = "Ooh, wee! That was oof-worthy!"
+        await ctx.channel.send(response)
+        with open(
+            os.path.join("mr_poopybutthole", "resources", "oof.gif"), "rb"
+        ) as file:
+            picture = discord.File(file)
+            await ctx.channel.send(file=picture)
+        return
+
+    @commands.command()
+    async def wtf(self, ctx):
+        response = "Ooh, wee! What the fuck?"
+        await ctx.channel.send(response)
+        with open(
+            os.path.join("mr_poopybutthole", "resources", "wtf.gif"), "rb"
+        ) as file:
+            picture = discord.File(file)
+            await ctx.channel.send(file=picture)
+        return
+
+    @commands.command()
+    async def nice(self, ctx):
+        response = "Ooh, wee! That was pretty nice!"
+        await ctx.channel.send(response)
+        with open(
+            os.path.join("mr_poopybutthole", "resources", "nice.gif"), "rb"
+        ) as file:
+            picture = discord.File(file)
+            await ctx.channel.send(file=picture)
+        return
