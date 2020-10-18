@@ -29,6 +29,7 @@ def oohwee():
     TOKEN = os.getenv("DISCORD_TOKEN")
 
     bot = commands.Bot(command_prefix="!")
+    bot.remove_command("help")
     bot.add_cog(Oohwee(bot))
     bot.run(TOKEN)
 
