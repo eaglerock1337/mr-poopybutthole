@@ -17,6 +17,8 @@ HELPMESSAGE = """Ooh, wee! Here's the commands you can run!
     `!oof` - There are some times that just call for an oof!
     `!wtf` - For when you inevitably say this 400 times a night!
     `!nice` - For when you can't even shit talk that shot because it was nice!
+    `!damage` - Some shots do a lot of damage, and deserve it to be known!
+    `!xp` - Some rounds generate a ton of XP! This is for those times!
     `!opinion` - For those unsolicited opinions you didn't ask for!
     `!dumb` - For those times someone has a idea and you need to tell them how you feel!
     `!waiting` - For when you're waiting on the one slow person to come online!
@@ -149,6 +151,7 @@ class Oohwee(commands.Cog):
                 await message.channel.send(file=picture)
             return
 
+        # This should probably become a command later on, but leave it for now
         matches = ["garfielf", "garfield", "jon", "god", "nermal"]
 
         if any(c in message.content.lower() for c in matches):
@@ -176,18 +179,6 @@ class Oohwee(commands.Cog):
             await message.channel.send(response)
             with open(
                 os.path.join("mr_poopybutthole", "resources", "m16.jpg"), "rb"
-            ) as file:
-                picture = discord.File(file)
-                await message.channel.send(file=picture)
-            return
-
-        matches = ["damage", "flex", "seal"]
-
-        if any(c in message.content.lower() for c in matches):
-            response = "OOH, WEE! THAT'S A LOT OF DAMAGE!"
-            await message.channel.send(response)
-            with open(
-                os.path.join("mr_poopybutthole", "resources", "damage.png"), "rb"
             ) as file:
                 picture = discord.File(file)
                 await message.channel.send(file=picture)
@@ -230,18 +221,6 @@ class Oohwee(commands.Cog):
             await message.channel.send(response)
             with open(
                 os.path.join("mr_poopybutthole", "resources", "adonia.jpg"), "rb"
-            ) as file:
-                picture = discord.File(file)
-                await message.channel.send(file=picture)
-            return
-
-        matches = ["xp", "dr", "doctor", "evil", "million", "dollars"]
-
-        if any(c in message.content.lower() for c in matches):
-            response = "Ooh, wee, Scott! That was...\nONE MEEELLION XP! That's a lot of frickin' XP!"
-            await message.channel.send(response)
-            with open(
-                os.path.join("mr_poopybutthole", "resources", "drevil.gif"), "rb"
             ) as file:
                 picture = discord.File(file)
                 await message.channel.send(file=picture)
@@ -315,6 +294,28 @@ class Oohwee(commands.Cog):
         await ctx.channel.send(response)
         with open(
             os.path.join("mr_poopybutthole", "resources", "nice.gif"), "rb"
+        ) as file:
+            picture = discord.File(file)
+            await ctx.channel.send(file=picture)
+        return
+
+    @commands.command()
+    async def damage(self, ctx):
+        response = "OOH, WEE! THAT'S A LOT OF DAMAGE!"
+        await ctx.channel.send(response)
+        with open(
+            os.path.join("mr_poopybutthole", "resources", "damage.png"), "rb"
+        ) as file:
+            picture = discord.File(file)
+            await ctx.channel.send(file=picture)
+        return
+
+    @commands.command()
+    async def xp(self, ctx):
+        response = "Ooh, wee, Scott! That was...\nONE MEEELLION XP! That's a lot of frickin' XP!"
+        await ctx.channel.send(response)
+        with open(
+            os.path.join("mr_poopybutthole", "resources", "drevil.gif"), "rb"
         ) as file:
             picture = discord.File(file)
             await ctx.channel.send(file=picture)
