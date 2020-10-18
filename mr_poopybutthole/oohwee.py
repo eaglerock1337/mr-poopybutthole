@@ -200,6 +200,18 @@ class Oohwee(commands.Cog):
                 await message.channel.send(file=picture)
             return
 
+        matches = ["xp", "dr", "doctor", "evil", "million", "dollars"]
+
+        if any(c in message.content.lower() for c in matches):
+            response = "Ooh, wee, Scott! That was...\nONE MEEELLION XP! That's a lot of frickin' XP!"
+            await message.channel.send(response)
+            with open(
+                os.path.join("mr_poopybutthole", "resources", "drevil.gif"), "rb"
+            ) as file:
+                picture = discord.File(file)
+                await message.channel.send(file=picture)
+            return
+
         matches = ["ooh", "wee"]
 
         if any(c in message.content.lower() for c in matches):
