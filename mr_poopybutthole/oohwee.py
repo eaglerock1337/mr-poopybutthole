@@ -10,6 +10,26 @@ CHRIS_ID = 533873187780558848
 ROB_ID = 445052623171878912
 GAY_FILES = ["gay1.jpg", "gay2.jpg", "gay3.jpg", "gay4.jpg", "gay5.jpg", "gay6.jpg"]
 
+HELPMESSAGE = """Ooh, wee! Here's the commands you can run!
+    `!ole` - For when you feel festive after shooting a Fiesta!
+    `!gay` - For when you feel fabulous after shooting a Rainbow!
+    `!shakira` - For when Rob feels the need to do a dance after a good shot!
+    `!oof` - There are some times that just call for an oof!
+    `!wtf` - For when you inevitably say this 400 times a night!
+    `!nice` - For when you can't even shit talk that shot because it was nice!
+    `!opinion` - For those unsolicited opinions you didn't ask for!
+    `!dumb` - For those times someone has a idea and you need to tell them how you feel!
+    `!waiting` - For when you're waiting on the one slow person to come online!
+    `!sleep` - For when someone needs to go to bed and it's clearly too early!
+
+I also pay attention to what you're saying on Discord and will respond
+when you say something I was told to respond to! For example, I'll always
+talk back when you say `ooh` or `wee`. Ooh, wee!
+
+You might also be super lucky and have me say something to EVERYTHING
+you say! Ooh, wee! But if you get tired of that, just make sure to say
+`I made a doody` and I'll cut you a break! Ooh, wee!"""
+
 
 class Oohwee(commands.Cog):
     """
@@ -31,7 +51,22 @@ class Oohwee(commands.Cog):
     @commands.Cog.listener()
     async def on_member_join(self, member):
         await member.create_dm()
-        await member.dm_channel.send(f"Oooh, wee! {member.name} has joined the server!")
+        await member.dm_channel.send(
+            f"Oooh, wee! {member.name} has joined the server!\nType `!help` to learn more about me!"
+        )
+
+    @commands.command()
+    async def help(self, ctx):
+        response = "Ooh, wee! Somebody clearly doesn't know how this all works!\nClearly I'm going to need to help you out here!"
+        await ctx.channel.send(response)
+        with open(
+            os.path.join("mr_poopybutthole", "resources", "oohwee.gif"), "rb"
+        ) as file:
+            picture = discord.File(file)
+            await ctx.channel.send(file=picture)
+
+        await ctx.channel.send(HELPMESSAGE)
+        return
 
     @commands.Cog.listener()
     async def on_message(self, message):
@@ -297,6 +332,19 @@ class Oohwee(commands.Cog):
         return
 
     @commands.command()
+    async def dumb(self, ctx):
+        response = (
+            "Ooh, wee! Looks like had a great suggestion! Let's think about that one!"
+        )
+        await ctx.channel.send(response)
+        with open(
+            os.path.join("mr_poopybutthole", "resources", "dumb.png"), "rb"
+        ) as file:
+            picture = discord.File(file)
+            await ctx.channel.send(file=picture)
+        return
+
+    @commands.command()
     async def waiting(self, ctx):
         response = "Ooh, wee! Someone's taking their sweet-ass time today!"
         await ctx.channel.send(response)
@@ -316,34 +364,4 @@ class Oohwee(commands.Cog):
         ) as file:
             picture = discord.File(file)
             await ctx.channel.send(file=picture)
-        return
-
-    @commands.command()
-    async def help(self, ctx):
-        response = "Ooh, wee! Somebody clearly doesn't know how this all works!\nClearly I'm going to need to help you out here!"
-        await ctx.channel.send(response)
-        with open(
-            os.path.join("mr_poopybutthole", "resources", "help.png"), "rb"
-        ) as file:
-            picture = discord.File(file)
-            await ctx.channel.send(file=picture)
-        helpmessage = """Ooh, wee! Here's some commands you can run:
-                      !ole - For when you feel festive after shooting a Fiesta!
-                      !gay - For when you feel fabulous after shooting a Rainbow!
-                      !shakira - For when Rob feels the need to do a dance after a good shot!
-                      !oof - There are some times that just call for an oof!
-                      !wtf - For when you inevitably say this 400 times a night!
-                      !nice - For when you can't even shit talk that shot because it was nice!
-                      !opinion - For those unsolicited opinions you didn't ask for!
-                      !waiting - For when you're waiting on the one slow person to come online!
-                      !sleep - For when someone needs to go to bed and it's clearly too early!
-
-                      I also pay attention to what you're saying on Discord and will respond
-                      when you say something I was told to respond to! For example, I'll always
-                      talk back when you say 'ooh' or 'wee'. Ooh, wee!
-
-                      You might also be super lucky and have me say something to EVERYTHING
-                      you say! Ooh, wee! But if you get tired of that, just make sure to say
-                      'I made a doody' and I'll cut you a break! Ooh, wee!"""
-        await ctx.channel.send(helpmessage)
         return
