@@ -19,6 +19,7 @@ HELPMESSAGE = """Here's the commands you can run! Ooh, wee!
     `!nice` - For when you can't even shit talk that shot because it was nice!
     `!damage` - Some shots do a lot of damage, and deserve it to be known!
     `!xp` - Some rounds generate a ton of XP! This is for those times!
+    `!dialedin` - For when someone just can't help but be dialed in!
     `!opinion` - For those unsolicited opinions you didn't ask for!
     `!dumb` - For those times someone has a idea and you need to tell them how you feel!
     `!stfu` - Some times people just don't get the hint!
@@ -321,6 +322,17 @@ class Oohwee(commands.Cog):
         await ctx.channel.send(response)
         with open(
             os.path.join("mr_poopybutthole", "resources", "drevil.gif"), "rb"
+        ) as file:
+            picture = discord.File(file)
+            await ctx.channel.send(file=picture)
+        return
+
+    @commands.command()
+    async def dialedin(self, ctx):
+        response = "Ooh, wee! Looks like SOMEBODY is dialed in!"
+        await ctx.channel.send(response)
+        with open(
+            os.path.join("mr_poopybutthole", "resources", "dialedin.jpg"), "rb"
         ) as file:
             picture = discord.File(file)
             await ctx.channel.send(file=picture)
