@@ -10,7 +10,7 @@ CHRIS_ID = 533873187780558848
 ROB_ID = 445052623171878912
 GAY_FILES = ["gay1.jpg", "gay2.jpg", "gay3.jpg", "gay4.jpg", "gay5.jpg", "gay6.jpg"]
 
-HELPMESSAGE = """Ooh, wee! Here's the commands you can run!
+HELPMESSAGE = """Here's the commands you can run! Ooh, wee!
     `!ole` - For when you feel festive after shooting a Fiesta!
     `!gay` - For when you feel fabulous after shooting a Rainbow!
     `!shakira` - For when Rob feels the need to do a dance after a good shot!
@@ -21,12 +21,15 @@ HELPMESSAGE = """Ooh, wee! Here's the commands you can run!
     `!xp` - Some rounds generate a ton of XP! This is for those times!
     `!opinion` - For those unsolicited opinions you didn't ask for!
     `!dumb` - For those times someone has a idea and you need to tell them how you feel!
+    `!stfu` - Some times people just don't get the hint!
     `!waiting` - For when you're waiting on the one slow person to come online!
     `!sleep` - For when someone needs to go to bed and it's clearly too early!
 
 I also pay attention to what you're saying on Discord and will respond
 when you say something I was told to respond to! For example, I'll always
-talk back when you say `ooh` or `wee`. Ooh, wee!
+talk back when you say `ooh` or `wee`. Also, if you just so happen to be an
+`adonis` `superman` or an `adonia` `superwoman`, I'll make sure to comment
+on that too! Ooooooooooh, wee!
 
 You might also be super lucky and have me say something to EVERYTHING
 you say! Ooh, wee! But if you get tired of that, just make sure to say
@@ -76,27 +79,29 @@ class Oohwee(commands.Cog):
             return
 
         if message.author.id == CHRIS_ID:
-            if "i made a doody" in message.content.lower() and not self.chris_responder:
-                self.chris_responder = False
-                response = "Ooh, wee! I think the cheesecake needs a break!"
-                await message.channel.send(response)
-                return
-            elif self.chris_responder:
-                chris = "Ooh, wee! Nice comment there, cheesecake!"
-                await message.channel.send(chris)
+            if self.chris_responder:
+                if "i made a doody" in message.content.lower():
+                    self.chris_responder = False
+                    response = "Ooh, wee! I think the cheesecake needs a break!"
+                    await message.channel.send(response)
+                    return
+                else:
+                    chris = "Ooh, wee! Nice comment there, cheesecake!"
+                    await message.channel.send(chris)
 
         if message.author.id == ROB_ID:
-            if "i made a doody" in message.content.lower() and not self.rob_responder:
-                self.rob_responder = False
-                response = "Ooh, wee! I think Rob is looking for a break from all the awesome tunes!"
-                await message.channel.send(response)
-                return
-            elif self.rob_responder:
-                rob = (
-                    "Ooh, wee! I hear you don't like this song!\n"
-                    "https://www.youtube.com/watch?v=W1B_poM9l7M"
-                )
-                await message.channel.send(rob)
+            if self.rob_responder:
+                if "i made a doody" in message.content.lower():
+                    self.rob_responder = False
+                    response = "Ooh, wee! I think Rob is looking for a break from all the awesome tunes!"
+                    await message.channel.send(response)
+                    return
+                else:
+                    rob = (
+                        "Ooh, wee! I hear you don't like this song!\n"
+                        "https://www.youtube.com/watch?v=W1B_poM9l7M"
+                    )
+                    await message.channel.send(rob)
 
         if "rob" in message.content.lower():
             response = "Ooh, wee! I hear Rob doesn't miss!"
@@ -340,6 +345,19 @@ class Oohwee(commands.Cog):
         await ctx.channel.send(response)
         with open(
             os.path.join("mr_poopybutthole", "resources", "dumb.png"), "rb"
+        ) as file:
+            picture = discord.File(file)
+            await ctx.channel.send(file=picture)
+        return
+
+    @commands.command()
+    async def stfu(self, ctx):
+        response = (
+            "Ooh, wee! Someone is running their mouth and really need to give it a break!"
+        )
+        await ctx.channel.send(response)
+        with open(
+            os.path.join("mr_poopybutthole", "resources", "stfu.jpg"), "rb"
         ) as file:
             picture = discord.File(file)
             await ctx.channel.send(file=picture)
