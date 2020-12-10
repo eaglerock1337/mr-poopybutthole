@@ -12,7 +12,7 @@ Note that running this first requires adding the Discord bot token to `mr-poopyb
 
 `$ docker build --tag mr-poopybutthole:<version>`
 
-`$ docker run -d -name mr-poopybutthole mr-poopybutthole:<version>`
+`$ docker run -d --rm --name mr-poopybutthole mr-poopybutthole:<version>`
 
 ## running locally
 
