@@ -28,12 +28,13 @@ SNOWFLAKES = {
         "message": "Ooh, wee! I hear you don't like this song!",
         "video": "https://www.youtube.com/watch?v=W1B_poM9l7M",
         "disable": "Ooh, wee! I think Rob is looking for a break from all the awesome tunes!",
-    }
+    },
 }
 
 GAY_FILES = ["gay1.jpg", "gay2.jpg", "gay3.jpg", "gay4.jpg", "gay5.jpg", "gay6.jpg"]
 
-HELPMESSAGES = ["""Here's the commands you can run! Ooh, wee!
+HELPMESSAGES = [
+    """Here's the commands you can run! Ooh, wee!
     `!ole` - For when you feel festive after shooting a Fiesta!
     `!gay` - For when you feel fabulous after shooting a Rainbow!
     `!shakira` - For when Rob feels the need to do a dance after a good shot!
@@ -57,9 +58,11 @@ I also pay attention to what you're saying on Discord and will respond
 when you say something I was told to respond to! For example, I'll always
 talk back when you say `ooh` or `wee`. Also, if you just so happen to be an
 `adonis` `superman` or an `adonia` `superwoman`, I'll make sure to comment
-on that too! Ooooooooooh, wee!\n""",
-"""Finally, for all of those special snowflakes out there, we have a special
-SNOWFLAKE MODE that will use my best microagressions and my bot privilege to
+on that too! Ooooooooooh, wee!
+
+`Snowflake Mode`""",
+    """Finally, for all of those special snowflakes out there, we have a special
+`SNOWFLAKE MODE` that will use my best microagressions and my bot privilege to
 marginalize the best of you out there! Just type `!snowflake` to dial up the fun!
 If you're lucky enough, you'll get a nice response from me to EVERYTHING you say!
 
@@ -67,7 +70,8 @@ If it's too much for you, just be sure to type `I made a doody`, and I'll make
 sure you get to retreat to your safe space! You can even type `!snowflakes` to see
 who can and can't take the heat! Finally, if everyone is going to ragequit because
 of the trollfest, typing `!snowflake off` will make me check my privilege!
-Ooooooooooooooooh, wee! Bots are fun, aren't they?"""]
+Ooooooooooooooooh, wee! Bots are fun, aren't they?""",
+]
 
 
 class Oohwee(commands.Cog):
@@ -98,7 +102,10 @@ class Oohwee(commands.Cog):
 
     @commands.command()
     async def help(self, ctx):
-        response = "Ooh, wee! Somebody clearly doesn't know how this all works!\nClearly I'm going to need to help you out here!"
+        response = (
+            "Ooh, wee! Somebody clearly doesn't know how this all works!\n"
+            + "Clearly I'm going to need to help you out here!"
+        )
         await ctx.channel.send(response)
         with open(
             os.path.join("mr_poopybutthole", "resources", "oohwee.gif"), "rb"
@@ -387,9 +394,7 @@ class Oohwee(commands.Cog):
 
     @commands.command()
     async def stfu(self, ctx):
-        response = (
-            "Ooh, wee! Someone is running their mouth and really need to give it a break!"
-        )
+        response = "Ooh, wee! Someone is running their mouth and really need to give it a break!"
         await ctx.channel.send(response)
         with open(
             os.path.join("mr_poopybutthole", "resources", "stfu.jpg"), "rb"
@@ -468,8 +473,8 @@ class Oohwee(commands.Cog):
             await ctx.channel.send(file=picture)
 
     @commands.command()
-    async def snowflake(self, ctx, arg='on'):
-        if arg == 'on':
+    async def snowflake(self, ctx, arg="on"):
+        if arg == "on":
             self.snowflake_mode = True
             response = "Ooh, wee! We're gonna get some people pissed off, tonight!"
             await ctx.channel.send(response)
@@ -479,7 +484,7 @@ class Oohwee(commands.Cog):
                 picture = discord.File(file)
                 await ctx.channel.send(file=picture)
 
-        elif arg == 'off':
+        elif arg == "off":
             self.snowflake_mode = False
             response = "Ooh, wee! Looks like *all* the snowflakes need a break!"
             await ctx.channel.send(response)
@@ -489,7 +494,7 @@ class Oohwee(commands.Cog):
                 picture = discord.File(file)
                 await ctx.channel.send(file=picture)
 
-        elif arg == 'force':
+        elif arg == "force":
             self.snowflake_mode = True
             for snowflake in self.snowflake_list.keys():
                 self.snowflake_list[snowflake] = True
@@ -512,7 +517,9 @@ class Oohwee(commands.Cog):
             await ctx.channel.send(file=picture)
 
         snowflake_mode = "enabled" if self.snowflake_mode else "disabled"
-        response = f"It looks like snowflake mode is currently {snowflake_mode}! Ooh, wee!\n"
+        response = (
+            f"It looks like snowflake mode is currently {snowflake_mode}! Ooh, wee!\n"
+        )
 
         if self.snowflake_mode:
             enabled_snowflakes = []
@@ -532,5 +539,10 @@ class Oohwee(commands.Cog):
                 response += "\nThese snowflakes had to retreat to their safe space:\n"
                 for snowflake in disabled_snowflakes:
                     response += f"{SNOWFLAKES[snowflake]['name']}: <@{snowflake}>\n"
+
+            response += (
+                "\nRemember snowflakes, just type `i made a doody` if the victimization "
+                + "is too much and you need to go to your safe space! Ooooooh, wee!"
+            )
 
         await ctx.channel.send(response)
