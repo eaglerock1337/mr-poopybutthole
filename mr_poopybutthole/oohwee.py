@@ -46,13 +46,14 @@ HELPMESSAGES = [
     `!dialedin` - For when someone just can't help but be dialed in!
     `!opinion` - For those unsolicited opinions you didn't ask for!
     `!dumb` - For those times someone has a idea and you need to tell them how you feel!
-    `!stfu` - Some times people just don't get the hint!
+    `!stfu` - Sometimes people just don't get the hint!
     `!waiting` - For when you're waiting on the one slow person to come online!
     `!sleep` - For when someone needs to go to bed and it's clearly too early!
     `!scotch` - Who doesn't love scotch? Besides non-scotch drinkers, that is?
     `!waldo` - For when Chris gets a high-dea and this becomes a meme!
     `!notgood` - For when the game just isn't so good!
     `!more` - For when the shots just seem to keep coming!
+    `!welp` - For those times that someone gets a brutal adonis shot on you!
 
 I also pay attention to what you're saying on Discord and will respond
 when you say something I was told to respond to! For example, I'll always
@@ -546,3 +547,13 @@ class Oohwee(commands.Cog):
             )
 
         await ctx.channel.send(response)
+
+    @commands.command()
+    async def welp(self, ctx):
+        response = "Ooh, wee! Sounds like the match isn't going someone's way!"
+        await ctx.channel.send(response)
+        with open(
+            os.path.join("mr_poopybutthole", "resources", "welp.jpg"), "rb"
+        ) as file:
+            picture = discord.File(file)
+            await ctx.channel.send(file=picture)
