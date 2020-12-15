@@ -54,6 +54,7 @@ HELPMESSAGES = [
     `!notgood` - For when the game just isn't so good!
     `!more` - For when the shots just seem to keep coming!
     `!welp` - For those times that someone gets a brutal adonis shot on you!
+    `!igotthis` - For when you need to reassure someone that needs to chill out!
 
 I also pay attention to what you're saying on Discord and will respond
 when you say something I was told to respond to! For example, I'll always
