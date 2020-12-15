@@ -557,3 +557,13 @@ class Oohwee(commands.Cog):
         ) as file:
             picture = discord.File(file)
             await ctx.channel.send(file=picture)
+
+    @commands.command()
+    async def igotthis(self, ctx):
+        response = "Ooh, wee! SOMEONE needs to chill the fuck out!"
+        await ctx.channel.send(response)
+        with open(
+            os.path.join("mr_poopybutthole", "resources", "igotthis.jpg"), "rb"
+        ) as file:
+            picture = discord.File(file)
+            await ctx.channel.send(file=picture)
