@@ -55,6 +55,7 @@ HELPMESSAGES = [
     `!more` - For when the shots just seem to keep coming!
     `!welp` - For those times that someone gets a brutal adonis shot on you!
     `!igotthis` - For when you need to reassure someone that needs to chill out!
+    `!neener` - Some people just need to have a tongue stuck out at them!
 
 I also pay attention to what you're saying on Discord and will respond
 when you say something I was told to respond to! For example, I'll always
@@ -90,6 +91,36 @@ class Oohwee(commands.Cog):
         for snowflake in SNOWFLAKES.keys():
             self.snowflake_list[snowflake] = True
         self.snowflake_mode = False
+
+    def send_command(self, ctx, message, filename):
+        """
+        Sends a standard command response consisting of a text response and a picture.
+        Takes the message info, and response with the given message and filename.
+        """
+        await ctx.channel.send(message)
+        with open(
+            os.path.join("mr_poopybutthole", "resources", filename), "rb"
+        ) as file:
+            picture = discord.File(file)
+            await ctx.channel.send(file=picture)
+
+    def send_message(self, message, matches, response, filename):
+        """
+        Sends a standard message response consisting of a text response and an optional picture.
+        Takes the message info, the list of matching text, the response, and the filename.
+        Returns true if the match was successful, false otherwise.
+        """
+        if any(c in message.content.lower() for c in matches):
+            await message.channel.send(response)
+            if filename:                
+                with open(
+                    os.path.join("mr_poopybutthole", "resources", filename), "rb"
+                ) as file:
+                    picture = discord.File(file)
+                    await message.channel.send(file=picture)
+            return True
+        else:
+            return False
 
     @commands.Cog.listener()
     async def on_ready(self):
@@ -273,6 +304,11 @@ class Oohwee(commands.Cog):
             ) as file:
                 picture = discord.File(file)
                 await message.channel.send(file=picture)
+            return
+
+        matches = ["help", "halp", "pls", "plz"]
+        response = "Ooh, wee! If you want some help from me, you should probably try the `help` command!"
+        if self.send_message(message, matches, response, filename):
             return
 
         matches = ["ooh", "wee"]
@@ -568,3 +604,9 @@ class Oohwee(commands.Cog):
         ) as file:
             picture = discord.File(file)
             await ctx.channel.send(file=picture)
+
+    @commands.command()
+    async def neener(self, ctx):
+        response = "Neener neener foo foo! I iz cute so stfu! Ooh, wee!"
+        filename = "neener.jpg"
+        self.send_command(ctx, response, filename)
