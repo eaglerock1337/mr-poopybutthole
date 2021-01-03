@@ -56,6 +56,7 @@ HELPMESSAGES = [
     `!welp` - For those times that someone gets a brutal adonis shot on you!
     `!igotthis` - For when you need to reassure someone that needs to chill out!
     `!neener` - Some people just need to have a tongue stuck out at them!
+    `!ettu` - For those pesky, backstabbing assholes!
 
 I also pay attention to what you're saying on Discord and will respond
 when you say something I was told to respond to! For example, I'll always
@@ -77,6 +78,82 @@ Ooooooooooooooooh, wee! Bots are fun, aren't they?""",
 ]
 
 COMMANDS = {
+    "ole": {
+        "response": "Ooh, wee! Here's how gay that shot was!",
+        "filename": "ole.jpg",
+    },
+    "shakira": {
+        "response": "Ooh, wee! I hear her hips don't lie!",
+        "filename": "shakira.mp4",
+    },
+    "oof": {
+        "response": "Ooh, wee! That was oof-worthy!",
+        "filename": "oof.gif",
+    },
+    "wtf": {
+        "response": "Ooh, wee! What the fuck?",
+        "filename": "wtf.gif",
+    },
+    "nice": {
+        "response": "Ooh, wee! That was pretty nice!",
+        "filename": "nice.gif",
+    },
+    "damage": {
+        "response": "OOH, WEE! THAT'S A LOT OF DAMAGE!",
+        "filename": "damage.png",
+    },
+    "xp": {
+        "response": "Ooh, wee, Scott! That was...\nONE MEEELLION XP! That's a lot of frickin' XP!",
+        "filename": "drevil.gif",
+    },
+    "dialedin": {
+        "response": "Ooh, wee! Looks like SOMEBODY is dialed in!",
+        "filename": "dialedin.jpg",
+    },
+    "opinion": {
+        "response": "Ooh, wee! Here's what you can do with your opinion!",
+        "filename": "opinion.png",
+    },
+    "dumb": {
+        "repsonse": "Ooh, wee! Looks like had a great suggestion! Let's think about that one!",
+        "filename": "dumb.png",
+    },
+    "stfu": {
+        "response": "Ooh, wee! Someone is running their mouth and really need to give it a break!",
+        "filename": "stfu.jpg",
+    },
+    "waiting": {
+        "response": "Ooh, wee! Someone's taking their sweet-ass time today!",
+        "filename": "waiting.gif",
+    },
+    "sleep": {
+        "response": "Ooh, wee! Looks like somebody needs their beauty sleep!",
+        "filename": "sleep.png",
+    },
+    "scotch": {
+        "response": "Ooh, wee! I love scotch! Scotchy-scotch-scotch!",
+        "filename": "scotch.jpg",
+    },
+    "waldo": {
+        "response": "Ooh, wee! I found that motherfucker!",
+        "filename": "waldo.jpg",
+    },
+    "yourmom": {
+        "response": "Ooh, wee! That's not what YOUR MOM said last night!",
+        "filename": "yourmom.png",
+    },
+    "notgood": {
+        "response": "Ooh, wee! That last shot was notta so good!",
+        "filename": "notgood.jpg",
+    },
+    "more": {
+        "response": "Ooh, wee! Sounds like the shots just aren't gonna stop!",
+        "filename": "more.jpg",
+    },
+    "welp": {
+        "response": "Ooh, wee! Sounds like the match isn't going someone's way!",
+        "filename": "welp.jpg",
+    },
     "igotthis": {
         "response": "Ooh, wee! SOMEONE needs to chill the fuck out!",
         "filename": "igotthis.jpg",
@@ -85,9 +162,43 @@ COMMANDS = {
         "response": "Neener neener foo foo! I iz cute so stfu! Ooh, wee!",
         "filename": "neener.jpg",
     },
+    "ettu": {
+        "response": "Ooh, wee! Et tu? Cogitavi in ​​qua sumus, amici! Bitch.",
+        "filename": "ettu.jpg",
+    },
 }
 
 LISTENERS = {
+    "nukem": {
+        "matches": ["balls", "duke", "nukem", "steel"],
+        "response": "Ooh, wee! I've got balls of steel!",
+        "filename": "nukem.png",
+    },
+    "spicyboi": {
+        "matches": ["spicy", "boi", "boy"],
+        "response": "Ooh, wee! That there's a spicy, spicy boi!",
+        "filename": "spicyboi.jpg",
+    },
+    "peloton": {
+        "matches": ["peloton", "pelaton"],
+        "response": "Ooh, wee! Nobody's laughing at that Peloton ad anymore, are they?",
+        "filename": "peloton.jpg",
+    },
+    "twisted": {
+        "matches": ["m16", "twisted", "sister", "guitar"],
+        "response": "OOH, WEE! I CARRIED AN M16 AND YOU...\nYOU CARRY THAT, THAT...GUITAR!!!",
+        "filename": "m16.jpg",
+    },
+    "fucks": {
+        "matches": ["guys", "shut", "fuck"],
+        "response": "Ooh, wee! Someone needs to shut their fucks!",
+        "filename": "fucks.jpg",
+    },
+    "ram": {
+        "matches": ["chrome", "google", "ram"],
+        "response": "Ooh, wee! Someone must really hate their RAM!",
+        "filename": "chrome.jpg",
+    },
     "help": {
         "matches": ["help", "halp", "pls", "plz"],
         "response": "Ooh, wee! If you want some help from me, you should probably try the `help` command!",
@@ -205,42 +316,25 @@ class Oohwee(commands.Cog):
                 await message.channel.send(file=picture)
             return
 
-        matches = ["balls", "duke", "nukem", "steel"]
-
-        if any(c in message.content.lower() for c in matches):
-            response = "Ooh, wee! I've got balls of steel!"
-            await message.channel.send(response)
-            with open(
-                os.path.join("mr_poopybutthole", "resources", "nukem.png"), "rb"
-            ) as file:
-                picture = discord.File(file)
-                await message.channel.send(file=picture)
+        if await self.send_message(message, "nukem"):
             return
 
-        matches = ["spicy", "boi", "boy"]
-
-        if any(c in message.content.lower() for c in matches):
-            response = "Ooh, wee! That there's a spicy, spicy boi!"
-            await message.channel.send(response)
-            with open(
-                os.path.join("mr_poopybutthole", "resources", "spicyboi.jpg"), "rb"
-            ) as file:
-                picture = discord.File(file)
-                await message.channel.send(file=picture)
+        if await self.send_message(message, "spicyboi"):
             return
 
-        matches = ["peloton", "pelaton"]
+        if await self.send_message(message, "peloton"):
+            return
 
-        if any(c in message.content.lower() for c in matches):
-            response = (
-                "Ooh, wee! Nobody's laughing at that Peloton ad anymore, are they?"
-            )
-            await message.channel.send(response)
-            with open(
-                os.path.join("mr_poopybutthole", "resources", "peloton.jpg"), "rb"
-            ) as file:
-                picture = discord.File(file)
-                await message.channel.send(file=picture)
+        if await self.send_message(message, "twisted"):
+            return
+
+        if await self.send_message(message, "fucks"):
+            return
+
+        if await self.send_message(message, "ram"):
+            return
+
+        if await self.send_message(message, "help"):
             return
 
         # This should probably become a command later on, but leave it for now
@@ -256,45 +350,6 @@ class Oohwee(commands.Cog):
             await message.channel.send(response)
             with open(
                 os.path.join("mr_poopybutthole", "resources", "garfielf.png"), "rb"
-            ) as file:
-                picture = discord.File(file)
-                await message.channel.send(file=picture)
-            return
-
-        matches = ["m16", "twisted", "sister", "guitar"]
-
-        if any(c in message.content.lower() for c in matches):
-            response = (
-                "OOH, WEE! I CARRIED AN M16 AND YOU...\n"
-                "YOU CARRY THAT, THAT...GUITAR!!!"
-            )
-            await message.channel.send(response)
-            with open(
-                os.path.join("mr_poopybutthole", "resources", "m16.jpg"), "rb"
-            ) as file:
-                picture = discord.File(file)
-                await message.channel.send(file=picture)
-            return
-
-        matches = ["guys", "shut", "fuck"]
-
-        if any(c in message.content.lower() for c in matches):
-            response = "Ooh, wee! Someone needs to shut their fucks!"
-            await message.channel.send(response)
-            with open(
-                os.path.join("mr_poopybutthole", "resources", "fucks.jpg"), "rb"
-            ) as file:
-                picture = discord.File(file)
-                await message.channel.send(file=picture)
-            return
-
-        matches = ["chrome", "google", "ram"]
-
-        if any(c in message.content.lower() for c in matches):
-            response = "Ooh, wee! Someone must really hate their RAM!"
-            await message.channel.send(response)
-            with open(
-                os.path.join("mr_poopybutthole", "resources", "chrome.png"), "rb"
             ) as file:
                 picture = discord.File(file)
                 await message.channel.send(file=picture)
@@ -320,34 +375,11 @@ class Oohwee(commands.Cog):
                 await message.channel.send(file=picture)
             return
 
-        if any(c in message.content.lower() for c in matches):
-            response = "Ooh, wee! I'm pretty sure that's something an adonia superwoman would do!"
-            await message.channel.send(response)
-            with open(
-                os.path.join("mr_poopybutthole", "resources", "adonia.jpg"), "rb"
-            ) as file:
-                picture = discord.File(file)
-                await message.channel.send(file=picture)
-            return
-
-        if await self.send_message(message, "help"):
-            return
-
         matches = ["ooh", "wee"]
 
         if any(c in message.content.lower() for c in matches):
             response = "O" + "o" * random.randint(2, 15) + "h, Wee!"
             await message.channel.send(response)
-
-    @commands.command()
-    async def ole(self, ctx):
-        response = "Ooh, wee!"
-        await ctx.channel.send(response)
-        with open(
-            os.path.join("mr_poopybutthole", "resources", "ole.jpg"), "rb"
-        ) as file:
-            picture = discord.File(file)
-            await ctx.channel.send(file=picture)
 
     @commands.command()
     async def gay(self, ctx):
@@ -361,176 +393,92 @@ class Oohwee(commands.Cog):
             await ctx.channel.send(file=picture)
 
     @commands.command()
+    async def ole(self, ctx):
+        await self.send_command(ctx, "ole")
+
+    @commands.command()
     async def shakira(self, ctx):
-        response = "Ooh, wee! I hear her hips don't lie!"
-        await ctx.channel.send(response)
-        with open(
-            os.path.join("mr_poopybutthole", "resources", "shakira.mp4"), "rb"
-        ) as file:
-            picture = discord.File(file)
-            await ctx.channel.send(file=picture)
+        await self.send_command(ctx, "shakira")
 
     @commands.command()
     async def oof(self, ctx):
-        response = "Ooh, wee! That was oof-worthy!"
-        await ctx.channel.send(response)
-        with open(
-            os.path.join("mr_poopybutthole", "resources", "oof.gif"), "rb"
-        ) as file:
-            picture = discord.File(file)
-            await ctx.channel.send(file=picture)
+        await self.send_command(ctx, "oof")
 
     @commands.command()
     async def wtf(self, ctx):
-        response = "Ooh, wee! What the fuck?"
-        await ctx.channel.send(response)
-        with open(
-            os.path.join("mr_poopybutthole", "resources", "wtf.gif"), "rb"
-        ) as file:
-            picture = discord.File(file)
-            await ctx.channel.send(file=picture)
+        await self.send_command(ctx, "wtf")
 
     @commands.command()
     async def nice(self, ctx):
-        response = "Ooh, wee! That was pretty nice!"
-        await ctx.channel.send(response)
-        with open(
-            os.path.join("mr_poopybutthole", "resources", "nice.gif"), "rb"
-        ) as file:
-            picture = discord.File(file)
-            await ctx.channel.send(file=picture)
+        await self.send_command(ctx, "nice")
 
     @commands.command()
     async def damage(self, ctx):
-        response = "OOH, WEE! THAT'S A LOT OF DAMAGE!"
-        await ctx.channel.send(response)
-        with open(
-            os.path.join("mr_poopybutthole", "resources", "damage.png"), "rb"
-        ) as file:
-            picture = discord.File(file)
-            await ctx.channel.send(file=picture)
+        await self.send_command(ctx, "damage")
 
     @commands.command()
     async def xp(self, ctx):
-        response = "Ooh, wee, Scott! That was...\nONE MEEELLION XP! That's a lot of frickin' XP!"
-        await ctx.channel.send(response)
-        with open(
-            os.path.join("mr_poopybutthole", "resources", "drevil.gif"), "rb"
-        ) as file:
-            picture = discord.File(file)
-            await ctx.channel.send(file=picture)
+        await self.send_command(ctx, "xp")
 
     @commands.command()
     async def dialedin(self, ctx):
-        response = "Ooh, wee! Looks like SOMEBODY is dialed in!"
-        await ctx.channel.send(response)
-        with open(
-            os.path.join("mr_poopybutthole", "resources", "dialedin.jpg"), "rb"
-        ) as file:
-            picture = discord.File(file)
-            await ctx.channel.send(file=picture)
+        await self.send_command(ctx, "dialedin")
 
     @commands.command()
     async def opinion(self, ctx):
-        response = "Ooh, wee! Here's what you can do with your opinion!"
-        await ctx.channel.send(response)
-        with open(
-            os.path.join("mr_poopybutthole", "resources", "opinion.png"), "rb"
-        ) as file:
-            picture = discord.File(file)
-            await ctx.channel.send(file=picture)
+        await self.send_command(ctx, "opinion")
 
     @commands.command()
     async def dumb(self, ctx):
-        response = (
-            "Ooh, wee! Looks like had a great suggestion! Let's think about that one!"
-        )
-        await ctx.channel.send(response)
-        with open(
-            os.path.join("mr_poopybutthole", "resources", "dumb.png"), "rb"
-        ) as file:
-            picture = discord.File(file)
-            await ctx.channel.send(file=picture)
+        await self.send_command(ctx, "dumb")
 
     @commands.command()
     async def stfu(self, ctx):
-        response = "Ooh, wee! Someone is running their mouth and really need to give it a break!"
-        await ctx.channel.send(response)
-        with open(
-            os.path.join("mr_poopybutthole", "resources", "stfu.jpg"), "rb"
-        ) as file:
-            picture = discord.File(file)
-            await ctx.channel.send(file=picture)
+        await self.send_command(ctx, "stfu")
 
     @commands.command()
     async def waiting(self, ctx):
-        response = "Ooh, wee! Someone's taking their sweet-ass time today!"
-        await ctx.channel.send(response)
-        with open(
-            os.path.join("mr_poopybutthole", "resources", "waiting.gif"), "rb"
-        ) as file:
-            picture = discord.File(file)
-            await ctx.channel.send(file=picture)
+        await self.send_command(ctx, "waiting")
 
     @commands.command()
     async def sleep(self, ctx):
-        response = "Ooh, wee! Looks like somebody needs their beauty sleep!"
-        await ctx.channel.send(response)
-        with open(
-            os.path.join("mr_poopybutthole", "resources", "sleep.png"), "rb"
-        ) as file:
-            picture = discord.File(file)
-            await ctx.channel.send(file=picture)
+        await self.send_command(ctx, "sleep")
 
     @commands.command()
     async def scotch(self, ctx):
-        response = "Ooh, wee! I love scotch! Scotchy-scotch-scotch!"
-        await ctx.channel.send(response)
-        with open(
-            os.path.join("mr_poopybutthole", "resources", "scotch.jpg"), "rb"
-        ) as file:
-            picture = discord.File(file)
-            await ctx.channel.send(file=picture)
+        await self.send_command(ctx, "scotch")
 
     @commands.command()
     async def waldo(self, ctx):
-        response = "Ooh, wee! I found that motherfucker!"
-        await ctx.channel.send(response)
-        with open(
-            os.path.join("mr_poopybutthole", "resources", "waldo.jpg"), "rb"
-        ) as file:
-            picture = discord.File(file)
-            await ctx.channel.send(file=picture)
+        await self.send_command(ctx, "waldo")
 
     @commands.command()
     async def yourmom(self, ctx):
-        response = "Ooh, wee! That's not what YOUR MOM said last night!"
-        await ctx.channel.send(response)
-        with open(
-            os.path.join("mr_poopybutthole", "resources", "yourmom.png"), "rb"
-        ) as file:
-            picture = discord.File(file)
-            await ctx.channel.send(file=picture)
+        await self.send_command(ctx, "yourmom")
 
     @commands.command()
     async def notgood(self, ctx):
-        response = "Ooh, wee! That last shot was notta so good!"
-        await ctx.channel.send(response)
-        with open(
-            os.path.join("mr_poopybutthole", "resources", "notgood.jpg"), "rb"
-        ) as file:
-            picture = discord.File(file)
-            await ctx.channel.send(file=picture)
+        await self.send_command(ctx, "notgood")
 
     @commands.command()
     async def more(self, ctx):
-        response = "Ooh, wee! Sounds like the shots just aren't gonna stop!"
-        await ctx.channel.send(response)
-        with open(
-            os.path.join("mr_poopybutthole", "resources", "more.jpg"), "rb"
-        ) as file:
-            picture = discord.File(file)
-            await ctx.channel.send(file=picture)
+        await self.send_command(ctx, "more")
+
+    @commands.command()
+    async def welp(self, ctx):
+        await self.send_command(ctx, "welp")
+
+    @commands.command()
+    async def igotthis(self, ctx):
+        await self.send_command(ctx, "igotthis")
+
+    @commands.command()
+    async def neener(self, ctx):
+        await self.send_command(ctx, "neener")
+
+    @commands.command()
+    async def ettu(self, ctx):
+        await self.send_command(ctx, "ettu")
 
     @commands.command()
     async def snowflake(self, ctx, arg="on"):
@@ -606,21 +554,3 @@ class Oohwee(commands.Cog):
             )
 
         await ctx.channel.send(response)
-
-    @commands.command()
-    async def welp(self, ctx):
-        response = "Ooh, wee! Sounds like the match isn't going someone's way!"
-        await ctx.channel.send(response)
-        with open(
-            os.path.join("mr_poopybutthole", "resources", "welp.jpg"), "rb"
-        ) as file:
-            picture = discord.File(file)
-            await ctx.channel.send(file=picture)
-
-    @commands.command()
-    async def igotthis(self, ctx):
-        await self.send_command(ctx, "igotthis")
-
-    @commands.command()
-    async def neener(self, ctx):
-        await self.send_command(ctx, "neener")
