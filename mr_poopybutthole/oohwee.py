@@ -76,6 +76,23 @@ of the trollfest, typing `!snowflake off` will make me check my privilege!
 Ooooooooooooooooh, wee! Bots are fun, aren't they?""",
 ]
 
+COMMANDS = {
+    "igotthis": {
+        "response": "Ooh, wee! SOMEONE needs to chill the fuck out!",
+        "filename": "igotthis.jpg",
+    },
+    "neener": {
+        "response": "Neener neener foo foo! I iz cute so stfu! Ooh, wee!",
+        "filename": "neener.jpg",
+    },
+}
+
+LISTENERS = {
+    "help": {
+        "matches": ["help", "halp", "pls", "plz"],
+        "response": "Ooh, wee! If you want some help from me, you should probably try the `help` command!",
+    },
+}
 
 class Oohwee(commands.Cog):
     """
@@ -93,30 +110,35 @@ class Oohwee(commands.Cog):
         self.snowflake_mode = False
 
     @commands.command()
-    async def send_command(self, ctx, message, filename):
+    async def send_command(self, ctx, command):
         """
-        Sends a standard command response consisting of a text response and a picture.
+        Sends a standard command response consisting of a text response and an optional picture.
+        It obtains this from the above command list by using the provided command name.
         Takes the message info, and response with the given message and filename.
         """
-        await ctx.channel.send(message)
-        with open(
-            os.path.join("mr_poopybutthole", "resources", filename), "rb"
-        ) as file:
-            picture = discord.File(file)
-            await ctx.channel.send(file=picture)
+        cmd = COMMANDS[command]
+        await ctx.channel.send(cmd["response"])
+        if cmd["filename"]:
+            with open(
+                os.path.join("mr_poopybutthole", "resources", cmd["filename"]), "rb"
+            ) as file:
+                picture = discord.File(file)
+                await ctx.channel.send(file=picture)
 
     @commands.Cog.listener()
-    async def send_message(self, message, matches, response, filename):
+    async def send_message(self, message, listener):
         """
         Sends a standard message response consisting of a text response and an optional picture.
-        Takes the message info, the list of matching text, the response, and the filename.
+        It obtains this from the above command list by using the provided command name, and
+        retrieves the matches, response, and tests if it should send based on the matches.
         Returns true if the match was successful, false otherwise.
         """
-        if any(c in message.content.lower() for c in matches):
-            await message.channel.send(response)
-            if filename:                
+        lst = LISTENERS[listener]
+        if any(c in message.content.lower() for c in lst["matches"]):
+            await message.channel.send(lst["response"])
+            if lst["filename"]:                
                 with open(
-                    os.path.join("mr_poopybutthole", "resources", filename), "rb"
+                    os.path.join("mr_poopybutthole", "resources", lst["filename"]), "rb"
                 ) as file:
                     picture = discord.File(file)
                     await message.channel.send(file=picture)
@@ -308,9 +330,7 @@ class Oohwee(commands.Cog):
                 await message.channel.send(file=picture)
             return
 
-        matches = ["help", "halp", "pls", "plz"]
-        response = "Ooh, wee! If you want some help from me, you should probably try the `help` command!"
-        if self.send_message(message, matches, response, filename):
+        if await self.send_message(message, "help"):
             return
 
         matches = ["ooh", "wee"]
@@ -599,16 +619,10 @@ class Oohwee(commands.Cog):
 
     @commands.command()
     async def igotthis(self, ctx):
-        response = "Ooh, wee! SOMEONE needs to chill the fuck out!"
-        await ctx.channel.send(response)
-        with open(
-            os.path.join("mr_poopybutthole", "resources", "igotthis.jpg"), "rb"
-        ) as file:
-            picture = discord.File(file)
-            await ctx.channel.send(file=picture)
+        response, filename = COMMANDS["igotthis"]
+        await self.send_command(ctx, response, filename)
 
     @commands.command()
     async def neener(self, ctx):
-        response = "Neener neener foo foo! I iz cute so stfu! Ooh, wee!"
-        filename = "neener.jpg"
-        self.send_command(ctx, response, filename)
+        response, filename = COMMANDS["neener"]
+        await self.send_command(ctx, response, filename)
