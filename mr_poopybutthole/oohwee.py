@@ -118,7 +118,7 @@ class Oohwee(commands.Cog):
         """
         cmd = COMMANDS[command]
         await ctx.channel.send(cmd["response"])
-        if cmd["filename"]:
+        if "filename" in cmd:
             with open(
                 os.path.join("mr_poopybutthole", "resources", cmd["filename"]), "rb"
             ) as file:
@@ -136,7 +136,7 @@ class Oohwee(commands.Cog):
         lst = LISTENERS[listener]
         if any(c in message.content.lower() for c in lst["matches"]):
             await message.channel.send(lst["response"])
-            if lst["filename"]:                
+            if "filename" in lst":                
                 with open(
                     os.path.join("mr_poopybutthole", "resources", lst["filename"]), "rb"
                 ) as file:
