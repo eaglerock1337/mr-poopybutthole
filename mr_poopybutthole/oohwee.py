@@ -619,10 +619,8 @@ class Oohwee(commands.Cog):
 
     @commands.command()
     async def igotthis(self, ctx):
-        response, filename = COMMANDS["igotthis"]
-        await self.send_command(ctx, response, filename)
+        await self.send_command(ctx, "igotthis")
 
     @commands.command()
     async def neener(self, ctx):
-        response, filename = COMMANDS["neener"]
-        await self.send_command(ctx, response, filename)
+        await self.send_command(ctx, "neener")
