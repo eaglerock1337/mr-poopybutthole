@@ -92,7 +92,8 @@ class Oohwee(commands.Cog):
             self.snowflake_list[snowflake] = True
         self.snowflake_mode = False
 
-    def send_command(self, ctx, message, filename):
+    @commands.command()
+    async def send_command(self, ctx, message, filename):
         """
         Sends a standard command response consisting of a text response and a picture.
         Takes the message info, and response with the given message and filename.
@@ -104,7 +105,8 @@ class Oohwee(commands.Cog):
             picture = discord.File(file)
             await ctx.channel.send(file=picture)
 
-    def send_message(self, message, matches, response, filename):
+    @commands.Cog.listener()
+    async def send_message(self, message, matches, response, filename):
         """
         Sends a standard message response consisting of a text response and an optional picture.
         Takes the message info, the list of matching text, the response, and the filename.
