@@ -316,27 +316,6 @@ class Oohwee(commands.Cog):
                 await message.channel.send(file=picture)
             return
 
-        if await self.send_message(message, "nukem"):
-            return
-
-        if await self.send_message(message, "spicyboi"):
-            return
-
-        if await self.send_message(message, "peloton"):
-            return
-
-        if await self.send_message(message, "twisted"):
-            return
-
-        if await self.send_message(message, "fucks"):
-            return
-
-        if await self.send_message(message, "ram"):
-            return
-
-        if await self.send_message(message, "help"):
-            return
-
         # This should probably become a command later on, but leave it for now
         matches = ["garfielf", "garfield", "jon", "god", "nermal"]
 
@@ -375,6 +354,27 @@ class Oohwee(commands.Cog):
                 await message.channel.send(file=picture)
             return
 
+        if await self.send_message(message, "nukem"):
+            return
+
+        if await self.send_message(message, "spicyboi"):
+            return
+
+        if await self.send_message(message, "peloton"):
+            return
+
+        if await self.send_message(message, "twisted"):
+            return
+
+        if await self.send_message(message, "fucks"):
+            return
+
+        if await self.send_message(message, "ram"):
+            return
+
+        if await self.send_message(message, "help"):
+            return
+
         matches = ["ooh", "wee"]
 
         if any(c in message.content.lower() for c in matches):
@@ -391,6 +391,81 @@ class Oohwee(commands.Cog):
         ) as file:
             picture = discord.File(file)
             await ctx.channel.send(file=picture)
+
+    @commands.command()
+    async def snowflake(self, ctx, arg="on"):
+        if arg == "on":
+            self.snowflake_mode = True
+            response = "Ooh, wee! We're gonna get some people pissed off, tonight!"
+            await ctx.channel.send(response)
+            with open(
+                os.path.join("mr_poopybutthole", "resources", "snowflake.jpg"), "rb"
+            ) as file:
+                picture = discord.File(file)
+                await ctx.channel.send(file=picture)
+
+        elif arg == "off":
+            self.snowflake_mode = False
+            response = "Ooh, wee! Looks like *all* the snowflakes need a break!"
+            await ctx.channel.send(response)
+            with open(
+                os.path.join("mr_poopybutthole", "resources", "privilege.jpg"), "rb"
+            ) as file:
+                picture = discord.File(file)
+                await ctx.channel.send(file=picture)
+
+        elif arg == "force":
+            self.snowflake_mode = True
+            for snowflake in self.snowflake_list.keys():
+                self.snowflake_list[snowflake] = True
+            response = "Ooh, wee! Time for all your safe spaces to burn down!"
+            await ctx.channel.send(response)
+            with open(
+                os.path.join("mr_poopybutthole", "resources", "safespace.jpg"), "rb"
+            ) as file:
+                picture = discord.File(file)
+                await ctx.channel.send(file=picture)
+
+    @commands.command()
+    async def snowflakes(self, ctx):
+        response = "Ooh, wee! Let's see how the snowflakes are doing!"
+        await ctx.channel.send(response)
+        with open(
+            os.path.join("mr_poopybutthole", "resources", "snowflakes.jpg"), "rb"
+        ) as file:
+            picture = discord.File(file)
+            await ctx.channel.send(file=picture)
+
+        snowflake_mode = "enabled" if self.snowflake_mode else "disabled"
+        response = (
+            f"It looks like snowflake mode is currently {snowflake_mode}! Ooh, wee!\n"
+        )
+
+        if self.snowflake_mode:
+            enabled_snowflakes = []
+            disabled_snowflakes = []
+            for snowflake in SNOWFLAKES.keys():
+                if self.snowflake_list[snowflake]:
+                    enabled_snowflakes.append(snowflake)
+                else:
+                    disabled_snowflakes.append(snowflake)
+
+            if len(enabled_snowflakes) > 0:
+                response += "\nThe following snowflakes better watch out:\n"
+                for snowflake in enabled_snowflakes:
+                    response += f"{SNOWFLAKES[snowflake]['name']}: <@{snowflake}>\n"
+
+            if len(disabled_snowflakes) > 0:
+                response += "\nThese snowflakes had to retreat to their safe space:\n"
+                for snowflake in disabled_snowflakes:
+                    response += f"{SNOWFLAKES[snowflake]['name']}: <@{snowflake}>\n"
+
+            response += (
+                "\nRemember snowflakes, just type `i made a doody` if the victimization "
+                + "is too much and you need to go to your safe space! Ooooooh, wee!"
+            )
+
+        await ctx.channel.send(response)
 
     @commands.command()
     async def ole(self, ctx):
@@ -479,78 +554,3 @@ class Oohwee(commands.Cog):
     @commands.command()
     async def ettu(self, ctx):
         await self.send_command(ctx, "ettu")
-
-    @commands.command()
-    async def snowflake(self, ctx, arg="on"):
-        if arg == "on":
-            self.snowflake_mode = True
-            response = "Ooh, wee! We're gonna get some people pissed off, tonight!"
-            await ctx.channel.send(response)
-            with open(
-                os.path.join("mr_poopybutthole", "resources", "snowflake.jpg"), "rb"
-            ) as file:
-                picture = discord.File(file)
-                await ctx.channel.send(file=picture)
-
-        elif arg == "off":
-            self.snowflake_mode = False
-            response = "Ooh, wee! Looks like *all* the snowflakes need a break!"
-            await ctx.channel.send(response)
-            with open(
-                os.path.join("mr_poopybutthole", "resources", "privilege.jpg"), "rb"
-            ) as file:
-                picture = discord.File(file)
-                await ctx.channel.send(file=picture)
-
-        elif arg == "force":
-            self.snowflake_mode = True
-            for snowflake in self.snowflake_list.keys():
-                self.snowflake_list[snowflake] = True
-            response = "Ooh, wee! Time for all your safe spaces to burn down!"
-            await ctx.channel.send(response)
-            with open(
-                os.path.join("mr_poopybutthole", "resources", "safespace.jpg"), "rb"
-            ) as file:
-                picture = discord.File(file)
-                await ctx.channel.send(file=picture)
-
-    @commands.command()
-    async def snowflakes(self, ctx):
-        response = "Ooh, wee! Let's see how the snowflakes are doing!"
-        await ctx.channel.send(response)
-        with open(
-            os.path.join("mr_poopybutthole", "resources", "snowflakes.jpg"), "rb"
-        ) as file:
-            picture = discord.File(file)
-            await ctx.channel.send(file=picture)
-
-        snowflake_mode = "enabled" if self.snowflake_mode else "disabled"
-        response = (
-            f"It looks like snowflake mode is currently {snowflake_mode}! Ooh, wee!\n"
-        )
-
-        if self.snowflake_mode:
-            enabled_snowflakes = []
-            disabled_snowflakes = []
-            for snowflake in SNOWFLAKES.keys():
-                if self.snowflake_list[snowflake]:
-                    enabled_snowflakes.append(snowflake)
-                else:
-                    disabled_snowflakes.append(snowflake)
-
-            if len(enabled_snowflakes) > 0:
-                response += "\nThe following snowflakes better watch out:\n"
-                for snowflake in enabled_snowflakes:
-                    response += f"{SNOWFLAKES[snowflake]['name']}: <@{snowflake}>\n"
-
-            if len(disabled_snowflakes) > 0:
-                response += "\nThese snowflakes had to retreat to their safe space:\n"
-                for snowflake in disabled_snowflakes:
-                    response += f"{SNOWFLAKES[snowflake]['name']}: <@{snowflake}>\n"
-
-            response += (
-                "\nRemember snowflakes, just type `i made a doody` if the victimization "
-                + "is too much and you need to go to your safe space! Ooooooh, wee!"
-            )
-
-        await ctx.channel.send(response)
