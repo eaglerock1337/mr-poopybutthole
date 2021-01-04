@@ -57,6 +57,7 @@ HELPMESSAGES = [
     `!igotthis` - For when you need to reassure someone that needs to chill out!
     `!neener` - Some people just need to have a tongue stuck out at them!
     `!ettu` - For those pesky, backstabbing assholes!
+    `!latifi` - Giving respect to those playing the long game!
 
 I also pay attention to what you're saying on Discord and will respond
 when you say something I was told to respond to! For example, I'll always
@@ -165,6 +166,10 @@ COMMANDS = {
     "ettu": {
         "response": "Ooh, wee! Et tu? Cogitavi in ​​qua sumus, amici! Bitch.",
         "filename": "ettu.jpg",
+    },
+    "latifi": {
+        "response": "Ooh, wee! Looks like Latifi over there is playing the long game!",
+        "filename": "latifi.jpg",
     },
 }
 
@@ -554,3 +559,7 @@ class Oohwee(commands.Cog):
     @commands.command()
     async def ettu(self, ctx):
         await self.send_command(ctx, "ettu")
+
+    @commands.command()
+    async def latifi(self, ctx):
+        await self.send_command(ctx, "latifi")
