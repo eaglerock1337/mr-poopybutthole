@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mr-poopybutthole"
-version = "0.1.0"
+version = "0.3.0"
 description = "A pointlessly fun Discord bot."
 authors = ["Peter Marks <peter.marks@gmail.com>"]
 
