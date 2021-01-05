@@ -49,7 +49,8 @@ HELPMESSAGES = [
     `!stfu` - Sometimes people just don't get the hint!
     `!waiting` - For when you're waiting on the one slow person to come online!
     `!sleep` - For when someone needs to go to bed and it's clearly too early!""",
-    """    `!scotch` - Who doesn't love scotch? Besides non-scotch drinkers, that is?
+    """Ooh, wee! This list is getting a bit too long for one post!
+    `!scotch` - Who doesn't love scotch? Besides non-scotch drinkers, that is?
     `!waldo` - For when Chris gets a high-dea and this becomes a meme!
     `!notgood` - For when the game just isn't so good!
     `!more` - For when the shots just seem to keep coming!
