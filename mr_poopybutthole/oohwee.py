@@ -48,8 +48,8 @@ HELPMESSAGES = [
     `!dumb` - For those times someone has a idea and you need to tell them how you feel!
     `!stfu` - Sometimes people just don't get the hint!
     `!waiting` - For when you're waiting on the one slow person to come online!
-    `!sleep` - For when someone needs to go to bed and it's clearly too early!
-    `!scotch` - Who doesn't love scotch? Besides non-scotch drinkers, that is?
+    `!sleep` - For when someone needs to go to bed and it's clearly too early!""",
+    """    `!scotch` - Who doesn't love scotch? Besides non-scotch drinkers, that is?
     `!waldo` - For when Chris gets a high-dea and this becomes a meme!
     `!notgood` - For when the game just isn't so good!
     `!more` - For when the shots just seem to keep coming!
@@ -58,8 +58,9 @@ HELPMESSAGES = [
     `!neener` - Some people just need to have a tongue stuck out at them!
     `!ettu` - For those pesky, backstabbing assholes!
     `!latifi` - Giving respect to those playing the long game!
-
-I also pay attention to what you're saying on Discord and will respond
+    `!ihateyou` - For the one who is doing just a bit too well in ShellShock!
+    `!sorry` - Use this one to tell your friend that you didn't mean to shoot them!""",
+    """I also pay attention to what you're saying on Discord and will respond
 when you say something I was told to respond to! For example, I'll always
 talk back when you say `ooh` or `wee`. Also, if you just so happen to be an
 `adonis` `superman` or an `adonia` `superwoman`, I'll make sure to comment
@@ -116,7 +117,7 @@ COMMANDS = {
         "filename": "opinion.png",
     },
     "dumb": {
-        "repsonse": "Ooh, wee! Looks like had a great suggestion! Let's think about that one!",
+        "response": "Ooh, wee! Looks like had a great suggestion! Let's think about that one!",
         "filename": "dumb.png",
     },
     "stfu": {
@@ -170,6 +171,14 @@ COMMANDS = {
     "latifi": {
         "response": "Ooh, wee! Looks like Latifi over there is playing the long game!",
         "filename": "latifi.jpg",
+    },
+    "ihateyou": {
+        "response": "Ooh, wee! Someone's pissed somebody off, tonight!",
+        "filename": "ihateyou.jpg",
+    },
+    "sorry": {
+        "response": "Ooh, wee! Let me guess: you didn't mean to shoot him, did you?",
+        "filename": "sorry.png",
     },
 }
 
@@ -251,7 +260,7 @@ class Oohwee(commands.Cog):
         Returns true if the match was successful, false otherwise.
         """
         lst = LISTENERS[listener]
-        if any(c in message.content.lower() for c in lst["matches"]):
+        if any(c in message.content.lower() for c in lst["matches"]) and not message.content.startswith("!"):
             await message.channel.send(lst["response"])
             if "filename" in lst:
                 with open(
@@ -564,3 +573,11 @@ class Oohwee(commands.Cog):
     @commands.command()
     async def latifi(self, ctx):
         await self.send_command(ctx, "latifi")
+
+    @commands.command()
+    async def ihateyou(self, ctx):
+        await self.send_command(ctx, "ihateyou")
+
+    @commands.command()
+    async def sorry(self, ctx):
+        await self.send_command(ctx, "sorry")
