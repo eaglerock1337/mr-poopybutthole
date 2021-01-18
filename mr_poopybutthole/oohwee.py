@@ -465,6 +465,11 @@ class Oohwee(commands.Cog):
 
             if len(disabled_snowflakes) > 0:
                 response += "\nThese snowflakes had to retreat to their safe space:\n"
+                with open(
+                    os.path.join("mr_poopybutthole", "resources", "safespace.gif"), "rb"
+                ) as file:
+                    picture = discord.File(file)
+                    await ctx.channel.send(file=picture)
                 for snowflake in disabled_snowflakes:
                     response += f"{SNOWFLAKES[snowflake]['name']}: <@{snowflake}>\n"
 
