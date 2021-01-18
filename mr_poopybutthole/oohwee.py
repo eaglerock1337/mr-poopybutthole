@@ -35,32 +35,12 @@ GAY_FILES = ["gay1.jpg", "gay2.jpg", "gay3.jpg", "gay4.jpg", "gay5.jpg", "gay6.j
 
 HELPMESSAGES = [
     """Here's the commands you can run! Ooh, wee!
-    `!ole` - For when you feel festive after shooting a Fiesta!
-    `!gay` - For when you feel fabulous after shooting a Rainbow!
-    `!shakira` - For when Rob feels the need to do a dance after a good shot!
-    `!oof` - There are some times that just call for an oof!
-    `!wtf` - For when you inevitably say this 400 times a night!
-    `!nice` - For when you can't even shit talk that shot because it was nice!
-    `!damage` - Some shots do a lot of damage, and deserve it to be known!
-    `!xp` - Some rounds generate a ton of XP! This is for those times!
-    `!dialedin` - For when someone just can't help but be dialed in!
-    `!opinion` - For those unsolicited opinions you didn't ask for!
-    `!dumb` - For those times someone has a idea and you need to tell them how you feel!
-    `!stfu` - Sometimes people just don't get the hint!
-    `!waiting` - For when you're waiting on the one slow person to come online!
-    `!sleep` - For when someone needs to go to bed and it's clearly too early!""",
-    """Ooh, wee! This list is getting a bit too long for one post!
-    `!scotch` - Who doesn't love scotch? Besides non-scotch drinkers, that is?
-    `!waldo` - For when Chris gets a high-dea and this becomes a meme!
-    `!notgood` - For when the game just isn't so good!
-    `!more` - For when the shots just seem to keep coming!
-    `!welp` - For those times that someone gets a brutal adonis shot on you!
-    `!igotthis` - For when you need to reassure someone that needs to chill out!
-    `!neener` - Some people just need to have a tongue stuck out at them!
-    `!ettu` - For those pesky, backstabbing assholes!
-    `!latifi` - Giving respect to those playing the long game!
-    `!ihateyou` - For the one who is doing just a bit too well in ShellShock!
-    `!sorry` - Use this one to tell your friend that you didn't mean to shoot them!""",
+    ```!ole       !gay       !shakira   !oof       !wtf
+    !nice      !damage    !xp        !dialedin  !opinion
+    !dumb      !stfu      !waiting   !sleep     !scotch
+    !waldo     !notgood   !more      !welp      !igotthis
+    !neener    !ettu      !latifi    !ihateyou  !sorry
+    !fu        !fu2       !torvalds""",
     """I also pay attention to what you're saying on Discord and will respond
 when you say something I was told to respond to! For example, I'll always
 talk back when you say `ooh` or `wee`. Also, if you just so happen to be an
@@ -82,7 +62,7 @@ Ooooooooooooooooh, wee! Bots are fun, aren't they?""",
 
 COMMANDS = {
     "ole": {
-        "response": "Ooh, wee! Here's how gay that shot was!",
+        "response": "Ooh, wee! Time for a fiesta!",
         "filename": "ole.jpg",
     },
     "shakira": {
@@ -180,6 +160,18 @@ COMMANDS = {
     "sorry": {
         "response": "Ooh, wee! Let me guess: you didn't mean to shoot him, did you?",
         "filename": "sorry.png",
+    },
+    "fu": {
+        "response": "Ooh, wee! Someone needs a three-finger salute!",
+        "filename": "fu.jpg",
+    },
+    "fu2": {
+        "response": "Ooh, wee! Someone else needs a three-finger salute, too!",
+        "filename": "fu2.jpg",
+    },
+    "torvalds": {
+        "response": "Ooh, wee! Even Linus Torvalds hates you!",
+        "filename": "torvalds.jpg",
     },
 }
 
