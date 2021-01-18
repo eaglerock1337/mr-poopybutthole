@@ -36,11 +36,11 @@ GAY_FILES = ["gay1.jpg", "gay2.jpg", "gay3.jpg", "gay4.jpg", "gay5.jpg", "gay6.j
 HELPMESSAGES = [
     """Here's the commands you can run! Ooh, wee!
     ```!ole       !gay       !shakira   !oof       !wtf
-    !nice      !damage    !xp        !dialedin  !opinion
-    !dumb      !stfu      !waiting   !sleep     !scotch
-    !waldo     !notgood   !more      !welp      !igotthis
-    !neener    !ettu      !latifi    !ihateyou  !sorry
-    !fu        !fu2       !torvalds```""",
+!nice      !damage    !xp        !dialedin  !opinion
+!dumb      !stfu      !waiting   !sleep     !scotch
+!waldo     !notgood   !more      !welp      !igotthis
+!neener    !ettu      !latifi    !ihateyou  !sorry
+!fu        !fu2       !torvalds```""",
     """I also pay attention to what you're saying on Discord and will respond
 when you say something I was told to respond to! For example, I'll always
 talk back when you say `ooh` or `wee`. Also, if you just so happen to be an
@@ -574,3 +574,15 @@ class Oohwee(commands.Cog):
     @commands.command()
     async def sorry(self, ctx):
         await self.send_command(ctx, "sorry")
+
+    @commands.command()
+    async def fu(self, ctx):
+        await self.send_command(ctx, "fu")
+
+    @commands.command()
+    async def fu2(self, ctx):
+        await self.send_command(ctx, "fu2")
+
+    @commands.command()
+    async def torvalds(self, ctx):
+        await self.send_command(ctx, "torvalds")
