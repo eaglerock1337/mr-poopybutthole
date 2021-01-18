@@ -40,7 +40,7 @@ HELPMESSAGES = [
 !dumb      !stfu      !waiting   !sleep     !scotch
 !waldo     !notgood   !more      !welp      !igotthis
 !neener    !ettu      !latifi    !ihateyou  !sorry
-!fu        !fu2       !torvalds```""",
+!fu        !fu2       !torvalds  !triggered```""",
     """I also pay attention to what you're saying on Discord and will respond
 when you say something I was told to respond to! For example, I'll always
 talk back when you say `ooh` or `wee`. Also, if you just so happen to be an
@@ -173,6 +173,10 @@ COMMANDS = {
         "response": "Ooh, wee! Even Linus Torvalds hates you!",
         "filename": "torvalds.jpg",
     },
+    "triggered": {
+        "response": "Ooh, wee! Someone better retreat to their safe space right away!",
+        "filename": "triggered.gif",
+    },
 }
 
 LISTENERS = {
@@ -304,6 +308,11 @@ class Oohwee(commands.Cog):
                     if "i made a doody" in message.content.lower():
                         self.snowflake_list[message.author.id] = False
                         await message.channel.send(snowflake["disable"])
+                        with open(
+                            os.path.join("mr_poopybutthole", "resources", "safespace.gif"), "rb"
+                        ) as file:
+                            picture = discord.File(file)
+                            await message.channel.send(file=picture)
                         return
                     else:
                         response = f"{snowflake['message']}\n{snowflake['video']}"
@@ -465,11 +474,6 @@ class Oohwee(commands.Cog):
 
             if len(disabled_snowflakes) > 0:
                 response += "\nThese snowflakes had to retreat to their safe space:\n"
-                with open(
-                    os.path.join("mr_poopybutthole", "resources", "safespace.gif"), "rb"
-                ) as file:
-                    picture = discord.File(file)
-                    await ctx.channel.send(file=picture)
                 for snowflake in disabled_snowflakes:
                     response += f"{SNOWFLAKES[snowflake]['name']}: <@{snowflake}>\n"
 
@@ -591,3 +595,7 @@ class Oohwee(commands.Cog):
     @commands.command()
     async def torvalds(self, ctx):
         await self.send_command(ctx, "torvalds")
+
+    @commands.command()
+    async def triggered(self, ctx):
+        await self.send_command(ctx, "triggered")
