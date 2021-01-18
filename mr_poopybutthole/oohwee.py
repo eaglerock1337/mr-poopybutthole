@@ -40,7 +40,7 @@ HELPMESSAGES = [
     !dumb      !stfu      !waiting   !sleep     !scotch
     !waldo     !notgood   !more      !welp      !igotthis
     !neener    !ettu      !latifi    !ihateyou  !sorry
-    !fu        !fu2       !torvalds""",
+    !fu        !fu2       !torvalds```""",
     """I also pay attention to what you're saying on Discord and will respond
 when you say something I was told to respond to! For example, I'll always
 talk back when you say `ooh` or `wee`. Also, if you just so happen to be an
