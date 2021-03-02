@@ -186,6 +186,10 @@ COMMANDS = {
         "response": "Time to get the fuck out of Dodge! Ooh, wee!",
         "filename": "ight.jpg",
     },
+    "ffs": {
+        "response": "Ooh, wee! That didn't quite go as planned!",
+        "filename": "ffs.gif",
+    },
 }
 
 LISTENERS = {
@@ -616,3 +620,7 @@ class Oohwee(commands.Cog):
     @commands.command()
     async def ight(self, ctx):
         await self.send_command(ctx, "ight")
+
+    @commands.command()
+    async def ffs(self, ctx):
+        await self.send_command(ctx, "ffs")
