@@ -40,7 +40,8 @@ HELPMESSAGES = [
 !dumb      !stfu      !waiting   !sleep     !scotch
 !waldo     !notgood   !more      !welp      !igotthis
 !neener    !ettu      !latifi    !ihateyou  !sorry
-!fu        !fu2       !torvalds  !triggered !fuckmas```""",
+!fu        !fu2       !torvalds  !triggered !fuckmas
+!ight```""",
     """I also pay attention to what you're saying on Discord and will respond
 when you say something I was told to respond to! For example, I'll always
 talk back when you say `ooh` or `wee`. Also, if you just so happen to be an
@@ -180,6 +181,10 @@ COMMANDS = {
     "fuckmas": {
         "response": "Ooh, wee! Ho, ho ho, motherfuckers!",
         "filename": "fuckmas.jpg",
+    },
+    "ight": {
+        "response": "Time to get the fuck out of Dodge! Ooh, wee!",
+        "filename": "ight.jpg",
     },
 }
 
@@ -607,3 +612,7 @@ class Oohwee(commands.Cog):
     @commands.command()
     async def fuckmas(self, ctx):
         await self.send_command(ctx, "fuckmas")
+
+    @commands.command()
+    async def ight(self, ctx):
+        await self.send_command(ctx, "ight")
