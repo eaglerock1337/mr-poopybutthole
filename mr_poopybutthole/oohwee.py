@@ -41,7 +41,8 @@ HELPMESSAGES = [
 !waldo     !notgood   !more      !welp      !igotthis
 !neener    !ettu      !latifi    !ihateyou  !sorry
 !fu        !fu2       !torvalds  !triggered !fuckmas
-!ight      !ffs       !nope      !letsgo```""",
+!ight      !ffs       !nope      !letsgo    !orly
+!yarly     !nowai```""",
     """I also pay attention to what you're saying on Discord and will respond
 when you say something I was told to respond to! For example, I'll always
 talk back when you say `ooh` or `wee`. Also, if you just so happen to be an
@@ -195,8 +196,20 @@ COMMANDS = {
         "filename": "nope.gif",
     },
     "letsgo": {
-        "response": "Ooh, wee! Someone needs to take their goddamn shot already!",
+        "response": "Ooh, wee! Someone needs to take their goddamn shot, already!",
         "filename": "letsgo.gif",
+    },
+    "orly": {
+        "response": "Oh reeeeeeeeeeeeeeeally? Ooh, wee!",
+        "filename": "orly.jpg",
+    },
+    "yarly": {
+        "response": "Ya really, bitch. Ooh, wee!",
+        "filename": "yarly.jpg",
+    },
+    "nowai": {
+        "response": "Someone had to see the owl memes all the way through! Ooh, wee!",
+        "filename": "nowai.jpg",
     },
 }
 
@@ -640,3 +653,15 @@ class Oohwee(commands.Cog):
     @commands.command()
     async def letsgo(self, ctx):
         await self.send_command(ctx, "letsgo")
+
+    @commands.command()
+    async def orly(self, ctx):
+        await self.send_command(ctx, "orly")
+
+    @commands.command()
+    async def yarly(self, ctx):
+        await self.send_command(ctx, "yarly")
+
+    @commands.command()
+    async def nowai(self, ctx):
+        await self.send_command(ctx, "nowai")
