@@ -219,6 +219,10 @@ COMMANDS = {
         "response": "Ooh, wee! We have a lazy asshole here who doesn't feel like typing out all the owl memes!",
         "filename": "owls.gif",
     },
+    "idgaf": {
+        "response": "On a scale of one to I don't give a fuck, I don't give a fuck! Ooh, wee!",
+        "filename": "idgaf.gif",
+    },
 }
 
 LISTENERS = {
@@ -437,6 +441,9 @@ class Oohwee(commands.Cog):
             return
 
         if await self.send_message(message, "help"):
+            return
+
+        if await self.send_message(message, "bitch"):
             return
 
         matches = ["ooh", "wee"]
@@ -686,3 +693,7 @@ class Oohwee(commands.Cog):
     @commands.command()
     async def owls(self, ctx):
         await self.send_command(ctx, "owls")
+
+    @commands.command()
+    async def idgaf(self, ctx):
+        await self.send_command(ctx, "idgaf")

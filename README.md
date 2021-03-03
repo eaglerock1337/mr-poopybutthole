@@ -23,3 +23,9 @@ To run outside of Docker, you can take advantage of Pipenv to run as follows:
 `$ pipenv shell`
 
 `$ python mr-poopybutthole.py`
+
+## path to version 1.0
+
+- Modify the `commands` and `listeners` lists to be imported by YAML files for easier cataloging
+- Separate `oohwee.py` into multiple classes for `listeners`, `commands`, `snowflake`, and the `help` class
+- Either encapsulate in Kubernetes or use docker-compose for quicker reloading of the application
