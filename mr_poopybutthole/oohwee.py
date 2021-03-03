@@ -41,7 +41,7 @@ HELPMESSAGES = [
 !waldo     !notgood   !more      !welp      !igotthis
 !neener    !ettu      !latifi    !ihateyou  !sorry
 !fu        !fu2       !torvalds  !triggered !fuckmas
-!ight      !ffs```""",
+!ight      !ffs       !nope      !letsgo```""",
     """I also pay attention to what you're saying on Discord and will respond
 when you say something I was told to respond to! For example, I'll always
 talk back when you say `ooh` or `wee`. Also, if you just so happen to be an
@@ -189,6 +189,14 @@ COMMANDS = {
     "ffs": {
         "response": "Ooh, wee! That didn't quite go as planned!",
         "filename": "ffs.gif",
+    },
+    "nope": {
+        "response": "Denied, bitch! Oooooooooh, wee!",
+        "filename": "nope.gif",
+    },
+    "letsgo": {
+        "response": "Ooh, wee! Someone needs to take their goddamn shot already!",
+        "filename": "letsgo.gif",
     },
 }
 
@@ -624,3 +632,11 @@ class Oohwee(commands.Cog):
     @commands.command()
     async def ffs(self, ctx):
         await self.send_command(ctx, "ffs")
+
+    @commands.command()
+    async def nope(self, ctx):
+        await self.send_command(ctx, "nope")
+
+    @commands.command()
+    async def letsgo(self, ctx):
+        await self.send_command(ctx, "letsgo")
