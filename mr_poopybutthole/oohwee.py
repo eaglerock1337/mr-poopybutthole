@@ -42,7 +42,7 @@ HELPMESSAGES = [
 !neener    !ettu      !latifi    !ihateyou  !sorry
 !fu        !fu2       !torvalds  !triggered !fuckmas
 !ight      !ffs       !nope      !letsgo    !halp
-!orly      !yarly     !nowai```""",
+!orly      !yarly     !nowai     !owls```""",
     """I also pay attention to what you're saying on Discord and will respond
 when you say something I was told to respond to! For example, I'll always
 talk back when you say `ooh` or `wee`. Also, if you just so happen to be an
@@ -215,6 +215,10 @@ COMMANDS = {
         "response": "Someone had to see the owl memes all the way through! Ooh, wee!",
         "filename": "nowai.jpg",
     },
+    "owls": {
+        "response": "Ooh, wee! We have a lazy asshole here who doesn't feel like typing out all the owl memes!",
+        "filename": "owls.gif",
+    },
 }
 
 LISTENERS = {
@@ -252,6 +256,11 @@ LISTENERS = {
         "matches": ["help", "halp", "pls", "plz"],
         "response": "Ooh, wee! If you want some help from me, you should probably try the `help` command!",
     },
+    "bitch": {
+        "matches": ["bitch", "please"],
+        "response": "Bitch, please! You don't want to fuck with this! Ooh, wee!",
+        "filename": "bitch.gif"
+    }
 }
 
 
@@ -673,3 +682,7 @@ class Oohwee(commands.Cog):
     @commands.command()
     async def nowai(self, ctx):
         await self.send_command(ctx, "nowai")
+
+    @commands.command()
+    async def owls(self, ctx):
+        await self.send_command(ctx, "owls")
