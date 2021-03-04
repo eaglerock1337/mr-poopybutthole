@@ -272,7 +272,7 @@ LISTENERS = {
     },
     "badbot": {
         "matches": ["bad bot"],
-        "response": "Ooh wee! Someone's a salty little fuck, aren't they?",
+        "response": "Ooh wee! You're a salty little fuck, aren't you?",
         "filename": "badbot.jpg"
     },
 }
