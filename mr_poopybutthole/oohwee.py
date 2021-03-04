@@ -264,7 +264,17 @@ LISTENERS = {
         "matches": ["bitch", "please"],
         "response": "Bitch, please! You don't want to fuck with this! Ooh, wee!",
         "filename": "bitch.gif"
-    }
+    },
+    "goodbot": {
+        "matches": ["good bot"],
+        "response": "You like me! You really like me! Oooooooooh, wee!",
+        "filename": "goodbot.jpg"
+    },
+    "badbot": {
+        "matches": ["bad bot"],
+        "response": "Ooh wee! Someone's a salty little fuck, isn't they?",
+        "filename": "badbot.jpg"
+    },
 }
 
 
@@ -420,6 +430,12 @@ class Oohwee(commands.Cog):
             ) as file:
                 picture = discord.File(file)
                 await message.channel.send(file=picture)
+            return
+
+        if await self.send_message(message, "goodbot"):
+            return
+
+        if await self.send_message(message, "badbot"):
             return
 
         if await self.send_message(message, "nukem"):
