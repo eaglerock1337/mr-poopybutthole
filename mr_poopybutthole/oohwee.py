@@ -318,7 +318,7 @@ class Oohwee(commands.Cog):
         Returns true if the match was successful, false otherwise.
         """
         lst = LISTENERS[listener]
-        if any(c in message.content.lower() for c in lst["matches"]) and not message.content.startswith("!"):
+        if any(c in message.content.lower() for c in lst["matches"]):
             await message.channel.send(lst["response"])
             if "filename" in lst:
                 with open(
@@ -360,6 +360,9 @@ class Oohwee(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message):
         if message.author == self.bot.user:
+            return
+
+        if message.content.startswith("!"):
             return
 
         if self.snowflake_mode:
@@ -465,7 +468,7 @@ class Oohwee(commands.Cog):
         matches = ["ooh", "wee"]
 
         if any(c in message.content.lower() for c in matches):
-            response = "O" + "o" * random.randint(2, 15) + "h, Wee!"
+            response = "O" + "o" * random.randint(2, 15) + "h, wee!"
             await message.channel.send(response)
 
     @commands.command()
