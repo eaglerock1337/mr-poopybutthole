@@ -280,6 +280,11 @@ LISTENERS = {
         "response": "Ooh wee! You're a salty little fuck, aren't you?",
         "filename": "badbot.jpg"
     },
+    "hmmm": {
+        "matches": ["hmmm", "huh"],
+        "response": "Hmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm?",
+        "filename": "hmmm.gif"
+    },
 }
 
 
@@ -468,6 +473,9 @@ class Oohwee(commands.Cog):
             return
 
         if await self.send_message(message, "bitch"):
+            return
+
+        if await self.send_message(message, "hmmm"):
             return
 
         matches = ["ooh", "wee"]
