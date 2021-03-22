@@ -43,7 +43,7 @@ HELPMESSAGES = [
 !fu        !fu2       !torvalds  !triggered !fuckmas
 !ight      !ffs       !nope      !letsgo    !halp
 !orly      !yarly     !nowai     !owls      !idgaf
-!engineer  !win       !hattip    !bobross```""",
+!engineer  !win       !hattip    !bobross   !butts```""",
     """I also pay attention to what you're saying on Discord and will respond
 when you say something I was told to respond to! For example, I'll always
 talk back when you say `ooh` or `wee`. Also, if you just so happen to be an
@@ -218,6 +218,10 @@ COMMANDS = {
     "bobross": {
         "response": "Ooh, wee! Looks like we're gonna have a happy little accident!",
         "filename": "bobross.jpg",
+    },
+    "butts": {
+        "response": "Hold on to your butts! Ooh, wee!",
+        "filename": "butts.jpg",
     },
 }
 
@@ -747,3 +751,7 @@ class Oohwee(commands.Cog):
     @commands.command()
     async def bobross(self, ctx):
         await self.send_command(ctx, "bobross")
+
+    @commands.command()
+    async def butts(self, ctx):
+        await self.send_command(ctx, "butts")
