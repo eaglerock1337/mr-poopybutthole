@@ -221,7 +221,7 @@ COMMANDS = {
     },
     "butts": {
         "response": "Hold on to your butts! Ooh, wee!",
-        "filename": "butts.jpg",
+        "filename": "butts.gif",
     },
 }
 
