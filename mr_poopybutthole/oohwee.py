@@ -43,7 +43,7 @@ HELPMESSAGES = [
 !fu        !fu2       !torvalds  !triggered !fuckmas
 !ight      !ffs       !nope      !letsgo    !halp
 !orly      !yarly     !nowai     !owls      !idgaf
-!engineer  !win```""",
+!engineer  !win       !hattip    !bobross```""",
     """I also pay attention to what you're saying on Discord and will respond
 when you say something I was told to respond to! For example, I'll always
 talk back when you say `ooh` or `wee`. Also, if you just so happen to be an
@@ -64,26 +64,14 @@ Ooooooooooooooooh, wee! Bots are fun, aren't they?""",
 ]
 
 COMMANDS = {
-    "ole": {
-        "response": "Ooh, wee! Time for a fiesta!",
-        "filename": "ole.jpg",
-    },
+    "ole": {"response": "Ooh, wee! Time for a fiesta!", "filename": "ole.jpg",},
     "shakira": {
         "response": "Ooh, wee! I hear her hips don't lie!",
         "filename": "shakira.mp4",
     },
-    "oof": {
-        "response": "Ooh, wee! That was oof-worthy!",
-        "filename": "oof.gif",
-    },
-    "wtf": {
-        "response": "Ooh, wee! What the fuck?",
-        "filename": "wtf.gif",
-    },
-    "nice": {
-        "response": "Ooh, wee! That was pretty nice!",
-        "filename": "nice.gif",
-    },
+    "oof": {"response": "Ooh, wee! That was oof-worthy!", "filename": "oof.gif",},
+    "wtf": {"response": "Ooh, wee! What the fuck?", "filename": "wtf.gif",},
+    "nice": {"response": "Ooh, wee! That was pretty nice!", "filename": "nice.gif",},
     "damage": {
         "response": "OOH, WEE! THAT'S A LOT OF DAMAGE!",
         "filename": "damage.png",
@@ -192,10 +180,7 @@ COMMANDS = {
         "response": "Ooh, wee! That didn't quite go as planned!",
         "filename": "ffs.gif",
     },
-    "nope": {
-        "response": "Denied, bitch! Oooooooooh, wee!",
-        "filename": "nope.gif",
-    },
+    "nope": {"response": "Denied, bitch! Oooooooooh, wee!", "filename": "nope.gif",},
     "letsgo": {
         "response": "Ooh, wee! Someone needs to take their goddamn shot, already!",
         "filename": "letsgo.gif",
@@ -204,14 +189,8 @@ COMMANDS = {
         "response": "Ooh, wee! Sounds like somebody is in a bit over their head!",
         "filename": "halp.jpg",
     },
-    "orly": {
-        "response": "Oh reeeeeeeeeeeeeeeally? Ooh, wee!",
-        "filename": "orly.jpg",
-    },
-    "yarly": {
-        "response": "Ya really, bitch. Ooh, wee!",
-        "filename": "yarly.jpg",
-    },
+    "orly": {"response": "Oh reeeeeeeeeeeeeeeally? Ooh, wee!", "filename": "orly.jpg",},
+    "yarly": {"response": "Ya really, bitch. Ooh, wee!", "filename": "yarly.jpg",},
     "nowai": {
         "response": "Someone had to see the owl memes all the way through! Ooh, wee!",
         "filename": "nowai.jpg",
@@ -231,6 +210,14 @@ COMMANDS = {
     "win": {
         "response": "Ooh, wee! That sure looks like a win to me!",
         "filename": "win.gif",
+    },
+    "hattip": {
+        "response": "Ooh, wee! I tip my hat to you, sir!",
+        "filename": "hattip.gif",
+    },
+    "bobross": {
+        "response": "Ooh, wee! Looks like we're gonna have a happy little accident!",
+        "filename": "bobross.jpg",
     },
 }
 
@@ -272,22 +259,27 @@ LISTENERS = {
     "bitch": {
         "matches": ["bitch", "please"],
         "response": "Bitch, please! You don't want to fuck with this! Ooh, wee!",
-        "filename": "bitch.gif"
+        "filename": "bitch.gif",
     },
     "goodbot": {
         "matches": ["good bot"],
         "response": "You like me! You really like me! Oooooooooh, wee!",
-        "filename": "goodbot.jpg"
+        "filename": "goodbot.jpg",
     },
     "badbot": {
         "matches": ["bad bot"],
         "response": "Ooh wee! You're a salty little fuck, aren't you?",
-        "filename": "badbot.jpg"
+        "filename": "badbot.jpg",
     },
     "hmmm": {
         "matches": ["hmmm", "huh"],
         "response": "Hmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm?",
-        "filename": "hmmm.gif"
+        "filename": "hmmm.gif",
+    },
+    "dinodna": {
+        "matches": ["bingo", "dino", "dna"],
+        "response": "BINGO! Dino DNA! Ooooooooh, wee!",
+        "filename": "dinodna.gif",
     },
 }
 
@@ -387,7 +379,10 @@ class Oohwee(commands.Cog):
                         self.snowflake_list[message.author.id] = False
                         await message.channel.send(snowflake["disable"])
                         with open(
-                            os.path.join("mr_poopybutthole", "resources", "safespace.gif"), "rb"
+                            os.path.join(
+                                "mr_poopybutthole", "resources", "safespace.gif"
+                            ),
+                            "rb",
                         ) as file:
                             picture = discord.File(file)
                             await message.channel.send(file=picture)
@@ -480,6 +475,9 @@ class Oohwee(commands.Cog):
             return
 
         if await self.send_message(message, "hmmm"):
+            return
+
+        if await self.send_message(message, "dinodna"):
             return
 
         matches = ["ooh", "wee"]
@@ -741,3 +739,11 @@ class Oohwee(commands.Cog):
     @commands.command()
     async def win(self, ctx):
         await self.send_command(ctx, "win")
+
+    @commands.command()
+    async def hattip(self, ctx):
+        await self.send_command(ctx, "hattip")
+
+    @commands.command()
+    async def bobross(self, ctx):
+        await self.send_command(ctx, "bobross")
