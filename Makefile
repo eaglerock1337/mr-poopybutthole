@@ -1,9 +1,11 @@
-VERSION = 0.3
+VERSION = 0.5
 
-all: build
+all: stop build
+
+stop:
+	docker stop mr-poopybutthole
 
 build:
-	docker stop mr-poopybutthole
 	docker build --tag mr-poopybutthole:${VERSION} .
 	docker run -d --rm --name mr-poopybutthole mr-poopybutthole:${VERSION}
 

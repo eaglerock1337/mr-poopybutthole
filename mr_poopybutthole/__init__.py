@@ -1,3 +1,1 @@
-__version__ = "0.3.0"
-
-from .oohwee import Oohwee
+__version__ = "0.5.0"

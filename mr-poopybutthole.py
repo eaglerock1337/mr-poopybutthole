@@ -4,8 +4,10 @@ import sys
 
 from discord.ext import commands
 from dotenv import load_dotenv
-from mr_poopybutthole import Oohwee
 
+from mr_poopybutthole.oohwee import Oohwee
+from mr_poopybutthole.help import Help
+from mr_poopybutthole.snowflake import Snowflake
 
 def get_logger():
     """
@@ -31,6 +33,8 @@ def oohwee():
     bot = commands.Bot(command_prefix="!")
     bot.remove_command("help")
     bot.add_cog(Oohwee(bot))
+    bot.add_cog(Help(bot))
+    bot.add_cog(Snowflake(bot))
     bot.run(TOKEN)
 
 
