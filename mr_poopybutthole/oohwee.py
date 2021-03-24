@@ -4,7 +4,6 @@ import logging
 import random
 
 from discord.ext import commands
-from dotenv import load_dotenv
 
 
 GAY_FILES = ["gay1.jpg", "gay2.jpg", "gay3.jpg", "gay4.jpg", "gay5.jpg", "gay6.jpg"]

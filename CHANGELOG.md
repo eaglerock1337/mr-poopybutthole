@@ -1,5 +1,40 @@
 # changelog for mr-poopybutthole
 
+## 0.8.0 - 3/24/2021
+
+### 0.8.0 - Added
+
+- YAML file support now in place for listeners and commands
+
+### 0.8.0 - Changed
+
+- Listeners now part of its own file/class
+- Commands now part of its own file/class
+- Splitting of cogs now complete
+
+### 0.8.0 - Fixed
+
+- Logging of basic commands/listeners fixed
+- No license was specified, now ships with GPL 3.0 license
+
+## 0.5.0 - 3/23/2021
+
+### 0.5.0 - Added
+
+- Added almost 30 commands and listeners!
+- Proper Makefile for building and testing
+
+### 0.5.0 - Changed
+
+- Started transition to multiple cogs
+- Snowflake Mode is now its own cog
+- YAML files are now maintaine in parallel with the inline data structs for listeners and commands
+
+### 0.5.0 - Fixed
+
+- Completed transition from poetry to pipenv
+- Module import no longer requires futzing with `__init__.py`
+
 ## 0.3.0 - 1/3/2021
 
 ### 0.3.0 - Added
