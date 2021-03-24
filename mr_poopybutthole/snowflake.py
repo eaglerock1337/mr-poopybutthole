@@ -9,11 +9,12 @@ from time import sleep
 CHRIS_ID = 533873187780558848
 PETER_ID = 246837076987871233
 ROB_ID = 445052623171878912
-
+# GANNING_ID = 714294563652763688
+# ANDREW_ID = 256459787997413406
 
 SNOWFLAKES = {
     CHRIS_ID: {
-        "name": "Chris",
+        "name": "Chris S",
         "message": "Ooh, wee! Nice comment there, cheesecake!",
         "video": "https://www.youtube.com/watch?v=FK6Rjt4uCIw",
         "disable": "Ooh, wee! I think the cheesecake needs a break!",
@@ -30,6 +31,18 @@ SNOWFLAKES = {
         "video": "https://www.youtube.com/watch?v=W1B_poM9l7M",
         "disable": "Ooh, wee! I think Rob is looking for a break from all the awesome tunes!",
     },
+    # GANNING_ID: {
+    #     "name": "Chris G",
+    #     "message": "Ooh, wee! Mr. Woo Woo's trying to speak!",
+    #     "video": "https://www.youtube.com/watch?v=6iGbxUAM0cc",
+    #     "disable": "Ooh, wee! Mr. Woo Woo should take your twenty grand for summer camp elsewhere!"
+    # },
+    # ANDREW_ID: {
+    #     "name": "Andrew",
+    #     "message": "Ooh, wee! Why are you came?",
+    #     "video": "https://www.youtube.com/watch?v=Lbyw0MVbniE",
+    #     "disable": "Ooh, wee! No! No photographs, please! Slides are available in the gift shop, eh?"
+    # },
 }
 
 
