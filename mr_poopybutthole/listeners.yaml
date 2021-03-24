@@ -1,0 +1,79 @@
+badbot:
+  filename: badbot.jpg
+  matches:
+  - bad bot
+  response: Ooh wee! You're a salty little fuck, aren't you?
+bitch:
+  filename: bitch.gif
+  matches:
+  - bitch
+  - please
+  response: Bitch, please! You don't want to fuck with this! Ooh, wee!
+dinodna:
+  filename: dinodna.gif
+  matches:
+  - bingo
+  - dino
+  - dna
+  response: BINGO! Dino DNA! Ooooooooh, wee!
+fucks:
+  filename: fucks.jpg
+  matches:
+  - guys
+  - shut
+  - fuck
+  response: Ooh, wee! Someone needs to shut their fucks!
+goodbot:
+  filename: goodbot.jpg
+  matches:
+  - good bot
+  response: You like me! You really like me! Oooooooooh, wee!
+help:
+  matches:
+  - help
+  - halp
+  - pls
+  - plz
+  response: Ooh, wee! If you want some help from me, you should probably try the `help` command!
+hmmm:
+  filename: hmmm.gif
+  matches:
+  - hmmm
+  - huh
+  response: Hmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm?
+nukem:
+  filename: nukem.png
+  matches:
+  - balls
+  - duke
+  - nukem
+  - steel
+  response: Ooh, wee! I've got balls of steel!
+peloton:
+  filename: peloton.jpg
+  matches:
+  - peloton
+  - pelaton
+  response: Ooh, wee! Nobody's laughing at that Peloton ad anymore, are they?
+ram:
+  filename: chrome.jpg
+  matches:
+  - chrome
+  - google
+  - ram
+  response: Ooh, wee! Someone must really hate their RAM!
+spicyboi:
+  filename: spicyboi.jpg
+  matches:
+  - spicy
+  - boi
+  - boy
+  response: Ooh, wee! That there's a spicy, spicy boi!
+twisted:
+  filename: m16.jpg
+  matches:
+  - m16
+  - twisted
+  - sister
+  - guitar
+  response: 'OOH, WEE! I CARRIED AN M16 AND YOU...\nYOU CARRY THAT, THAT...GUITAR!!!'
