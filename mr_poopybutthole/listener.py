@@ -2,72 +2,12 @@ import discord
 import os
 import logging
 import random
+import yaml
 
 from discord.ext import commands
-from dotenv import load_dotenv
 
 
-LISTENERS = {
-    "nukem": {
-        "matches": ["balls", "duke", "nukem", "steel"],
-        "response": "Ooh, wee! I've got balls of steel!",
-        "filename": "nukem.png",
-    },
-    "spicyboi": {
-        "matches": ["spicy", "boi", "boy"],
-        "response": "Ooh, wee! That there's a spicy, spicy boi!",
-        "filename": "spicyboi.jpg",
-    },
-    "peloton": {
-        "matches": ["peloton", "pelaton"],
-        "response": "Ooh, wee! Nobody's laughing at that Peloton ad anymore, are they?",
-        "filename": "peloton.jpg",
-    },
-    "twisted": {
-        "matches": ["m16", "twisted", "sister", "guitar"],
-        "response": "OOH, WEE! I CARRIED AN M16 AND YOU...\nYOU CARRY THAT, THAT...GUITAR!!!",
-        "filename": "m16.jpg",
-    },
-    "fucks": {
-        "matches": ["guys", "shut", "fuck"],
-        "response": "Ooh, wee! Someone needs to shut their fucks!",
-        "filename": "fucks.jpg",
-    },
-    "ram": {
-        "matches": ["chrome", "google", "ram"],
-        "response": "Ooh, wee! Someone must really hate their RAM!",
-        "filename": "chrome.jpg",
-    },
-    "help": {
-        "matches": ["help", "halp", "pls", "plz"],
-        "response": "Ooh, wee! If you want some help from me, you should probably try the `help` command!",
-    },
-    "bitch": {
-        "matches": ["bitch", "please"],
-        "response": "Bitch, please! You don't want to fuck with this! Ooh, wee!",
-        "filename": "bitch.gif",
-    },
-    "goodbot": {
-        "matches": ["good bot"],
-        "response": "You like me! You really like me! Oooooooooh, wee!",
-        "filename": "goodbot.jpg",
-    },
-    "badbot": {
-        "matches": ["bad bot"],
-        "response": "Ooh wee! You're a salty little fuck, aren't you?",
-        "filename": "badbot.jpg",
-    },
-    "hmmm": {
-        "matches": ["hmmm", "huh"],
-        "response": "Hmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm?",
-        "filename": "hmmm.gif",
-    },
-    "dinodna": {
-        "matches": ["bingo", "dino", "dna"],
-        "response": "BINGO! Dino DNA! Ooooooooh, wee!",
-        "filename": "dinodna.gif",
-    },
-}
+LISTENERS_FILE = os.path.join(os.path.dirname(__file__), "listeners.yaml")
 
 
 class Listener(commands.Cog):
@@ -80,6 +20,7 @@ class Listener(commands.Cog):
     def __init__(self, bot):
         self.logger = logging.getLogger(__name__)
         self.bot = bot
+        self.listeners = yaml.load(open(LISTENERS_FILE), Loader=yaml.FullLoader)
 
     @commands.Cog.listener()
     async def send_message(self, message, listener):
@@ -89,7 +30,7 @@ class Listener(commands.Cog):
         retrieves the matches, response, and tests if it should send based on the matches.
         Returns true if the match was successful, false otherwise.
         """
-        lst = LISTENERS[listener]
+        lst = self.listeners[listener]
         if any(c in message.content.lower() for c in lst["matches"]):
             await message.channel.send(lst["response"])
             if "filename" in lst:
@@ -98,6 +39,10 @@ class Listener(commands.Cog):
                 ) as file:
                     picture = discord.File(file)
                     await message.channel.send(file=picture)
+            self.logger.info(
+                f"Sent {listener} listener to {message.channel.name} "
+                + f"channel due to {message.author.name}!"
+            )
             return True
         else:
             return False

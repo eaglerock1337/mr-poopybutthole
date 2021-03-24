@@ -1,196 +1,12 @@
 import discord
 import os
 import logging
+import yaml
 
 from discord.ext import commands
 
 
-COMMANDS = {
-    "ole": {
-        "response": "Ooh, wee! Time for a fiesta!",
-        "filename": "ole.jpg",
-    },
-    "shakira": {
-        "response": "Ooh, wee! I hear her hips don't lie!",
-        "filename": "shakira.mp4",
-    },
-    "oof": {
-        "response": "Ooh, wee! That was oof-worthy!",
-        "filename": "oof.gif",
-    },
-    "wtf": {
-        "response": "Ooh, wee! What the fuck?",
-        "filename": "wtf.gif",
-    },
-    "nice": {
-        "response": "Ooh, wee! That was pretty nice!",
-        "filename": "nice.gif",
-    },
-    "damage": {
-        "response": "OOH, WEE! THAT'S A LOT OF DAMAGE!",
-        "filename": "damage.png",
-    },
-    "xp": {
-        "response": "Ooh, wee, Scott! That was...\nONE MEEELLION XP! That's a lot of frickin' XP!",
-        "filename": "drevil.gif",
-    },
-    "dialedin": {
-        "response": "Ooh, wee! Looks like SOMEBODY is dialed in!",
-        "filename": "dialedin.jpg",
-    },
-    "opinion": {
-        "response": "Ooh, wee! Here's what you can do with your opinion!",
-        "filename": "opinion.png",
-    },
-    "dumb": {
-        "response": "Ooh, wee! Looks like had a great suggestion! Let's think about that one!",
-        "filename": "dumb.png",
-    },
-    "stfu": {
-        "response": "Ooh, wee! Someone is running their mouth and really need to give it a break!",
-        "filename": "stfu.jpg",
-    },
-    "waiting": {
-        "response": "Ooh, wee! Someone's taking their sweet-ass time today!",
-        "filename": "waiting.gif",
-    },
-    "sleep": {
-        "response": "Ooh, wee! Looks like somebody needs their beauty sleep!",
-        "filename": "sleep.png",
-    },
-    "scotch": {
-        "response": "Ooh, wee! I love scotch! Scotchy-scotch-scotch!",
-        "filename": "scotch.jpg",
-    },
-    "waldo": {
-        "response": "Ooh, wee! I found that motherfucker!",
-        "filename": "waldo.jpg",
-    },
-    "yourmom": {
-        "response": "Ooh, wee! That's not what YOUR MOM said last night!",
-        "filename": "yourmom.png",
-    },
-    "notgood": {
-        "response": "Ooh, wee! That last shot was notta so good!",
-        "filename": "notgood.jpg",
-    },
-    "more": {
-        "response": "Ooh, wee! Sounds like the shots just aren't gonna stop!",
-        "filename": "more.jpg",
-    },
-    "welp": {
-        "response": "Ooh, wee! Sounds like the match isn't going someone's way!",
-        "filename": "welp.jpg",
-    },
-    "igotthis": {
-        "response": "Ooh, wee! SOMEONE needs to chill the fuck out!",
-        "filename": "igotthis.jpg",
-    },
-    "neener": {
-        "response": "Neener neener foo foo! I iz cute so stfu! Ooh, wee!",
-        "filename": "neener.jpg",
-    },
-    "ettu": {
-        "response": "Ooh, wee! Et tu? Cogitavi in ​​qua sumus, amici! Bitch.",
-        "filename": "ettu.jpg",
-    },
-    "latifi": {
-        "response": "Ooh, wee! Looks like Latifi over there is playing the long game!",
-        "filename": "latifi.jpg",
-    },
-    "ihateyou": {
-        "response": "Ooh, wee! Someone's pissed somebody off, tonight!",
-        "filename": "ihateyou.jpg",
-    },
-    "sorry": {
-        "response": "Ooh, wee! Let me guess: you didn't mean to shoot him, did you?",
-        "filename": "sorry.png",
-    },
-    "fu": {
-        "response": "Ooh, wee! Someone needs a three-finger salute!",
-        "filename": "fu.jpg",
-    },
-    "fu2": {
-        "response": "Ooh, wee! Someone else needs a three-finger salute, too!",
-        "filename": "fu2.jpg",
-    },
-    "torvalds": {
-        "response": "Ooh, wee! Even Linus Torvalds hates you!",
-        "filename": "torvalds.jpg",
-    },
-    "triggered": {
-        "response": "Ooh, wee! Someone better retreat to their safe space right away!",
-        "filename": "triggered.gif",
-    },
-    "fuckmas": {
-        "response": "Ooh, wee! Ho, ho ho, motherfuckers!",
-        "filename": "fuckmas.jpg",
-    },
-    "ight": {
-        "response": "Time to get the fuck out of Dodge! Ooh, wee!",
-        "filename": "ight.jpg",
-    },
-    "ffs": {
-        "response": "Ooh, wee! That didn't quite go as planned!",
-        "filename": "ffs.gif",
-    },
-    "nope": {
-        "response": "Denied, bitch! Oooooooooh, wee!",
-        "filename": "nope.gif",
-    },
-    "letsgo": {
-        "response": "Ooh, wee! Someone needs to take their goddamn shot, already!",
-        "filename": "letsgo.gif",
-    },
-    "halp": {
-        "response": "Ooh, wee! Sounds like somebody is in a bit over their head!",
-        "filename": "halp.jpg",
-    },
-    "orly": {
-        "response": "Oh reeeeeeeeeeeeeeeally? Ooh, wee!",
-        "filename": "orly.jpg",
-    },
-    "yarly": {
-        "response": "Ya really, bitch. Ooh, wee!",
-        "filename": "yarly.jpg",
-    },
-    "nowai": {
-        "response": "Someone had to see the owl memes all the way through! Ooh, wee!",
-        "filename": "nowai.jpg",
-    },
-    "owls": {
-        "response": "Ooh, wee! We have a lazy asshole here who doesn't feel like typing out all the owl memes!",
-        "filename": "owls.gif",
-    },
-    "idgaf": {
-        "response": "On a scale of one to I don't give a fuck, I don't give a fuck! Ooh, wee!",
-        "filename": "idgaf.gif",
-    },
-    "engineer": {
-        "response": "Trust me, I'm an engineer! Ooh, wee!",
-        "filename": "engineer.png",
-    },
-    "win": {
-        "response": "Ooh, wee! That sure looks like a win to me!",
-        "filename": "win.gif",
-    },
-    "hattip": {
-        "response": "Ooh, wee! I tip my hat to you, sir!",
-        "filename": "hattip.gif",
-    },
-    "bobross": {
-        "response": "Ooh, wee! Looks like we're gonna have a happy little accident!",
-        "filename": "bobross.jpg",
-    },
-    "butts": {
-        "response": "Hold on to your butts! Ooh, wee!",
-        "filename": "butts.gif",
-    },
-    "ace": {
-        "response": "Sorry for the delay, Ace! Oooooooh, wee!",
-        "filename": "ace.gif",
-    },
-}
+COMMANDS_FILE = os.path.join(os.path.dirname(__file__), "commands.yaml")
 
 
 class Command(commands.Cog):
@@ -199,12 +15,13 @@ class Command(commands.Cog):
 
     Hands all meme commands that follow the basic format:
     - Uses one specific command to be triggered (e.g. '!fu')
-    - Returns either a statement, an image, or both to the channel
+    - Returns a statement and an optional image to the channel
     """
 
     def __init__(self, bot):
         self.logger = logging.getLogger(__name__)
         self.bot = bot
+        self.commands = yaml.load(open(COMMANDS_FILE), Loader=yaml.FullLoader)
 
     @commands.command()
     async def send_command(self, ctx, command):
@@ -213,7 +30,7 @@ class Command(commands.Cog):
         It obtains this from the above command list by using the provided command name.
         Takes the message info, and response with the given message and filename.
         """
-        cmd = COMMANDS[command]
+        cmd = self.commands[command]
         await ctx.channel.send(cmd["response"])
         if "filename" in cmd:
             with open(
@@ -221,6 +38,10 @@ class Command(commands.Cog):
             ) as file:
                 picture = discord.File(file)
                 await ctx.channel.send(file=picture)
+        self.logger.info(
+            f"Member {ctx.author.name} sent !{command} "
+            + f"to the {ctx.channel.name} channel!"
+        )
 
     @commands.command()
     async def ole(self, ctx):

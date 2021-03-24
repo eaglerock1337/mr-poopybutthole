@@ -26,6 +26,7 @@ To run outside of Docker, you can take advantage of Pipenv to run as follows:
 
 ## path to version 1.0
 
-- Modify the `commands` and `listeners` lists to be imported by YAML files for easier cataloging
-- Separate `oohwee.py` into multiple classes for `listeners`, `commands`, `snowflake`, and the `help` class
+- Modify the `commands` and `listeners` lists to be imported by YAML files for easier cataloging - DONE!
+- Split `oohwee.py` into the core `Oohwee`, `Listener`, `Command`, and `Snowflake` classes - DONE!
 - Either encapsulate in Kubernetes or use docker-compose for quicker reloading of the application
+- Make a much better `!help` command that is more concise and supports other help commands such as `!help commands` or `!help snowflake`
