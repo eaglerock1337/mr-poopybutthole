@@ -21,6 +21,7 @@ class Listener(commands.Cog):
         self.logger = logging.getLogger(__name__)
         self.bot = bot
         self.listeners = yaml.load(open(LISTENERS_FILE), Loader=yaml.FullLoader)
+        self.listset = set(self.listeners)
 
     @commands.Cog.listener()
     async def send_message(self, message, listener):
@@ -108,7 +109,7 @@ class Listener(commands.Cog):
                 await message.channel.send(file=picture)
             return
 
-        for listener in self.listeners.keys():
+        for listener in self.listset:
             if await self.send_message(message, listener):
                 return
 
