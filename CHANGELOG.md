@@ -8,14 +8,14 @@
 - Data directory for YAML files
 - More commands and listeners!
 - Two new snowflakes!
-- Added CONTRIBUTE.md file for instructions on how to add memes to the bot!
+- Added [instructions](CONTRIBUTE.md) on how to add memes to the bot!
 
 ### 0.9.0 - Changed
 
 - Drastic reduction of duplicate code
 - Listeners and commands now can be fully managed by YAML files
 - Snowflake Mode is now managed my YAML file as well!
-- Updated README with new workflow and instructions
+- Updated `README` with new workflow and instructions
 
 ### 0.9.0 - Fixed
 
