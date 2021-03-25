@@ -5,8 +5,7 @@ import random
 
 from discord.ext import commands
 
-
-GAY_FILES = ["gay1.jpg", "gay2.jpg", "gay3.jpg", "gay4.jpg", "gay5.jpg", "gay6.jpg"]
+from .constants import COMMANDS_FILE, LISTENERS_FILE, RESOURCES_DIR
 
 
 HELPMESSAGES = [
@@ -20,7 +19,7 @@ HELPMESSAGES = [
 !ight      !ffs       !nope      !letsgo    !halp
 !orly      !yarly     !nowai     !owls      !idgaf
 !engineer  !win       !hattip    !bobross   !butts
-!ace       !wam```""",
+!ace       !wam       !fail      !list```""",
     """I also pay attention to what you're saying on Discord and will respond
 when you say something I was told to respond to! For example, I'll always
 talk back when you say `ooh` or `wee`. Also, if you just so happen to be an
@@ -39,6 +38,8 @@ who can and can't take the heat! Finally, if everyone is going to ragequit becau
 of the trollfest, typing `!snowflake off` will make me check my privilege!
 Ooooooooooooooooh, wee! Bots are fun, aren't they?""",
 ]
+
+GAY_FILES = ["gay1.jpg", "gay2.jpg", "gay3.jpg", "gay4.jpg", "gay5.jpg", "gay6.jpg"]
 
 
 class Oohwee(commands.Cog):
@@ -83,9 +84,6 @@ class Oohwee(commands.Cog):
     async def gay(self, ctx):
         response = "Ooh, wee! Here's how gay that shot was!"
         await ctx.channel.send(response)
-        with open(
-            os.path.join("mr_poopybutthole", "resources", random.choice(GAY_FILES)),
-            "rb",
-        ) as file:
+        with open(os.path.join(RESOURCES_DIR, random.choice(GAY_FILES)), "rb",) as file:
             picture = discord.File(file)
             await ctx.channel.send(file=picture)

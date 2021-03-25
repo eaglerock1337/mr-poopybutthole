@@ -1,49 +1,12 @@
 import discord
 import os
 import logging
+import yaml
 
 from discord.ext import commands
 from time import sleep
 
-
-CHRIS_ID = 533873187780558848
-PETER_ID = 246837076987871233
-ROB_ID = 445052623171878912
-# GANNING_ID = 714294563652763688
-# ANDREW_ID = 256459787997413406
-
-SNOWFLAKES = {
-    CHRIS_ID: {
-        "name": "Chris S",
-        "message": "Ooh, wee! Nice comment there, cheesecake!",
-        "video": "https://www.youtube.com/watch?v=FK6Rjt4uCIw",
-        "disable": "Ooh, wee! I think the cheesecake needs a break!",
-    },
-    PETER_ID: {
-        "name": "Peter",
-        "message": "Ooh, wee! Time for the elitist to get a taste of his own medicine!",
-        "video": "https://www.youtube.com/watch?v=f5k3PGn6DbQ",
-        "disable": "Ooh, wee! Look who can dish it out but can't take it!",
-    },
-    ROB_ID: {
-        "name": "Rob",
-        "message": "Ooh, wee! I hear you don't like this song!",
-        "video": "https://www.youtube.com/watch?v=W1B_poM9l7M",
-        "disable": "Ooh, wee! I think Rob is looking for a break from all the awesome tunes!",
-    },
-    # GANNING_ID: {
-    #     "name": "Chris G",
-    #     "message": "Ooh, wee! Mr. Woo Woo's trying to speak!",
-    #     "video": "https://www.youtube.com/watch?v=6iGbxUAM0cc",
-    #     "disable": "Ooh, wee! Mr. Woo Woo should take your twenty grand for summer camp elsewhere!"
-    # },
-    # ANDREW_ID: {
-    #     "name": "Andrew",
-    #     "message": "Ooh, wee! Why are you came?",
-    #     "video": "https://www.youtube.com/watch?v=Lbyw0MVbniE",
-    #     "disable": "Ooh, wee! No! No photographs, please! Slides are available in the gift shop, eh?"
-    # },
-}
+from .constants import RESOURCES_DIR, SNOWFLAKES_FILE
 
 
 class Snowflake(commands.Cog):
@@ -56,8 +19,9 @@ class Snowflake(commands.Cog):
     def __init__(self, bot):
         self.logger = logging.getLogger(__name__)
         self.bot = bot
-        self.snowflake_list = {}
-        for snowflake in SNOWFLAKES.keys():
+        self.thelist = yaml.load(open(SNOWFLAKES_FILE), Loader=yaml.FullLoader)
+        self.snowflake_list = {} 
+        for snowflake in self.thelist.keys():
             self.snowflake_list[snowflake] = True
         self.snowflake_mode = False
 
@@ -70,18 +34,15 @@ class Snowflake(commands.Cog):
             return
 
         if self.snowflake_mode:
-            if message.author.id in SNOWFLAKES.keys():
-                snowflake = SNOWFLAKES[message.author.id]
+            if message.author.id in self.thelist.keys():
+                snowflake = self.thelist[message.author.id]
                 if self.snowflake_list[message.author.id]:
                     sleep(1)
                     if "i made a doody" in message.content.lower():
                         self.snowflake_list[message.author.id] = False
                         await message.channel.send(snowflake["disable"])
                         with open(
-                            os.path.join(
-                                "mr_poopybutthole", "resources", "safespace.gif"
-                            ),
-                            "rb",
+                            os.path.join(RESOURCES_DIR, "safespace.gif"), "rb",
                         ) as file:
                             picture = discord.File(file)
                             await message.channel.send(file=picture)
@@ -96,9 +57,7 @@ class Snowflake(commands.Cog):
             self.snowflake_mode = True
             response = "Ooh, wee! We're gonna get some people pissed off, tonight!"
             await ctx.channel.send(response)
-            with open(
-                os.path.join("mr_poopybutthole", "resources", "snowflake.jpg"), "rb"
-            ) as file:
+            with open(os.path.join(RESOURCES_DIR, "snowflake.jpg"), "rb") as file:
                 picture = discord.File(file)
                 await ctx.channel.send(file=picture)
 
@@ -106,9 +65,7 @@ class Snowflake(commands.Cog):
             self.snowflake_mode = False
             response = "Ooh, wee! Looks like *all* the snowflakes need a break!"
             await ctx.channel.send(response)
-            with open(
-                os.path.join("mr_poopybutthole", "resources", "privilege.jpg"), "rb"
-            ) as file:
+            with open(os.path.join(RESOURCES_DIR, "privilege.jpg"), "rb") as file:
                 picture = discord.File(file)
                 await ctx.channel.send(file=picture)
 
@@ -118,9 +75,7 @@ class Snowflake(commands.Cog):
                 self.snowflake_list[snowflake] = True
             response = "Ooh, wee! Time for all your safe spaces to burn down!"
             await ctx.channel.send(response)
-            with open(
-                os.path.join("mr_poopybutthole", "resources", "safespace.jpg"), "rb"
-            ) as file:
+            with open(os.path.join(RESOURCES_DIR, "safespace.jpg"), "rb") as file:
                 picture = discord.File(file)
                 await ctx.channel.send(file=picture)
 
@@ -128,9 +83,7 @@ class Snowflake(commands.Cog):
     async def snowflakes(self, ctx):
         response = "Ooh, wee! Let's see how the snowflakes are doing!"
         await ctx.channel.send(response)
-        with open(
-            os.path.join("mr_poopybutthole", "resources", "snowflakes.jpg"), "rb"
-        ) as file:
+        with open(os.path.join(RESOURCES_DIR, "snowflakes.jpg"), "rb") as file:
             picture = discord.File(file)
             await ctx.channel.send(file=picture)
 
@@ -142,7 +95,7 @@ class Snowflake(commands.Cog):
         if self.snowflake_mode:
             enabled_snowflakes = []
             disabled_snowflakes = []
-            for snowflake in SNOWFLAKES.keys():
+            for snowflake in self.thelist.keys():
                 if self.snowflake_list[snowflake]:
                     enabled_snowflakes.append(snowflake)
                 else:
@@ -151,12 +104,12 @@ class Snowflake(commands.Cog):
             if len(enabled_snowflakes) > 0:
                 response += "\nThe following snowflakes better watch out:\n"
                 for snowflake in enabled_snowflakes:
-                    response += f"{SNOWFLAKES[snowflake]['name']}: <@{snowflake}>\n"
+                    response += f"{self.thelist[snowflake]['name']}: <@{snowflake}>\n"
 
             if len(disabled_snowflakes) > 0:
                 response += "\nThese snowflakes had to retreat to their safe space:\n"
                 for snowflake in disabled_snowflakes:
-                    response += f"{SNOWFLAKES[snowflake]['name']}: <@{snowflake}>\n"
+                    response += f"{self.thelist[snowflake]['name']}: <@{snowflake}>\n"
 
             response += (
                 "\nRemember snowflakes, just type `i made a doody` if the victimization "

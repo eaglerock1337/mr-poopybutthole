@@ -21,7 +21,10 @@ engineer:
   response: Trust me, I'm an engineer! Ooh, wee!
 ettu:
   filename: ettu.jpg
-  response: "Ooh, wee! Et tu? Cogitavi in ​​qua sumus, amici! Bitch."
+  response: Ooh, wee! Et tu? Cogitavi in ​​qua sumus, amici! Bitch.
+fail:
+  filename: fail.jpg
+  response: That was certainly a fail, wasn't it, folks? Ooooooh, wee!
 ffs:
   filename: ffs.gif
   response: Ooh, wee! That didn't quite go as planned!
@@ -58,6 +61,9 @@ latifi:
 letsgo:
   filename: letsgo.gif
   response: Ooh, wee! Someone needs to take their goddamn shot, already!
+list:
+  filename: thelist.jpg
+  response: Ooh, wee! You know what happens to people who type this command? YOU JUST MADE THE LIST!
 more:
   filename: more.jpg
   response: Ooh, wee! Sounds like the shots just aren't gonna stop!

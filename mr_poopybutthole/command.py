@@ -5,8 +5,7 @@ import yaml
 
 from discord.ext import commands
 
-
-COMMANDS_FILE = os.path.join(os.path.dirname(__file__), "commands.yaml")
+from .constants import COMMANDS_FILE, RESOURCES_DIR
 
 
 class Command(commands.Cog):
@@ -22,9 +21,7 @@ class Command(commands.Cog):
         self.logger = logging.getLogger(__name__)
         self.bot = bot
         self.commands = yaml.load(open(COMMANDS_FILE), Loader=yaml.FullLoader)
-        self.cmdset = set(self.commands)
 
-    @commands.Cog.listener()
     async def send_command(self, message, command):
         """
         Sends a standard command response consisting of a text response and an optional picture.
@@ -34,9 +31,7 @@ class Command(commands.Cog):
         cmd = self.commands[command]
         await message.channel.send(cmd["response"])
         if "filename" in cmd:
-            with open(
-                os.path.join("mr_poopybutthole", "resources", cmd["filename"]), "rb"
-            ) as file:
+            with open(os.path.join(RESOURCES_DIR, cmd["filename"]), "rb") as file:
                 picture = discord.File(file)
                 await message.channel.send(file=picture)
         self.logger.info(
@@ -58,5 +53,5 @@ class Command(commands.Cog):
             return
 
         command = message.content[1:].split(" ")[0]
-        if command in self.cmdset:
+        if command in self.commands:
             await self.send_command(message, command)

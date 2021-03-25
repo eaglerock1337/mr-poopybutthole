@@ -1,5 +1,29 @@
 # changelog for mr-poopybutthole
 
+## 0.9.0 - 3/25/2021
+
+### 0.9.0 - Added
+
+- Constants file for better clarity and modularity
+- Data directory for YAML files
+- More commands and listeners!
+- Two new snowflakes!
+- Added CONTRIBUTE.md file for instructions on how to add memes to the bot!
+
+### 0.9.0 - Changed
+
+- Drastic reduction of duplicate code
+- Listeners and commands now can be fully managed by YAML files
+- Snowflake Mode is now managed my YAML file as well!
+- Updated README with new workflow and instructions
+
+### 0.9.0 - Fixed
+
+- Version of bot is now specified in one place
+- Makefile no longer requires updating for each version
+- Unnecessary decorators removed from base functions
+- Some unreferenced memes have been fixed
+
 ## 0.8.0 - 3/24/2021
 
 ### 0.8.0 - Added

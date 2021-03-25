@@ -1,3 +1,15 @@
+adonia:
+  filename: adonia.jpg
+  matches:
+  - adonia
+  - superwoman
+  response: Ooh, wee! I'm pretty sure that's something an adonia superwoman would do!
+adonis:
+  filename: adonis.jpg
+  matches:
+  - adonis
+  - superman
+  response: Ooh, wee! I'm pretty sure that's something an adonis superman would do!
 badbot:
   filename: badbot.jpg
   matches:
@@ -9,6 +21,11 @@ bitch:
   - bitch
   - please
   response: Bitch, please! You don't want to fuck with this! Ooh, wee!
+chris:
+  filename: chris.jpg
+  matches:
+  - chris
+  response: Ooh, wee!
 chrome:
   filename: chrome.png
   matches:
@@ -35,6 +52,19 @@ fucks:
   - shut
   - fuck
   response: Ooh, wee! Someone needs to shut their fucks!
+garfielf:
+  filename: garfielf.png
+  matches:
+  - garfielf
+  - garfield
+  - jon
+  - god
+  - nermal
+  response: |-2
+    Ooh, wee, Jon. You stupid fuck. How could you...Jon?
+    You were my amigo, Jon. My muchaho, my compadre! Jon...
+    ...make me God! Being a celestial body is exhausting!
+    I'm gonna eat everything!
 goodbot:
   filename: goodbot.jpg
   matches:
@@ -76,6 +106,16 @@ peloton:
   - peloton
   - pelaton
   response: Ooh, wee! Nobody's laughing at that Peloton ad anymore, are they?
+peter:
+  filename: peter.jpg
+  matches:
+  - peter
+  response: Ooh, wee!
+rob:
+  filename: rob.jpg
+  matches:
+  - rob
+  response: Ooh, wee! I hear Rob doesn't miss!
 spicyboi:
   filename: spicyboi.jpg
   matches:
