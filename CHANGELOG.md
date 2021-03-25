@@ -8,7 +8,7 @@
 - Data directory for YAML files
 - More commands and listeners!
 - Two new snowflakes!
-- Added [instructions](CONTRIBUTE.md) on how to add memes to the bot!
+- Added [instructions](CONTRIBUTING.md) on how to add memes to the bot!
 
 ### 0.9.0 - Changed
 
