@@ -25,6 +25,39 @@ class Snowflake(commands.Cog):
             self.snowflake_list[snowflake] = True
         self.snowflake_mode = False
 
+    async def set_snowflake_name(self, snowflake, member, reset=False):
+        """
+        Set or reset the nickname of a specific snowflake. Requires the
+        snowflake name, their member object (which can beobtained from
+        guild.fetch_member()), and sets or resets based on the input.
+
+        This will skip Peter, since Discord bots are not granted any
+        permissions to change Server Owner nicknames, and will throw an
+        error if they try to do so.
+        """
+        if snowflake["name"] == "Peter": # prevent errors :-(
+            return
+
+        if reset:
+            await member.edit(nick=member.name)
+        else:
+            await member.edit(nick=snowflake["nickname"])
+
+    async def set_snowflake_names(self, guild, reset=False):
+        """
+        Sets or resets the nicknames for all snowflakes that have not
+        retreated to their safe space. Requires the guild object passed in
+        either from ctx.message.guild or message.guild from the listener
+        or command.
+
+        The command will iterate through the snowflake list, setting or
+        resetting each snowflake name based on the optional keyword arg.
+        """
+        for snowflake in self.thelist.keys():
+            if self.snowflake_list[snowflake]:
+                member = await guild.fetch_member(snowflake)
+                await self.set_snowflake_name(self.thelist[snowflake], member, reset)
+
     @commands.Cog.listener()
     async def on_message(self, message):
         if message.author == self.bot.user:
@@ -46,16 +79,20 @@ class Snowflake(commands.Cog):
                         ) as file:
                             picture = discord.File(file)
                             await message.channel.send(file=picture)
-                        return
+                        member = await message.guild.fetch_member(message.author.id)
+                        await self.set_snowflake_name(snowflake, member, reset=True)
                     else:
                         response = f"{snowflake['message']}\n{snowflake['video']}"
                         await message.channel.send(response)
+                        member = await message.guild.fetch_member(message.author.id)
+                        await self.set_snowflake_name(snowflake, member)
 
     @commands.command()
     async def snowflake(self, ctx, arg="on"):
         if arg == "on":
             self.snowflake_mode = True
             response = "Ooh, wee! We're gonna get some people pissed off, tonight!"
+            await self.set_snowflake_names(ctx.message.guild)
             await ctx.channel.send(response)
             with open(os.path.join(RESOURCES_DIR, "snowflake.jpg"), "rb") as file:
                 picture = discord.File(file)
@@ -64,6 +101,7 @@ class Snowflake(commands.Cog):
         elif arg == "off":
             self.snowflake_mode = False
             response = "Ooh, wee! Looks like *all* the snowflakes need a break!"
+            await self.set_snowflake_names(ctx.message.guild, reset=True)
             await ctx.channel.send(response)
             with open(os.path.join(RESOURCES_DIR, "privilege.jpg"), "rb") as file:
                 picture = discord.File(file)
@@ -74,6 +112,7 @@ class Snowflake(commands.Cog):
             for snowflake in self.snowflake_list.keys():
                 self.snowflake_list[snowflake] = True
             response = "Ooh, wee! Time for all your safe spaces to burn down!"
+            await self.set_snowflake_names(ctx.message.guild, reset=True)
             await ctx.channel.send(response)
             with open(os.path.join(RESOURCES_DIR, "safespace.jpg"), "rb") as file:
                 picture = discord.File(file)
