@@ -56,10 +56,11 @@ hmmm:
 ladida:
   filename: ladida.jpg
   matches:
-  - la
-  - di
+  - ladida
+  - lah
+  - dee
   - frickin
-  - da
+  - dah
   response: Ooh, wee! Well LA DI FRICKIN' DA!
 nukem:
   filename: nukem.png

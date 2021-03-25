@@ -50,6 +50,11 @@ class Listener(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
+        """
+        Main listener routine for Mr. Poopybutthole. Will follow all special-case
+        listening rules, as well as parse the list of all listeners in the yaml
+        file, sending a message to Discord if matched. 
+        """
         if message.author == self.bot.user:
             return
 

@@ -24,28 +24,33 @@ class Command(commands.Cog):
         self.commands = yaml.load(open(COMMANDS_FILE), Loader=yaml.FullLoader)
         self.cmdset = set(self.commands)
 
-    @commands.command()
-    async def send_command(self, ctx, command):
+    @commands.Cog.listener()
+    async def send_command(self, message, command):
         """
         Sends a standard command response consisting of a text response and an optional picture.
         It obtains this from the above command list by using the provided command name.
         Takes the message info, and response with the given message and filename.
         """
         cmd = self.commands[command]
-        await ctx.channel.send(cmd["response"])
+        await message.channel.send(cmd["response"])
         if "filename" in cmd:
             with open(
                 os.path.join("mr_poopybutthole", "resources", cmd["filename"]), "rb"
             ) as file:
                 picture = discord.File(file)
-                await ctx.channel.send(file=picture)
+                await message.channel.send(file=picture)
         self.logger.info(
-            f"Member {ctx.author.name} sent !{command} "
-            + f"to the {ctx.channel.name} channel!"
+            f"Member {message.author.name} sent !{command} "
+            + f"to the {message.channel.name} channel!"
         )
 
     @commands.Cog.listener()
     async def on_message(self, message):
+        """
+        Main routine for generic meme commands for Mr. Poopybutthole. Verifies
+        the command is in fact a command, grabs the text immediately after the !,
+        and checks the command set for a match, sending the meme if matched.
+        """
         if message.author == self.bot.user:
             return
 
@@ -53,6 +58,5 @@ class Command(commands.Cog):
             return
 
         command = message.content[1:].split(" ")[0]
-
         if command in self.cmdset:
             await self.send_command(message, command)
