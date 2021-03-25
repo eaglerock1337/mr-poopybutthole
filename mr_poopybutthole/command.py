@@ -226,3 +226,7 @@ class Command(commands.Cog):
     @commands.command()
     async def ace(self, ctx):
         await self.send_command(ctx, "ace")
+
+    @commands.command()
+    async def wam(self, ctx):
+        await self.send_command(ctx, "wam")

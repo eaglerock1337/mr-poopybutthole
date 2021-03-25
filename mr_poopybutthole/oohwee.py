@@ -20,7 +20,7 @@ HELPMESSAGES = [
 !ight      !ffs       !nope      !letsgo    !halp
 !orly      !yarly     !nowai     !owls      !idgaf
 !engineer  !win       !hattip    !bobross   !butts
-!ace```""",
+!ace       !wam```""",
     """I also pay attention to what you're saying on Discord and will respond
 when you say something I was told to respond to! For example, I'll always
 talk back when you say `ooh` or `wee`. Also, if you just so happen to be an

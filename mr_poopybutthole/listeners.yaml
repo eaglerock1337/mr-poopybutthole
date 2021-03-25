@@ -9,6 +9,12 @@ bitch:
   - bitch
   - please
   response: Bitch, please! You don't want to fuck with this! Ooh, wee!
+clever:
+  filename: clever.gif
+  matches:
+  - clever
+  - girl
+  response: Ooh, wee! That there's a clever girl!
 dinodna:
   filename: dinodna.gif
   matches:
@@ -55,12 +61,11 @@ peloton:
   - peloton
   - pelaton
   response: Ooh, wee! Nobody's laughing at that Peloton ad anymore, are they?
-ram:
-  filename: chrome.jpg
+chrome:
+  filename: chrome.png
   matches:
   - chrome
   - google
-  - ram
   response: Ooh, wee! Someone must really hate their RAM!
 spicyboi:
   filename: spicyboi.jpg

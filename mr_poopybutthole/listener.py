@@ -108,41 +108,9 @@ class Listener(commands.Cog):
                 await message.channel.send(file=picture)
             return
 
-        if await self.send_message(message, "goodbot"):
-            return
-
-        if await self.send_message(message, "badbot"):
-            return
-
-        if await self.send_message(message, "nukem"):
-            return
-
-        if await self.send_message(message, "spicyboi"):
-            return
-
-        if await self.send_message(message, "peloton"):
-            return
-
-        if await self.send_message(message, "twisted"):
-            return
-
-        if await self.send_message(message, "fucks"):
-            return
-
-        if await self.send_message(message, "ram"):
-            return
-
-        if await self.send_message(message, "help"):
-            return
-
-        if await self.send_message(message, "bitch"):
-            return
-
-        if await self.send_message(message, "hmmm"):
-            return
-
-        if await self.send_message(message, "dinodna"):
-            return
+        for listener in self.listeners.keys():
+            if await self.send_message(message, listener):
+                return
 
         matches = ["ooh", "wee"]
 

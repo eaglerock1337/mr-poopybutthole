@@ -118,6 +118,9 @@ waiting:
 waldo:
   filename: waldo.jpg
   response: Ooh, wee! I found that motherfucker!
+wam:
+  filename: wam.jpg
+  response: Um...I was wondering, wat's the wecommended amount of dedodaded wam to have for a server? Ooh, wee!
 welp:
   filename: welp.jpg
   response: Ooh, wee! Sounds like the match isn't going someone's way!
