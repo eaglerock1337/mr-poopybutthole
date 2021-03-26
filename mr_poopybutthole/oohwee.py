@@ -1,6 +1,7 @@
 import discord
 import os
 import logging
+import numpy
 import yaml
 
 from datetime import datetime
@@ -27,10 +28,24 @@ class Oohwee(commands.Cog):
         self.logger = logging.getLogger(__name__)
         self.bot = bot
         self.help = yaml.load(open(HELP_FILE), Loader=yaml.FullLoader)
-        self.commands = yaml.load(open(COMMANDS_FILE), Loader=yaml.FullLoader)
+        self.commands = self.get_command_arrays(COMMANDS_FILE, 2)
+        self.logger.info(self.commands)
         self.listeners = yaml.load(open(LISTENERS_FILE), Loader=yaml.FullLoader)
-        self.cmdlist = sorted(self.commands)
-        self.listlist = sorted(self.listeners)
+        self.listeners_sorted = sorted(self.listeners)
+
+    def get_command_arrays(self, file, columns):
+        """
+        Load the command list from the provided file and return as a list with
+        `column` lists of evenly sorted columns for easy column printing.
+        """
+        commands = sorted(yaml.load(open(file), Loader=yaml.FullLoader))
+        split = numpy.array_split(commands, columns)
+        lists = []
+        for nparray in split:
+            lists.append(nparray.tolist())
+        for col in range(1, columns):
+            lists[col].append("")
+        return lists
 
     def generate_embed(self, command):
         """
@@ -47,6 +62,14 @@ class Oohwee(commands.Cog):
         except KeyError:
             fields = False
 
+        if command == "commands":
+            commands = "```\n"
+            for row in range(len(self.commands[0])):
+                col1 = self.commands[0][row]
+                col2 = self.commands[1][row]
+                commands += f"!{col1:10}!{col2}\n"
+            description += commands + "```"
+
         embed = discord.Embed(
             title=title,
             url=self.help["url"],
@@ -60,11 +83,8 @@ class Oohwee(commands.Cog):
         embed.set_image(url=self.help["image"])
         embed.set_footer(text=footer_text)
 
-        if command == "commands":
-            for cmd in self.cmdlist:
-                embed.add_field(name="\u200b", value=f"!{cmd}", inline=True)
-        elif command == "listeners":
-            for lst in self.listlist:
+        if command == "listeners":
+            for lst in self.listeners_sorted:
                 matches = ""
                 for match in self.listeners[lst]["matches"]:
                     matches += f"*'{match}'* "

@@ -16,7 +16,7 @@ commands:
 
       **Snowflake Mode** - A super-special troll mode for all you special snowflakes out there!
 
-      **`Help Topics`**
+      **Help Topics**
       Use the following commands to learn more about me! Ooooh, wee!
     fields:
       commands:
@@ -37,7 +37,7 @@ commands:
 
       I'll keep going until you say the safe word and decide to retreat to your safe space!
 
-      **`Snowflake Mode Commands``**
+      **Snowflake Mode Commands**
     fields:
       snowflake:
         name: "!snowflake"
