@@ -14,10 +14,9 @@ commands:
 
       **Listeners** - I'll say these when you say the right things in your messages, such as `adonis` `superman`! They'll pop up even if you don't expect them to!
 
-      **Snowflake Mode** - A super-special troll mode for all you special snowflakes out there!
+      **Snowflake Mode** - A super-special troll mode for all you special snowflakes out there! Type `!snowflake` to start the party!
 
       **Help Topics**
-      Use the following commands to learn more about me! Ooooh, wee!
     fields:
       commands:
         name: "!help commands"
