@@ -11,9 +11,6 @@ from discord.ext.commands.errors import CommandNotFound
 from .constants import COMMANDS_FILE, RESOURCES_DIR
 
 
-GAY_FILES = ["gay1.jpg", "gay2.jpg", "gay3.jpg", "gay4.jpg", "gay5.jpg", "gay6.jpg"]
-
-
 class Command(commands.Cog):
     """
     The command class for the Mr. Poopybutthole Discord bot.
@@ -28,18 +25,28 @@ class Command(commands.Cog):
         self.bot = bot
         self.commands = yaml.load(open(COMMANDS_FILE), Loader=yaml.FullLoader)
 
-    async def send_command(self, ctx, command):
+    async def _send_command(self, ctx, command):
         """
-        Sends a standard command response consisting of a text response and an optional picture.
-        It obtains this from the above command list by using the provided command name.
-        Takes the message info, and response with the given message and filename.
+        Sends a standard command response consisting of a text `response`. Also supports
+        posting a file specified by `filename` or posting a random file listed in
+        `filenames`. Retrieves the information from the command list and posts the
+        specified information to the channel.
         """
         cmd = self.commands[command]
         await ctx.channel.send(cmd["response"])
+
         if "filename" in cmd:
             with open(os.path.join(RESOURCES_DIR, cmd["filename"]), "rb") as file:
                 picture = discord.File(file)
                 await ctx.channel.send(file=picture)
+
+        if "filenames" in cmd:
+            with open(
+                os.path.join(RESOURCES_DIR, random.choice(cmd["filenames"])), "rb",
+            ) as file:
+                picture = discord.File(file)
+                await ctx.channel.send(file=picture)
+
         self.logger.info(
             f"Member {ctx.message.author.name} sent !{command} "
             + f"to the {ctx.channel.name} channel!"
@@ -70,18 +77,6 @@ class Command(commands.Cog):
             # Grab command name from the error output
             command = re.findall(r'"(.*?)"', str(error))[0]
             if command in self.commands:
-                await self.send_command(ctx, command)
+                await self._send_command(ctx, command)
                 return
         raise error
-
-    @commands.command()
-    async def gay(self, ctx):
-        """
-        The !gay command, for producing a random image to use in response to
-        a Rainbow shot on Shellshock Live.
-        """
-        response = "Ooh, wee! Here's how gay that shot was!"
-        await ctx.channel.send(response)
-        with open(os.path.join(RESOURCES_DIR, random.choice(GAY_FILES)), "rb",) as file:
-            picture = discord.File(file)
-            await ctx.channel.send(file=picture)

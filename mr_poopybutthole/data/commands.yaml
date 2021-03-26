@@ -37,6 +37,15 @@ fu2:
 fuckmas:
   filename: fuckmas.jpg
   response: Ooh, wee! Ho, ho ho, motherfuckers!
+gay:
+  filenames:
+  - gay1.jpg
+  - gay2.jpg
+  - gay3.jpg
+  - gay4.jpg
+  - gay5.jpg
+  - gay6.jpg
+  response: Ooh, wee! Here's how gay that shot was!
 halp:
   filename: halp.jpg
   response: Ooh, wee! Sounds like somebody is in a bit over their head!

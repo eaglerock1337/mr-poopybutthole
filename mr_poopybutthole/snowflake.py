@@ -6,7 +6,13 @@ import yaml
 from discord.ext import commands
 from time import sleep
 
-from .constants import RESOURCES_DIR, SNOWFLAKES_FILE
+from .constants import (
+    FOOTER_TEXT,
+    ICON_URL,
+    RESOURCES_DIR,
+    REPO_URL,
+    SNOWFLAKES_FILE,
+)
 
 
 class Snowflake(commands.Cog):
@@ -19,13 +25,18 @@ class Snowflake(commands.Cog):
     def __init__(self, bot):
         self.logger = logging.getLogger(__name__)
         self.bot = bot
-        self.thelist = yaml.load(open(SNOWFLAKES_FILE), Loader=yaml.FullLoader)
+
+        snowflake_data = yaml.load(open(SNOWFLAKES_FILE), Loader=yaml.FullLoader)
+        self.commands = snowflake_data["commands"]
+        self.thelist = snowflake_data["snowflakes"]
+        self.safephrase = snowflake_data["safephrase"].lower()
+
         self.snowflake_list = {}
         for snowflake in self.thelist.keys():
             self.snowflake_list[snowflake] = True
         self.snowflake_mode = False
 
-    async def set_snowflake_name(self, snowflake, member, reset=False):
+    async def _set_snowflake_name(self, snowflake, member, reset=False):
         """
         Set or reset the nickname of a specific snowflake. Requires the
         snowflake name, their member object (which can be obtained from
@@ -47,7 +58,7 @@ class Snowflake(commands.Cog):
                 f"Set snowflake {snowflake['name']}'s nickname to {snowflake['nickname']}!"
             )
 
-    async def set_snowflake_names(self, guild, reset=False):
+    async def _set_snowflake_names(self, guild, reset=False):
         """
         Sets or resets the nicknames for all snowflakes that have not
         retreated to their safe space. Requires the guild object passed in
@@ -60,7 +71,68 @@ class Snowflake(commands.Cog):
         for snowflake in self.thelist.keys():
             if self.snowflake_list[snowflake]:
                 member = await guild.fetch_member(snowflake)
-                await self.set_snowflake_name(self.thelist[snowflake], member, reset)
+                await self._set_snowflake_name(self.thelist[snowflake], member, reset)
+
+    async def _send_snowflake_embed(self, ctx, command):
+        """
+        Generates the embed message for Snowflake Mode. Parses the 
+        """
+        if self.snowflake_mode:
+            color = discord.Color.red()
+            status = "Enabled"
+        else:
+            color = discord.Color.green()
+            status = "Disabled"
+
+        if command == "safespace":
+            description = self.thelist[ctx.author.id]["disable"]
+        else:
+            description = self.commands[command]["response"]
+
+        image = self.commands[command]["filename"]
+
+        embed = discord.Embed(
+            title=f"Snowflake Mode - {status}",
+            url=REPO_URL,
+            description=description,
+            color=color,
+        )
+        embed.set_author(
+            name=f"Oooowee, {ctx.author.name}!", icon_url=ctx.author.avatar_url
+        )
+        embed.set_thumbnail(url=ICON_URL)
+        embed.set_image(url=image)
+        embed.set_footer(icon_url=ICON_URL, text=FOOTER_TEXT)
+
+        enabled_text = disabled_text = ""
+        for snowflake in self.thelist.keys():
+            snowflake_text = f"{self.thelist[snowflake]['name']}: <@{snowflake}>\n"
+            if self.snowflake_list[snowflake]:
+                enabled_text += snowflake_text
+            else:
+                disabled_text += snowflake_text
+
+        enabled_text = "None" if enabled_text == "" else enabled_text
+        disabled_text = "None" if disabled_text == "" else disabled_text
+
+        embed.add_field(name="Current Status:", value=status, inline=False)
+        embed.add_field(
+            name="Danger Zone Snowflakes:", value=enabled_text, inline=False
+        )
+        embed.add_field(
+            name="Safe Space Snowflakes:", value=disabled_text, inline=False
+        )
+        embed.add_field(
+            name="Current Safe Phrase:", value=f"`{self.safephrase}`", inline=False
+        )
+        embed.add_field(
+            name="For help:",
+            value="Type `!help snowflake` for more info on Snowflake Mode! Ooooooh, wee!",
+            inline=False,
+        )
+
+        await ctx.channel.send(embed=embed)
+        self.logger.info(f"Sent Snowflake Mode status embed to {ctx.channel.name}!")
 
     @commands.Cog.listener()
     async def on_message(self, message):
@@ -68,8 +140,8 @@ class Snowflake(commands.Cog):
         The main listener routine that Snowflake Mode uses to respond to users.
         The routine will check if Snowflake Mode is enabled, and send a message
         if the user hasn't retreated to their safe space, as well as change their
-        nickname. If they type the `i made a doody` safe space message, it will
-        disable their Snowflake Mode and reset their nickname. 
+        nickname. If they type the safe phrase message, the user will retreat to their
+        safe space by disabling Snowflake Mode for them and resetting their nickname. 
         """
         if message.author == self.bot.user:
             return
@@ -82,24 +154,29 @@ class Snowflake(commands.Cog):
                 snowflake = self.thelist[message.author.id]
                 if self.snowflake_list[message.author.id]:
                     sleep(1)
-                    if "i made a doody" in message.content.lower():
+
+                    if self.safephrase in message.content.lower():
                         self.snowflake_list[message.author.id] = False
+
                         await message.channel.send(snowflake["disable"])
                         with open(
                             os.path.join(RESOURCES_DIR, "safespace.gif"), "rb",
                         ) as file:
                             picture = discord.File(file)
                             await message.channel.send(file=picture)
+
                         member = await message.guild.fetch_member(message.author.id)
-                        await self.set_snowflake_name(snowflake, member, reset=True)
+                        await self._set_snowflake_name(snowflake, member, reset=True)
                         self.logger.info(
                             f"{snowflake.name} retreated to their safe space!"
                         )
+
                     else:
                         response = f"{snowflake['message']}\n{snowflake['video']}"
                         await message.channel.send(response)
+
                         member = await message.guild.fetch_member(message.author.id)
-                        await self.set_snowflake_name(snowflake, member)
+                        await self._set_snowflake_name(snowflake, member)
                         self.logger.info(
                             f"Bugged {snowflake.name} in {message.channel.name}!"
                         )
@@ -122,41 +199,50 @@ class Snowflake(commands.Cog):
                 return
 
             if self.snowflake_list[after.id]:
-                self.set_snowflake_name(after.id, after)
+                self._set_snowflake_name(after.id, after)
 
     @commands.command()
-    async def snowflake(self, ctx, arg="on"):
+    async def snowflake(self, ctx, arg="status"):
         """
-        The main !snowflake command, that has three options:
+        The main !snowflake command, that has five options:
 
-        `on` (default) - enable Snowflake Mode for all users that have not retreated to
+        `status` (default) - get a status on Snowflake Mode (same as `!snowflakes`)
+
+        `on` - enable Snowflake Mode for all users that have not retreated to
         their safe space, and change their nicknames.
 
         `off` - disable Snowflake Mode for all users and reset all nicknames.
 
+        `safespace` - disable Snowflake Mode for a specific user and retreat to their safe space.
+
         `force` - enable Snowflake Mode for all users, even those that have explicitly
         retreated to their safe space. Can only be invoked by snowflakes!
         """
+        arg = arg.lower()
+
+        # Command conditionals
         if arg == "on":
             self.snowflake_mode = True
-            response = "Ooh, wee! We're gonna get some people pissed off, tonight!"
-            await ctx.channel.send(response)
-            await self.set_snowflake_names(ctx.message.guild)
-            with open(os.path.join(RESOURCES_DIR, "snowflake.jpg"), "rb") as file:
-                picture = discord.File(file)
-                await ctx.channel.send(file=picture)
+            await self._set_snowflake_names(ctx.message.guild)
             self.logger.info(
                 f"{ctx.author.name} enabled Snowflake Mode in {ctx.channel.name}!"
             )
 
         elif arg == "off":
+            if ctx.author.id in self.thelist and self.snowflake_list[ctx.author.id]:
+                response = (
+                    f"You can't turn off Snowflake Mode, {ctx.author.name}! "
+                    + "You should try retreating to your safe space first! Ooh, wee!"
+                )
+                await ctx.channel.send(response)
+                self.logger.info(
+                    f"Snowflake {ctx.author.name} tried to turn off Snowflake Mode "
+                    + f"in {ctx.channel.name} but isn't in their safe space!"
+                )
+                return
+
             self.snowflake_mode = False
-            response = "Ooh, wee! Looks like *all* the snowflakes need a break!"
-            await ctx.channel.send(response)
-            await self.set_snowflake_names(ctx.message.guild, reset=True)
-            with open(os.path.join(RESOURCES_DIR, "privilege.jpg"), "rb") as file:
-                picture = discord.File(file)
-                await ctx.channel.send(file=picture)
+            await self._set_snowflake_names(ctx.message.guild, reset=True)
             self.logger.info(
                 f"{ctx.author.name} disabled Snowflake Mode in {ctx.channel.name}!"
             )
@@ -176,14 +262,29 @@ class Snowflake(commands.Cog):
             for snowflake in self.snowflake_list.keys():
                 self.snowflake_list[snowflake] = True
 
-            response = "Ooh, wee! Time for all your safe spaces to burn down!"
-            await ctx.channel.send(response)
-            await self.set_snowflake_names(ctx.message.guild)
-            with open(os.path.join(RESOURCES_DIR, "safespace.jpg"), "rb") as file:
-                picture = discord.File(file)
-                await ctx.channel.send(file=picture)
+            await self._set_snowflake_names(ctx.message.guild)
             self.logger.info(
-                f"{ctx.author.name} disabled Snowflake Mode in {ctx.channel.name}!"
+                f"Snowflake {ctx.author.name} forced Snowflake Mode in {ctx.channel.name}!"
+            )
+
+        elif arg == "safespace":
+            self.snowflake_list[ctx.author.id] = False
+            self.logger.info(f"{ctx.author.name} retreated to their safe space!")
+
+        elif arg == "status":
+            self.logger.info(
+                f"{ctx.author.name} requested Snowflake Mode status in {ctx.channel.name}!"
+            )
+
+        # Display conditionals
+        if arg in self.commands:
+            await self._send_snowflake_embed(ctx, arg)
+
+        else:
+            response = f"Hey {ctx.author.name}, try to get the command right next time! Oooooh, wee!"
+            await ctx.channel.send(response)
+            self.logger.info(
+                f"{ctx.author.name} doesn't know how to use the snowflake command!"
             )
 
     @commands.command()
@@ -192,39 +293,4 @@ class Snowflake(commands.Cog):
         The !snowflakes command, which will print out some status info on Snowflake Mode,
         such as whether it is enabled, and what users have retreated to their safe space.
         """
-        response = "Ooh, wee! Let's see how the snowflakes are doing!"
-        await ctx.channel.send(response)
-        with open(os.path.join(RESOURCES_DIR, "snowflakes.jpg"), "rb") as file:
-            picture = discord.File(file)
-            await ctx.channel.send(file=picture)
-
-        snowflake_mode = "enabled" if self.snowflake_mode else "disabled"
-        response = (
-            f"It looks like snowflake mode is currently {snowflake_mode}! Ooh, wee!\n"
-        )
-
-        if self.snowflake_mode:
-            enabled_snowflakes = []
-            disabled_snowflakes = []
-            for snowflake in self.thelist.keys():
-                if self.snowflake_list[snowflake]:
-                    enabled_snowflakes.append(snowflake)
-                else:
-                    disabled_snowflakes.append(snowflake)
-
-            if len(enabled_snowflakes) > 0:
-                response += "\nThe following snowflakes better watch out:\n"
-                for snowflake in enabled_snowflakes:
-                    response += f"{self.thelist[snowflake]['name']}: <@{snowflake}>\n"
-
-            if len(disabled_snowflakes) > 0:
-                response += "\nThese snowflakes had to retreat to their safe space:\n"
-                for snowflake in disabled_snowflakes:
-                    response += f"{self.thelist[snowflake]['name']}: <@{snowflake}>\n"
-
-            response += (
-                "\nRemember snowflakes, just type `i made a doody` if the victimization "
-                + "is too much and you need to go to your safe space! Ooooooh, wee!"
-            )
-
-        await ctx.channel.send(response)
+        await self._send_snowflake_embed(ctx, "status")

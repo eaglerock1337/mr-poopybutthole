@@ -1,8 +1,14 @@
 # Overall repo codeowners
 * @eaglerock1337
 
-# Codeowners of config files
+# Codeowners of config files (for adding contributors)
 mr_poopybutthole/data/* @eaglerock1337
+
+# Codeowners of resource files (for adding contributors)
+mr_poopybutthole/resources/* @eaglerock1337
+
+# Codeowners of snowflake mode
+mr_poopybutthole/data/snowflake.yaml @eaglerock1337
 
 # Codeowners of snowflake mode
 mr_poopybutthole/data/snowflake.yaml @eaglerock1337

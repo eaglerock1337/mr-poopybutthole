@@ -1,5 +1,36 @@
 # changelog for mr-poopybutthole
 
+## 1.0.0 - 3/26/2021
+
+We made it to 1.0! Oooooooh, wee!
+
+### 1.0.0 - Added
+
+- Random image support added to `Listener` and `Command` YAML files
+- Added log output support to Docker through `make logs`
+- Added command and listener totals to help commands
+- Added `!snowflake` and `!snowflake status` as aliases to `!snowflakes`
+- Added `!snowflake safespace` as a way to snowflakes to retreat to their safe space
+- `Makefile` now supports local testing, viewing logs, linting, and testing
+- `constants.py` now includes necessary media/constants for displaying all embeds
+
+### 1.0.0 - Changed
+
+- Improved `!help commands` and `!help listeners` commands:
+  - Programatic formatting of list under `description` instead of using unreliable Discord embed fields
+  - No more images attached to keep commands smaller and wider
+  - Totals of commands or listeners printed as well
+  - Much better formatting overall
+- Help commands now show the name and avatar of the person calling the command instead of Mr. Poopybutthole
+- Snowflakes can no longer use `!snowflake off` unless they are already in their safe space
+- Safe phrases are now changeable in the config files, not hardcoded
+
+### 1.0.0 - Fixed
+
+- Final hardcoded command has been moved to YAML!
+- `!help commands` and `!help listeners` no longer render text each time they are called, increasing performance
+- [CONTRIBUTING.md](CONTRIBUTING.md) file now has up-to-date instructions on adding bot commands/listeners
+
 ## 0.9.5 - 3/25/2021
 
 ### 0.9.5 - Added

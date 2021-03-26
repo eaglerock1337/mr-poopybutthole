@@ -1,8 +1,15 @@
 import os
 
+from datetime import datetime
+
 # Constants for Mr. Poopybutthole module
 
-VERSION = "0.9.5"
+VERSION = "1.0.0"
+
+REPO_URL = "https://github.com/eaglerock1337/mr-poopybutthole"
+ICON_URL = "https://cdn.discordapp.com/app-icons/741883337156853781/41a1b01e5828ecadd517a57f62c07018.png"
+HELP_IMAGE_URL = "https://raw.githubusercontent.com/eaglerock1337/mr-poopybutthole/main/mr_poopybutthole/resources/oohwee.gif"
+FOOTER_TEXT = f"Mr. Poopybutthole v{VERSION} (c) {datetime.now().year} EagleRock"
 
 MAIN_CHANNEL = 362982581068890113
 

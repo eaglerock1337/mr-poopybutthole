@@ -36,9 +36,22 @@ Note that the indentation is required. All command names must be at the start of
 
 To add your own command, first insert it in the YAML file in alphabetical order.
 
-Next, specify the `filename` of the image the command will display. The file should be added to the `resources` directory with the exact filename as displayed. Note that all image types (`jpg`, `gif`, `png`, etc.) are accepted, as well as small videos like `mp4` files.
+Next, add a `response` for the command to say. Note that quotes aren't required except in certain situations.
 
-Finally, add a `response` for the command to say. Note that quotes aren't required except in certain situations.
+If you have an image you'd like to add, specify the `filename` of the image the command will display. The file should be added to the `resources` directory with the exact filename as displayed. Note that all image types (`jpg`, `gif`, `png`, etc.) are accepted, as well as small videos like `mp4` files.
+
+If you would like to post a random image instead, specify a list under the `filenames` header like follows:
+
+```yaml
+rando:
+  filenames:
+    - random_file1.jpg
+    - random_file2.jpg
+    - random_file3.jpg
+  response: Ooh, wee! This command will post a random image from the above list!
+```
+
+Once done, make sure to upload all images specified under `filenames` to the `resources` directory as well.
 
 ## adding a listener
 
@@ -61,7 +74,21 @@ Next, make a list of `matches` that you want the bot to respond to. For the abov
 
 Next, specify a `response` for Mr. Poopybutthole to say in response. It should usually be a single sentence, and have "Ooh, wee!" before or after it.
 
-Optionally, if you want to include an image as well, add the `filename` line with the name of the file. Make sure you upload the file to the `resources` directory as well!
+Optionally, if you want to include an image, add the `filename` line with the name of the file. Make sure you upload the file to the `resources` directory as well!
+
+Finally, you can also specify a list of images to be displayed randomly. To do so, add the list under `filenames` and upload all files to the `resources` directory. An example command is below:
+
+```yaml
+rando:
+  filenames:
+    - random1.jpg
+    - random2.jpg
+    - random3.jpg
+  matches:
+  - random
+  - listener
+  response: Ooh, wee! This is very random!
+```
 
 ## submitting a pull request
 

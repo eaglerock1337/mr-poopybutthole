@@ -21,20 +21,33 @@ class Listener(commands.Cog):
         self.bot = bot
         self.listeners = yaml.load(open(LISTENERS_FILE), Loader=yaml.FullLoader)
 
-    async def send_message(self, message, listener):
+    async def _send_message(self, message, listener):
         """
-        Sends a standard message response consisting of a text response and an optional picture.
-        It obtains this from the above command list by using the provided command name, and
-        retrieves the matches, response, and tests if it should send based on the matches.
-        Returns true if the match was successful, false otherwise.
+        Sends a standard message containing a text response and an optional picture.
+        The routine will check `message` for all `matches` specified for the `listener`.
+        If a match is found, it will respond with the `response` text and return `True`
+        to the calling function, otherwise it will return `False`.
+
+        The command optionally supports an image to be posted specified by `filename`
+        for the `listener`, and also supports posting a random picture specified by a
+        list under `filenames`.
         """
         lst = self.listeners[listener]
         if any(c in message.content.lower() for c in lst["matches"]):
             await message.channel.send(lst["response"])
+
             if "filename" in lst:
                 with open(os.path.join(RESOURCES_DIR, lst["filename"]), "rb") as file:
                     picture = discord.File(file)
                     await message.channel.send(file=picture)
+
+            if "filenames" in lst:
+                with open(
+                    os.path.join(RESOURCES_DIR, random.choice(lst["filenames"])), "rb",
+                ) as file:
+                    picture = discord.File(file)
+                    await message.channel.send(file=picture)
+
             self.logger.info(
                 f"Sent {listener} listener to {message.channel.name} "
                 + f"channel due to {message.author.name}!"
@@ -57,7 +70,7 @@ class Listener(commands.Cog):
             return
 
         for listener in self.listeners.keys():
-            if await self.send_message(message, listener):
+            if await self._send_message(message, listener):
                 return
 
         matches = ["ooh", "wee"]
