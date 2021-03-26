@@ -7,7 +7,7 @@ main:
 
     **Listeners** - I'll say these when you say the right things in your messages, such as `adonis` `superman`! They'll pop up even if you don't expect them to!
 
-    **Snowflake Mode** - A super-special troll mode for all you special snowflakes out there! Type `!snowflake` to start the party!
+    **Snowflake Mode** - A super-special troll mode for all you special snowflakes out there! Type `!snowflake on` to start the party!
 
     **Help Topics**
   image: True
@@ -47,7 +47,7 @@ snowflake:
       value: Turns on Snowflake Mode for everyone, even those already in their safe space! Can only be run by fellow snowflakes, though!
     safespace:
       name: "!snowflake safespace"
-      value: Retreat to your safe space...I'll leave you alone after you say this!
+      value: Retreat to your safe space...I'll leave you alone after you use this command!
     safephrase:
       name: "Saying the Safe Phrase"
       value: Another way to retreat to your safe space... Type `!snowflake` to see the current safe phrase!
