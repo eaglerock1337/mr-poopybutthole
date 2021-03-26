@@ -39,7 +39,10 @@ To run outside of Docker, you can take advantage of Pipenv to run as follows:
 - `DONE` - Modify the `commands` and `listeners` lists to be imported by YAML files for easier cataloging
 - `DONE` - Split `oohwee.py` into the core `Oohwee`, `Listener`, `Command`, and `Snowflake` classes
 - `DONE` - Remove code complexity and redundancy
+- `DONE` - Super Snowflake Mode: also update user nicknames as well as respond to everything the snowflakes say
 - Make a much better `!help` command that is more concise and supports other help commands such as `!help commands` or `!help snowflake`
+- Make the `!snowflakes` command look better as well, just like the help command
+- Better commands for announcing when Mr. Poopybutthole is loaded, as well as sending messages when players join
 
 ## future plans
 

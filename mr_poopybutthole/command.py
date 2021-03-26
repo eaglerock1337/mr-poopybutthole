@@ -1,11 +1,17 @@
 import discord
 import os
 import logging
+import random
+import re
 import yaml
 
 from discord.ext import commands
+from discord.ext.commands.errors import CommandNotFound
 
 from .constants import COMMANDS_FILE, RESOURCES_DIR
+
+
+GAY_FILES = ["gay1.jpg", "gay2.jpg", "gay3.jpg", "gay4.jpg", "gay5.jpg", "gay6.jpg"]
 
 
 class Command(commands.Cog):
@@ -22,36 +28,60 @@ class Command(commands.Cog):
         self.bot = bot
         self.commands = yaml.load(open(COMMANDS_FILE), Loader=yaml.FullLoader)
 
-    async def send_command(self, message, command):
+    async def send_command(self, ctx, command):
         """
         Sends a standard command response consisting of a text response and an optional picture.
         It obtains this from the above command list by using the provided command name.
         Takes the message info, and response with the given message and filename.
         """
         cmd = self.commands[command]
-        await message.channel.send(cmd["response"])
+        await ctx.channel.send(cmd["response"])
         if "filename" in cmd:
             with open(os.path.join(RESOURCES_DIR, cmd["filename"]), "rb") as file:
                 picture = discord.File(file)
-                await message.channel.send(file=picture)
+                await ctx.channel.send(file=picture)
         self.logger.info(
-            f"Member {message.author.name} sent !{command} "
-            + f"to the {message.channel.name} channel!"
+            f"Member {ctx.message.author.name} sent !{command} "
+            + f"to the {ctx.channel.name} channel!"
         )
 
     @commands.Cog.listener()
-    async def on_message(self, message):
+    async def on_command_error(self, ctx, error):
         """
-        Main routine for generic meme commands for Mr. Poopybutthole. Verifies
-        the command is in fact a command, grabs the text immediately after the !,
-        and checks the command set for a match, sending the meme if matched.
+        This function handles all commands defined in the commands YAML file and
+        stored in self.commands in the Command class. It does this by hijacking
+        all `CommandNotFound` errors the bot receives by listening for all
+        `on_command_error()` Discord events as follows:
+        
+        First, check that the error is a CommandNotFound type. Second, use the
+        `re.findall()` command to grab the command from the error text, which will
+        look something like this:
+
+        `discord.ext.commands.errors.CommandNotFound: Command "oohwee" is not found`
+        
+        Second, use the `re.findall()` regex function to parse the first result in
+        the error text that's inside quotes, which will be the command name.
+        
+        Finally, check the command against the imported command list, and
+        invoke the `send_command()` function if found. Otherwise, raise the error
+        normally and avoid swallowing unnecesary errors.
         """
-        if message.author == self.bot.user:
-            return
+        if isinstance(error, CommandNotFound):
+            # Grab command name from the error output
+            command = re.findall(r'"(.*?)"', str(error))[0]
+            if command in self.commands:
+                await self.send_command(ctx, command)
+                return
+        raise error
 
-        if not message.content.startswith("!"):
-            return
-
-        command = message.content[1:].split(" ")[0]
-        if command in self.commands:
-            await self.send_command(message, command)
+    @commands.command()
+    async def gay(self, ctx):
+        """
+        The !gay command, for producing a random image to use in response to
+        a Rainbow shot on Shellshock Live.
+        """
+        response = "Ooh, wee! Here's how gay that shot was!"
+        await ctx.channel.send(response)
+        with open(os.path.join(RESOURCES_DIR, random.choice(GAY_FILES)), "rb",) as file:
+            picture = discord.File(file)
+            await ctx.channel.send(file=picture)

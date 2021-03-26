@@ -88,6 +88,9 @@ ole:
 oof:
   filename: oof.gif
   response: Ooh, wee! That was oof-worthy!
+oohwee:
+  filename: oohwee.png
+  response: "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOH,\nWEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE!"
 opinion:
   filename: opinion.png
   response: Ooh, wee! Here's what you can do with your opinion!

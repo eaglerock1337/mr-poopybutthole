@@ -65,3 +65,7 @@ class Listener(commands.Cog):
         if any(c in message.content.lower() for c in matches):
             response = "O" + "o" * random.randint(2, 15) + "h, wee!"
             await message.channel.send(response)
+            self.logger.info(
+                f"Sent default oohwee listener to {message.channel.name} "
+                + f"channel due to {message.author.name}!"
+            )

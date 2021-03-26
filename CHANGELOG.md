@@ -1,5 +1,28 @@
 # changelog for mr-poopybutthole
 
+## 0.9.5 - 3/25/2021
+
+### 0.9.5 - Added
+
+- Super Snowflake Mode - Snowflake Mode now updates user nicknames as well as bothers them
+- Users will no longer be able to change their server nicknames while Snowflake Mode is enabled
+- Snowflake Mode can now only be forced on by fellow snowflakes
+- Even more memes!
+
+### 0.9.5 - Changed
+
+- The new `!help` command system is here!
+- `!help main` or just `!help` provides a concise, nicely formatted help page
+- `!help commands` provides the command list
+- `!help listeners` provides the listeners and their matches
+- `!help snowflake` provides the deets on Snowflake mode
+- Function documentation is now more complete and uses proper formating for functions and keywords
+
+### 0.9.5 - Fixed
+
+- Commands in the YAML file used to throw errors, but now are now sent through missing command events, making the command routine much, much cleaner as well as more efficient
+- Logging is now more complete and will log on most bot events
+
 ## 0.9.0 - 3/25/2021
 
 ### 0.9.0 - Added
@@ -19,8 +42,9 @@
 
 ### 0.9.0 - Fixed
 
-- Version of bot is now specified in one place
+- Version of bot is now specified in one place in `constants.py`
 - Makefile no longer requires updating for each version
+- `__version__` is now accessible inside the module itself
 - Unnecessary decorators removed from base functions
 - Some unreferenced memes have been fixed
 

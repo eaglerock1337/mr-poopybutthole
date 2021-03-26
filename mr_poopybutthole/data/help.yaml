@@ -1,0 +1,62 @@
+url: https://github.com/eaglerock1337/mr-poopybutthole
+name: Mr. Poopybutthole
+icon: https://cdn.discordapp.com/app-icons/741883337156853781/41a1b01e5828ecadd517a57f62c07018.png
+thumbnail: https://cdn.discordapp.com/app-icons/741883337156853781/41a1b01e5828ecadd517a57f62c07018.png
+license: https://github.com/eaglerock1337/mr-poopybutthole/blob/main/LICENSE
+image: https://raw.githubusercontent.com/eaglerock1337/mr-poopybutthole/main/mr_poopybutthole/resources/oohwee.gif
+commands:
+  main:
+    title: "Meet Mr. Poopybutthole!\nOoooooooooooh, wee!"
+    description: |-2
+      I am a handy-dandy bot that is a one-stop meme shop! My memes are split into three categories:
+
+      **Commands** - These are commands I accept that start with a `!`, such as `!oohwee` or `!ole`!
+
+      **Listeners** - I'll say these when you say the right things in your messages, such as `adonis` `superman`! They'll pop up even if you don't expect them to!
+
+      **Snowflake Mode** - A super-special troll mode for all you special snowflakes out there!
+
+      **`Help Topics`**
+      Use the following commands to learn more about me! Ooooh, wee!
+    fields:
+      commands:
+        name: "!help commands"
+        value: List all the commands I support!
+      listeners:
+        name: "!help listeners"
+        value: List all my listeners and their trigger words!
+      snowflake:
+        name: "!help snowflake"
+        value: Get more details on how Snowflake Mode works! Ooh, wee!
+  snowflake:
+    title: "Mr. Poopybutthole\nSnowflake Mode"
+    description: |-2
+      Sometimes, you just gotta troll someone, right? Snowflake Mode does just that!
+
+      Turning it on will make me respond to everyone's messages and even change their nickname!
+
+      I'll keep going until you say the safe word and decide to retreat to your safe space!
+
+      **`Snowflake Mode Commands``**
+    fields:
+      snowflake:
+        name: "!snowflake"
+        value: Turns on Snowflake Mode! I'll start annoying anyone that hasn't retreated to their safe space!
+      on:
+        name: "!snowflake on"
+        value: Turns on Snowflake Mode (the same as `!snowflake`)!
+      off:
+        name: "!snowflake off"
+        value: Turns off Snowflake Mode for everyone!
+      force:
+        name: "!snowflake force"
+        value: Turns on Snowflake Mode for everyone, even those already in their safe space! Can only be run by fellow snowflakes, though!
+      doody:
+        name: "i made a doody"
+        value: The message you can type to retreat to your safe space...I'll leave you alone after you say this!
+  commands:
+    title: Mr. Poopybutthole Commands
+    description: Here's all the commands I support! Ooh, wee!
+  listeners:
+    title: Mr. Poopybutthole Listeners
+    description: Here's all the listeners I support, and the keywords that trigger them! Ooh, wee!
