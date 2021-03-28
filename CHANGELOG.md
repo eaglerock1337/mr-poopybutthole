@@ -1,5 +1,20 @@
 # changelog for mr-poopybutthole
 
+## 1.0.2 - 3/28/2021
+
+### 1.0.2 - Added
+
+- Development mode supported for local iterative testing in separate Discord channels
+- Development mode supports separate Discord tokens and notification channels
+- Snowflake mode now sends emoji to Snowflakes in their Safe Space
+- `!snowflake brave` allows Snowflakes to rejoin the action
+
+### 1.0.2 - Changed
+
+- The main notification channel is now configurable by the `.env` file
+- Memes in embeds no longer need the full GitHub URL in the YAML file
+- Meme URLs will pull from your local testing branch in dev mode, `main` otherwise
+
 ## 1.0.0 - 3/26/2021
 
 We made it to 1.0! Oooooooh, wee!
@@ -155,11 +170,3 @@ We made it to 1.0! Oooooooh, wee!
 - Commands and autoreponders created
 - Ability to post text and images
 - Some easter eggs added for certain Discord members
-
-### 0.1.0 - Changed
-
-N/A
-
-### 0.1.0 - Fixed
-
-N/A

@@ -9,8 +9,10 @@ from time import sleep
 from .constants import (
     FOOTER_TEXT,
     ICON_URL,
+    IMAGE_URL_HEADER,
     RESOURCES_DIR,
     REPO_URL,
+    SNOWFLAKE_EMOJI,
     SNOWFLAKES_FILE,
 )
 
@@ -89,7 +91,7 @@ class Snowflake(commands.Cog):
         else:
             description = self.commands[command]["response"]
 
-        image = self.commands[command]["filename"]
+        image = os.path.join(IMAGE_URL_HEADER, self.commands[command]["filename"])
 
         embed = discord.Embed(
             title=f"Snowflake Mode - {status}",
@@ -152,9 +154,9 @@ class Snowflake(commands.Cog):
         if self.snowflake_mode:
             if message.author.id in self.thelist:
                 snowflake = self.thelist[message.author.id]
-                if self.snowflake_list[message.author.id]:
-                    sleep(1)
+                sleep(1)
 
+                if self.snowflake_list[message.author.id]:
                     if self.safephrase in message.content.lower():
                         self.snowflake_list[message.author.id] = False
 
@@ -168,7 +170,7 @@ class Snowflake(commands.Cog):
                         member = await message.guild.fetch_member(message.author.id)
                         await self._set_snowflake_name(snowflake, member, reset=True)
                         self.logger.info(
-                            f"{snowflake.name} retreated to their safe space!"
+                            f"{snowflake['name']} retreated to their safe space!"
                         )
 
                     else:
@@ -178,8 +180,14 @@ class Snowflake(commands.Cog):
                         member = await message.guild.fetch_member(message.author.id)
                         await self._set_snowflake_name(snowflake, member)
                         self.logger.info(
-                            f"Bugged {snowflake.name} in {message.channel.name}!"
+                            f"Bugged {snowflake['name']} in {message.channel.name}!"
                         )
+                else:
+                    for char in SNOWFLAKE_EMOJI:
+                        await message.add_reaction(char)
+                    self.logger.info(
+                        f"Add reactions to {snowflake['name']} in {message.channel.name}!"
+                    )
 
     @commands.Cog.listener()
     async def on_member_update(self, before, after):
@@ -270,6 +278,12 @@ class Snowflake(commands.Cog):
         elif arg == "safespace":
             self.snowflake_list[ctx.author.id] = False
             self.logger.info(f"{ctx.author.name} retreated to their safe space!")
+
+        elif arg == "brave":
+            self.snowflake_list[ctx.author.id] = True
+            self.logger.info(
+                f"Brave snowflake {ctx.author.name} emerged from their safe space!"
+            )
 
         elif arg == "status":
             self.logger.info(

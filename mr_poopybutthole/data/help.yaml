@@ -34,7 +34,7 @@ snowflake:
   image: False
   fields:
     snowflake:
-      name: "!snowflake, !snowflake status, !snowflakes"
+      name: "!snowflake` `!snowflake status` `!snowflakes"
       value: Get the status on Snowflake Mode! See whether it is enabled and who is in their safe space!
     on:
       name: "!snowflake on"
@@ -48,6 +48,9 @@ snowflake:
     safespace:
       name: "!snowflake safespace"
       value: Retreat to your safe space...I'll leave you alone after you use this command!
+    brave:
+      name: "!snowflake brave"
+      value: Emerge from your safe space...you brave snowflake you!
     safephrase:
       name: "Saying the Safe Phrase"
       value: Another way to retreat to your safe space... Type `!snowflake` to see the current safe phrase!

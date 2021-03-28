@@ -14,6 +14,7 @@ python-dotenv = "*"
 pyyaml = "*"
 numpy = "*"
 jinja2 = "*"
+gitpython = "*"
 
 [requires]
 python_version = "3"

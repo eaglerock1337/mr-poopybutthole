@@ -30,9 +30,7 @@ def get_args():
     Gets command-line arguments for the Mr-Poopybutthole Discord bot.
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--dev", action="store_true", help="Enable development mode."
-    )
+    parser.add_argument("--dev", action="store_true", help="Enable development mode.")
 
     return parser.parse_args()
 

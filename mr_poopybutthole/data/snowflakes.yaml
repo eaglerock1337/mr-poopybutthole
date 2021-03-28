@@ -2,18 +2,21 @@ safephrase: I need my safe space
 commands:
   "on":
     response: Ooh, wee! We're gonna get some people pissed off, tonight!
-    filename: https://raw.githubusercontent.com/eaglerock1337/mr-poopybutthole/main/mr_poopybutthole/resources/snowflake.jpg
+    filename: snowflake.jpg
   "off":
     response: Ooh, wee! Looks like *all* the snowflakes need a break!
-    filename: https://raw.githubusercontent.com/eaglerock1337/mr-poopybutthole/main/mr_poopybutthole/resources/privilege.jpg
+    filename: privilege.jpg
   "force":
     response: Ooh, wee! Time for all your safe spaces to burn down!
-    filename: https://raw.githubusercontent.com/eaglerock1337/mr-poopybutthole/main/mr_poopybutthole/resources/safespace.jpg
+    filename: safespace.jpg
   "safespace":
-    filename: https://raw.githubusercontent.com/eaglerock1337/mr-poopybutthole/main/mr_poopybutthole/resources/safespace.gif 
+    filename: safespace.gif
+  "brave":
+    response: Ooh, wee! Someone is being a brave snowflake, aren't they?
+    filename: brave.gif
   "status":
     response: Ooh, wee! Let's see how the snowflakes are doing!
-    filename: https://raw.githubusercontent.com/eaglerock1337/mr-poopybutthole/main/mr_poopybutthole/resources/snowflakes.jpg
+    filename: snowflakes.jpg
 snowflakes:
   533873187780558848:
     name: Chris S

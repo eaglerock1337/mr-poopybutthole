@@ -31,10 +31,12 @@ This is a very troll-tastic bot, but it actually has some decent features:
   - All snowflakes, custom messages, and links to videos are defined in YAML
   - Status can be displayed by either `!snowflake`, `!snowflake status`, or `!snowflakes`
   - Can be enabled/disabled by `!snowflake on` and `!snowflake off`, respectively
-  - Snowflakes can only turn off Snowflake Mode if they first retreat to their safe space with `!snowflake safespace`
-  - Snowflakes can also retreat to their safe space by typing a configurable safe phrase
   - When on, all snowflakes will get a custom response for _every_ non-command message they post
   - Snowflakes will also have their nicknames customized by the bot, and will not be able to change it back
+  - Snowflakes can retreat to their safe space with `!snowflake safespace` or by typing a safe phrase
+  - Snowflakes in their safe space won't get the autorepsonder or have their nickname changed, just some annoying emoji instead
+  - Snowflakes can only turn off Snowflake Mode if they first retreat to their safe space with `!snowflake safespace`
+  - Snowflakes can choose to rejoin the fun with `!snowflake brave`
   - Snowflakes (not all members) can also use the power `!snowflake force` to override everyone and re-enable Snowflake Mode
 
 ## contributing
