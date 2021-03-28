@@ -5,7 +5,7 @@ from git import Repo
 
 # Constants for Mr. Poopybutthole module
 
-VERSION = "1.0.1"
+VERSION = "1.0.2"
 
 if os.getenv("DEV_CHANNEL"):
     local_repo = Repo(path=os.getcwd())

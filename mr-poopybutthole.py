@@ -49,7 +49,7 @@ def oohwee():
         token = os.getenv("DEV_DISCORD_TOKEN")
     else:
         os.environ["DEVMODE"] = "False"
-        token = os.getenv("MAIN_CHANNEL")
+        token = os.getenv("DISCORD_TOKEN")
 
     bot = commands.Bot(command_prefix="!")
     bot.remove_command("help")
