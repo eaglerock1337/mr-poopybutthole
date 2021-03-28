@@ -45,10 +45,10 @@ def oohwee():
     args = get_args()
 
     if args.dev:
-        os.environ["DEVMODE"] = "True"
+        os.environ["DEV_MODE"] = "True"
         token = os.getenv("DEV_DISCORD_TOKEN")
     else:
-        os.environ["DEVMODE"] = "False"
+        os.environ["DEV_MODE"] = "False"
         token = os.getenv("DISCORD_TOKEN")
 
     bot = commands.Bot(command_prefix="!")

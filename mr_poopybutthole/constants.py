@@ -1,20 +1,22 @@
 import os
 
 from datetime import datetime
-from git import Repo
 
 # Constants for Mr. Poopybutthole module
 
 VERSION = "1.0.2"
 
 if os.getenv("DEV_CHANNEL"):
+    from git import Repo
+
     local_repo = Repo(path=os.getcwd())
     BRANCH = local_repo.active_branch.name
     MAIN_CHANNEL = os.getenv("DEV_CHANNEL")
     NAME = "Mr. Poopybutthole Dev"
+
 else:
     BRANCH = "main"
-    MAIN_CHANNEL = os.getenv("MAIN_CHANNEL")
+    MAIN_CHANNEL = 362982581068890113  # TODO: Fix this later
     NAME = "Mr. Poopybutthole"
 
 IMAGE_URL_HEADER = f"https://raw.githubusercontent.com/eaglerock1337/mr-poopybutthole/{BRANCH}/mr_poopybutthole/resources/"
