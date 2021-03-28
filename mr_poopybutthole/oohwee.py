@@ -15,6 +15,7 @@ from .constants import (
     ICON_URL,
     LISTENERS_FILE,
     MAIN_CHANNEL,
+    NAME,
     REPO_URL,
     RESOURCES_DIR,
     VERSION,
@@ -139,7 +140,7 @@ class Oohwee(commands.Cog):
         the main channel as specified in the `constants.py` file.
         """
         channel = await self.bot.fetch_channel(MAIN_CHANNEL)
-        await channel.send(f"Ooh, wee! Mr. Poopybutthole v{VERSION} is online!")
+        await channel.send(f"Ooh, wee! {NAME} v{VERSION} is online!")
         self.logger.info(f"Oooh, wee! {self.bot.user.name} has connected to Discord!")
 
     @commands.Cog.listener()
@@ -153,7 +154,7 @@ class Oohwee(commands.Cog):
         await channel.send(f"Ooh, wee! {member.name} has joined the Discord!!")
         await member.create_dm()
         await member.dm_channel.send(
-            f"Oooh, wee! Welcome to the server, {member.name}! I'm Mr. Poopybutthole!\n"
+            f"Oooh, wee! Welcome to the server, {member.name}! I'm {NAME}!\n"
             + "Type `!help` to learn more about me, and have fun! Oooooooh, wee!"
         )
 
