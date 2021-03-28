@@ -23,6 +23,9 @@ env:
 local:
 	pipenv run python mr-poopybutthole.py
 
+dev:
+	pipenv run python mr-poopybutthole.py --dev
+
 test:
 	@echo "Not done yet!"
 

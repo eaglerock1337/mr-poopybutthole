@@ -13,6 +13,7 @@ pylint = "*"
 python-dotenv = "*"
 pyyaml = "*"
 numpy = "*"
+jinja2 = "*"
 
 [requires]
 python_version = "3"

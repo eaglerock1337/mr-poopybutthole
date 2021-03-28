@@ -1,3 +1,4 @@
+import argparse
 import logging
 import os
 import sys
@@ -13,7 +14,7 @@ from mr_poopybutthole.snowflake import Snowflake
 
 def get_logger():
     """
-    Create the logger for the mr-poopybutthole Discord bot.
+    Create the logger for the Mr-Poopybutthole Discord bot.
     """
     log = logging.getLogger()
     stdout_handler = logging.StreamHandler(sys.stdout)
@@ -24,6 +25,18 @@ def get_logger():
     log.setLevel(logging.INFO)
 
 
+def get_args():
+    """
+    Gets command-line arguments for the Mr-Poopybutthole Discord bot.
+    """
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--dev", action="store_true", help="Enable development mode."
+    )
+
+    return parser.parse_args()
+
+
 def oohwee():
     """
     Main routine. Creates a logger, instanciates the bot, and
@@ -31,7 +44,14 @@ def oohwee():
     """
     get_logger()
     load_dotenv()
-    TOKEN = os.getenv("DISCORD_TOKEN")
+    args = get_args()
+
+    if args.dev:
+        os.environ["DEVMODE"] = "True"
+        token = os.getenv("DEV_DISCORD_TOKEN")
+    else:
+        os.environ["DEVMODE"] = "False"
+        token = os.getenv("MAIN_CHANNEL")
 
     bot = commands.Bot(command_prefix="!")
     bot.remove_command("help")
@@ -39,10 +59,9 @@ def oohwee():
     bot.add_cog(Command(bot))
     bot.add_cog(Listener(bot))
     bot.add_cog(Snowflake(bot))
-    bot.run(TOKEN)
+    bot.run(token)
 
 
-# TODO: argparse function for taking in runtime arguments
 # TODO: toggle load_dotenv() only for running outside of k8s
 
 if __name__ == "__main__":

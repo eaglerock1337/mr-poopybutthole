@@ -53,8 +53,7 @@ This bot is configured to run locally in a Docker container for Python 3.8.
 
 ### installation
 
-- Create an `.env` file in this directory, formatted as follows, replacing `{token}` (including braces) with your server's bot token from the Discord developer portal:
-- `DISCORD_TOKEN={token}`
+- Copy `template.env` to `.env` and fill in your Discord token and main channel ID, optionally adding your dev token and ID as well.
 - Run `make` to build the docker container and run the bot
 - Run `make all` to restart the bot (e.g. for updating)
 - Run `make stop` to stop the bot
@@ -69,6 +68,7 @@ To set up a development environment, you can use the different commands build in
 - `make restart` - stop and start containerized bot
 - `make env` - prepare your local Python environment
 - `make local` - run the bot on your system locally
+- `make dev` - run the bot locally in development mode
 - `make test` - run `pytest` tests and check test coverage
 - `make lint` - use the `black` linter to reformat code
 
