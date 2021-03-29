@@ -4,9 +4,15 @@ ace:
 bobross:
   filename: bobross.jpg
   response: Ooh, wee! Looks like we're gonna have a happy little accident!
+brilliant:
+  filename: brilliant.jpg
+  response: BREEEEEEEEEEEEEEEEEEEEEEEEEEELIANT!
 butts:
   filename: butts.gif
   response: Hold on to your butts! Ooh, wee!
+cool:
+  filename: coolstory.jpg
+  response: Talk about a cool story, bro! Ooh, wee!
 damage:
   filename: damage.png
   response: OOH, WEE! THAT'S A LOT OF DAMAGE!
@@ -25,6 +31,9 @@ ettu:
 fail:
   filename: fail.jpg
   response: That was certainly a fail, wasn't it, folks? Ooooooh, wee!
+fired:
+  filename: fired.gif
+  response: Ooh, wee! Looks like the Jitz found out, didn't he?
 ffs:
   filename: ffs.gif
   response: Ooh, wee! That didn't quite go as planned!
@@ -46,6 +55,9 @@ gay:
   - gay5.jpg
   - gay6.jpg
   response: Ooh, wee! Here's how gay that shot was!
+goodshow:
+  filename: goodshow.jpg
+  response: Ooh, wee! Eetsa gooda show!
 halp:
   filename: halp.jpg
   response: Ooh, wee! Sounds like somebody is in a bit over their head!
@@ -64,6 +76,9 @@ igotthis:
 ihateyou:
   filename: ihateyou.jpg
   response: Ooh, wee! Someone's pissed somebody off, tonight!
+impossibru:
+  filename: impossibru.jpg
+  response: Ooh, wee! Eetsa Subaru...IMPOSSIBRU!
 latifi:
   filename: latifi.jpg
   response: Ooh, wee! Looks like Latifi over there is playing the long game!
@@ -82,6 +97,9 @@ neener:
 nice:
   filename: nice.gif
   response: Ooh, wee! That was pretty nice!
+nofucks:
+  filename: nofucks.jpg
+  response: Ooh, wee! On a scale of 1 to your mom's a whore, I really don't give a fuck!
 nope:
   filename: nope.gif
   response: Denied, bitch! Oooooooooh, wee!
@@ -109,12 +127,21 @@ orly:
 owls:
   filename: owls.gif
   response: Ooh, wee! We have a lazy asshole here who doesn't feel like typing out all the owl memes!
+safety:
+  filename: safety.jpg
+  response: Ooh, wee! Gotta have a meme devoted to the F1 safety car, the undefeated champion that has never been passed on track!
+sarcasm:
+  filename: sarcasm.gif
+  resposne: Ooh, wee! My super bot powers detect a hint of sarcasm in the air!
 scotch:
   filename: scotch.jpg
   response: Ooh, wee! I love scotch! Scotchy-scotch-scotch!
 shakira:
   filename: shakira.mp4
   response: Ooh, wee! I hear her hips don't lie!
+slap:
+  filename: slap.gif
+  resposne: Ooh, wee! Someone is gonna need their shit slapped!
 sleep:
   filename: sleep.png
   response: Ooh, wee! Looks like somebody needs their beauty sleep!
@@ -145,6 +172,9 @@ welp:
 win:
   filename: win.gif
   response: Ooh, wee! That sure looks like a win to me!
+wink:
+  filename: wink.gif
+  response: ;-D Ooh, wee!
 wtf:
   filename: wtf.gif
   response: Ooh, wee! What the fuck?

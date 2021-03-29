@@ -1,5 +1,13 @@
 # changelog for mr-poopybutthole
 
+## 1.0.3 - 3/28/2021
+
+### 1.0.3 - Added
+
+- Over 25 new images and many new memes!
+- More pictures of some favorite Snowflakes, especially myself!
+- 14 new commands and listeners!
+
 ## 1.0.2 - 3/28/2021
 
 ### 1.0.2 - Added
