@@ -19,7 +19,7 @@ class Listener(commands.Cog):
     def __init__(self, bot):
         self.logger = logging.getLogger(__name__)
         self.bot = bot
-        self.listeners = yaml.load(open(LISTENERS_FILE), Loader=yaml.FullLoader)
+        self.listeners = yaml.load(open(LISTENERS_FILE), Loader=yaml.Loader)
 
     async def _send_message(self, message, listener):
         """

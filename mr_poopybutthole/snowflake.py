@@ -28,7 +28,7 @@ class Snowflake(commands.Cog):
         self.logger = logging.getLogger(__name__)
         self.bot = bot
 
-        snowflake_data = yaml.load(open(SNOWFLAKES_FILE), Loader=yaml.FullLoader)
+        snowflake_data = yaml.load(open(SNOWFLAKES_FILE), Loader=yaml.Loader)
         self.commands = snowflake_data["commands"]
         self.thelist = snowflake_data["snowflakes"]
         self.safephrase = snowflake_data["safephrase"].lower()

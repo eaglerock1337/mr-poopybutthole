@@ -23,7 +23,7 @@ class Command(commands.Cog):
     def __init__(self, bot):
         self.logger = logging.getLogger(__name__)
         self.bot = bot
-        self.commands = yaml.load(open(COMMANDS_FILE), Loader=yaml.FullLoader)
+        self.commands = yaml.load(open(COMMANDS_FILE), Loader=yaml.Loader)
 
     async def _send_command(self, ctx, command):
         """

@@ -1,5 +1,23 @@
 # changelog for mr-poopybutthole
 
+## 1.0.4 - 4/11/21
+
+### 1.0.4 - Added
+
+- Six more commands! Ooh, wee!
+- One more listener! Ooh, wee!
+- Added 22 new images! Ooh, wee!
+
+### 1.0.4 - Changed
+
+- Renamed `data` directory to `config` since it makes more sense
+- Adjusted some meme text to make it a bit nicer
+
+### 1.0.4 - Fixed
+
+- Switched to `yaml.Loader` instead of `yaml.FullLoader` for best practice
+- Fixed some commands and listeners that weren't working because I can't spell
+
 ## 1.0.3 - 3/28/2021
 
 ### 1.0.3 - Added

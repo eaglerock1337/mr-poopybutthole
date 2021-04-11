@@ -15,7 +15,7 @@ To clone your fork of the repo locally, you can either use the `git` command-lin
 For purposes of adding memes, here's the only two directories you need to care about:
 
 - `mr_poopybutthole/resources` - images and videos go here
-- `mr_poopybutthole/data` - all config files go here
+- `mr_poopybutthole/config` - all config files go here
 
 ## adding a command
 

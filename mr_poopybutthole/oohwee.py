@@ -32,7 +32,7 @@ class Oohwee(commands.Cog):
     def __init__(self, bot):
         self.logger = logging.getLogger(__name__)
         self.bot = bot
-        self.help = yaml.load(open(HELP_FILE), Loader=yaml.FullLoader)
+        self.help = yaml.load(open(HELP_FILE), Loader=yaml.Loader)
         self.command_output = self._gen_command_output(COMMANDS_FILE, columns=2)
         self.listener_output = self._gen_listener_output(LISTENERS_FILE)
 
@@ -42,7 +42,7 @@ class Oohwee(commands.Cog):
         `column` lists of evenly sorted columns for easy column printing. Also
         returns the total number of commands for printing in the embed.
         """
-        commands = sorted(yaml.load(open(file), Loader=yaml.FullLoader))
+        commands = sorted(yaml.load(open(file), Loader=yaml.Loader))
         total = len(commands)
         split = numpy.array_split(commands, columns)
         lists = []
@@ -78,7 +78,7 @@ class Oohwee(commands.Cog):
         listeners from `file` and renders the list, one listener per line, with all
         the matchers listed.
         """
-        listeners = yaml.load(open(file), Loader=yaml.FullLoader)
+        listeners = yaml.load(open(file), Loader=yaml.Loader)
         sorted_listeners = sorted(listeners)
 
         output = "\n\n"

@@ -4,7 +4,7 @@ from datetime import datetime
 
 # Constants for Mr. Poopybutthole module
 
-VERSION = "1.0.3"
+VERSION = "1.0.4"
 
 if os.getenv("DEV_CHANNEL"):
     from git import Repo
@@ -27,11 +27,11 @@ HELP_IMAGE_URL = os.path.join(IMAGE_URL_HEADER, "oohwee.gif")
 FOOTER_TEXT = f"{NAME} v{VERSION} © {datetime.now().year} EagleRock"
 
 MODULE_DIR = os.path.dirname(__file__)
-DATA_DIR = os.path.join(MODULE_DIR, "data")
+CONFIG_DIR = os.path.join(MODULE_DIR, "config")
 RESOURCES_DIR = os.path.join(MODULE_DIR, "resources")
 
-COMMANDS_FILE = os.path.join(DATA_DIR, "commands.yaml")
-HELP_FILE = os.path.join(DATA_DIR, "help.yaml")
-LISTENERS_FILE = os.path.join(DATA_DIR, "listeners.yaml")
-SNOWFLAKES_FILE = os.path.join(DATA_DIR, "snowflakes.yaml")
+COMMANDS_FILE = os.path.join(CONFIG_DIR, "commands.yaml")
+HELP_FILE = os.path.join(CONFIG_DIR, "help.yaml")
+LISTENERS_FILE = os.path.join(CONFIG_DIR, "listeners.yaml")
+SNOWFLAKES_FILE = os.path.join(CONFIG_DIR, "snowflakes.yaml")
 SNOWFLAKE_EMOJI = ["🇸", "🇳", "🇴", "🇼", "🇫", "🇱", "🇦", "🇰", "🇪"]
