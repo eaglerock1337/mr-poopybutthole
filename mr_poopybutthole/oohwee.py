@@ -83,7 +83,7 @@ class Oohwee(commands.Cog):
 
         output = "\n\n"
         for lst in sorted_listeners:
-            output += f"**`{lst:8}`** -"
+            output += f"**`{lst:9}`** -"
             for match in range(len(listeners[lst]["matches"])):
                 output += "" if match == 0 else ","
                 output += f" *'{listeners[lst]['matches'][match]}'*"

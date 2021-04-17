@@ -4,6 +4,9 @@ ace:
 alrighty:
   filename: alrighty.jpg
   response: Allllllllllllllllllllllllllllllllllllrighty, then! Ooh, wee!
+blyat:
+  filename: blyat.gif
+  response: RUSH B, CYKA BLYAT! OOOOOOOH, WEEEEE!
 bobross:
   filename: bobross.jpg
   response: Ooh, wee! Looks like we're gonna have a happy little accident!
@@ -13,6 +16,15 @@ brilliant:
 butts:
   filename: butts.gif
   response: Hold on to your butts! Ooh, wee!
+cage:
+  filenames:
+  - cage1.gif
+  - cage2.gif
+  - cage3.gif
+  - cage4.gif
+  - cage5.gif
+  - cage6.gif
+  response: Ooh, wee! Time to pay homage to the Internet's One True God!
 coldone:
   filename: coldone.jpg
   response: The Oneitude is directly proportional to the Colditude of the One! Ooh, wee!
@@ -22,12 +34,21 @@ cool:
 damage:
   filename: damage.png
   response: OOH, WEE! THAT'S A LOT OF DAMAGE!
+danger:
+  filename: danger.jpg
+  response: Danger, Will Robinson! Danger! Ooh, wee!
 dialedin:
   filename: dialedin.jpg
   response: Ooh, wee! Looks like SOMEBODY is dialed in!
+dog:
+  filename: dog.gif
+  response: Ooh, wee! Chris wants you to see this gif of a dog!
 doge:
   filename: doge.jpg
   response: Much meme. Very response. Such bot. Wow. Ooh, wee!
+drumroll:
+  filename: drumroll.gif
+  response: Can I get a drumroll, please? It's time to find out what everyone thinks of that! Ooh, wee!
 dumb:
   filename: dumb.png
   response: Ooh, wee! Looks like you had a _great_ suggestion! Let's think about that one!
@@ -37,6 +58,9 @@ engineer:
 ettu:
   filename: ettu.jpg
   response: Ooh, wee! Et tu? Cogitavi in ​​qua sumus, amici! Bitch.
+f1fail:
+  filename: f1fail.gif
+  response: Ooh, wee! Red Bull is definitely gonna win the Constructor's Championship this year, right?
 fail:
   filename: fail.jpg
   response: That was certainly a fail, wasn't it, folks? Ooooooh, wee!
@@ -67,6 +91,12 @@ gay:
 goodshow:
   filename: goodshow.jpg
   response: Ooh, wee! Eetsa gooda show!
+hack:
+  filename: hack.gif
+  response: HACK THE PLANET! HAAAAACK THE PLAAAAANET!!!
+hacking:
+  filename: hacking.gif
+  response: I'm hacking here! Doing important stuff! Serious business! Ooh, wee!
 halp:
   filename: halp.jpg
   response: Ooh, wee! Sounds like somebody is in a bit over their head!
@@ -129,7 +159,7 @@ oof:
   response: Ooh, wee! That was oof-worthy!
 oohwee:
   filename: oohwee.png
-  response: "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOH,\nWEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE!"
+  response: "OOOOOOOOOOOOOOOOOOOOOOOOOOH,\nWEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE!"
 opinion:
   filename: opinion.png
   response: Ooh, wee! Here's what you can do with your opinion!
@@ -139,6 +169,9 @@ orly:
 owls:
   filename: owls.gif
   response: Ooh, wee! We have a lazy asshole here who doesn't feel like typing out all the owl memes!
+rad:
+  filename: rad.gif
+  response: Ooh, wee! That was totally rad, bro! You're cool!
 safety:
   filename: safety.jpg
   response: Ooh, wee! Gotta have a meme devoted to the F1 safety car, the undefeated champion that has never been passed on track!
@@ -151,8 +184,13 @@ scotch:
 shakira:
   filename: shakira.mp4
   response: Ooh, wee! I hear her hips don't lie!
+shoo:
+  filename: shoo.gif
+  response: Go 'way. Shoo.
 slap:
-  filename: slap.gif
+  filenames:
+  - slap.gif
+  - batslap.gif
   response: Ooh, wee! Someone is gonna need their shit slapped!
 sleep:
   filename: sleep.png
@@ -199,6 +237,9 @@ xp:
 yarly:
   filename: yarly.jpg
   response: Ya really, bitch. Ooh, wee!
+yee:
+  filename: yee.gif
+  response: YEEEEEEEEEEEEEEE!
 yomomma:
   filenames:
   - yomomma1.jpg
@@ -216,7 +257,12 @@ yomomma:
   - yomomma13.jpg
   - yomomma14.jpg
   - yomomma1.png
-  response: Ooh, wee! Time to make fun of yo momma! 
+  - yomomma2.png
+  - yomomma1.gif
+  response: Ooh, wee! Time to make fun of yo momma!
+youdontsay:
+  filename: youdontsay.gif
+  response: OOOH, WEE! YOU DON'T SAY?????
 youlose:
   filename: youlose.jpg
   response: Under section 37B of a contract signed by you, your mom's a whore! You lose! Ooh, wee!
