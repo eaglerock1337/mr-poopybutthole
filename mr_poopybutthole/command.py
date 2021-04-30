@@ -42,7 +42,8 @@ class Command(commands.Cog):
 
         if "filenames" in cmd:
             with open(
-                os.path.join(RESOURCES_DIR, random.choice(cmd["filenames"])), "rb",
+                os.path.join(RESOURCES_DIR, random.choice(cmd["filenames"])),
+                "rb",
             ) as file:
                 picture = discord.File(file)
                 await ctx.channel.send(file=picture)
@@ -59,16 +60,16 @@ class Command(commands.Cog):
         stored in self.commands in the Command class. It does this by hijacking
         all `CommandNotFound` errors the bot receives by listening for all
         `on_command_error()` Discord events as follows:
-        
+
         First, check that the error is a CommandNotFound type. Second, use the
         `re.findall()` command to grab the command from the error text, which will
         look something like this:
 
         `discord.ext.commands.errors.CommandNotFound: Command "oohwee" is not found`
-        
+
         Second, use the `re.findall()` regex function to parse the first result in
         the error text that's inside quotes, which will be the command name.
-        
+
         Finally, check the command against the imported command list, and
         invoke the `send_command()` function if found. Otherwise, raise the error
         normally and avoid swallowing unnecesary errors.

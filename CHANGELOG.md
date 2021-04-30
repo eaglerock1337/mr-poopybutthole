@@ -1,5 +1,19 @@
 # changelog for mr-poopybutthole
 
+## 1.0.6 - 4/29/21
+
+### 1.0.6 - added
+
+- Six new commands!
+- One new listener!
+- Twelve new images!
+- Added very much missing `!poop` command!
+
+### 1.0.6 - fixed
+
+- Fixed missing documentation for `_send_snowflake_embed()`
+- Actually bothered to lint my code
+
 ## 1.0.5 - 4/17/21
 
 Big Meme Pack - Nicholas Cage Edition!

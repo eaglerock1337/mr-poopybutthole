@@ -77,7 +77,10 @@ class Snowflake(commands.Cog):
 
     async def _send_snowflake_embed(self, ctx, command):
         """
-        Generates the embed message for Snowflake Mode. Parses the 
+        Generates the embed message for Snowflake Mode. Parses the class data and sets
+        the embed color based on the snowflake mode status. Will displays the list of
+        snowflakes and their current status (vulnerable or in their safe space). Also
+        displays the current safe phrase and provides a reminder for the help command.
         """
         if self.snowflake_mode:
             color = discord.Color.red()
@@ -143,7 +146,7 @@ class Snowflake(commands.Cog):
         The routine will check if Snowflake Mode is enabled, and send a message
         if the user hasn't retreated to their safe space, as well as change their
         nickname. If they type the safe phrase message, the user will retreat to their
-        safe space by disabling Snowflake Mode for them and resetting their nickname. 
+        safe space by disabling Snowflake Mode for them and resetting their nickname.
         """
         if message.author == self.bot.user:
             return
@@ -162,7 +165,8 @@ class Snowflake(commands.Cog):
 
                         await message.channel.send(snowflake["disable"])
                         with open(
-                            os.path.join(RESOURCES_DIR, "safespace.gif"), "rb",
+                            os.path.join(RESOURCES_DIR, "safespace.gif"),
+                            "rb",
                         ) as file:
                             picture = discord.File(file)
                             await message.channel.send(file=picture)

@@ -43,7 +43,8 @@ class Listener(commands.Cog):
 
             if "filenames" in lst:
                 with open(
-                    os.path.join(RESOURCES_DIR, random.choice(lst["filenames"])), "rb",
+                    os.path.join(RESOURCES_DIR, random.choice(lst["filenames"])),
+                    "rb",
                 ) as file:
                     picture = discord.File(file)
                     await message.channel.send(file=picture)
@@ -61,7 +62,7 @@ class Listener(commands.Cog):
         """
         Main listener routine for Mr. Poopybutthole. Will follow all special-case
         listening rules, as well as parse the list of all listeners in the yaml
-        file, sending a message to Discord if matched. 
+        file, sending a message to Discord if matched.
         """
         if message.author == self.bot.user:
             return

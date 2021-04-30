@@ -34,6 +34,9 @@ cool:
 damage:
   filename: damage.png
   response: OOH, WEE! THAT'S A LOT OF DAMAGE!
+dance:
+  filename: dance.gif
+  response: Ooh, wee! Pardon me while I do a victory dance for you!
 danger:
   filename: danger.jpg
   response: Danger, Will Robinson! Danger! Ooh, wee!
@@ -160,6 +163,9 @@ oof:
 oohwee:
   filename: oohwee.png
   response: "OOOOOOOOOOOOOOOOOOOOOOOOOOH,\nWEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE!"
+oops:
+  filename: oops.gif
+  response: Ooh, wee! Looks like someone made an oopsie-woopsies!
 opinion:
   filename: opinion.png
   response: Ooh, wee! Here's what you can do with your opinion!
@@ -169,6 +175,15 @@ orly:
 owls:
   filename: owls.gif
   response: Ooh, wee! We have a lazy asshole here who doesn't feel like typing out all the owl memes!
+poop:
+  filenames:
+  - poop1.gif
+  - poop2.gif
+  - poop3.gif
+  - poop4.gif
+  - poop5.gif
+  - poop5.gif
+  response: Ooh, wee! Aren't we just the bastion of maturity?
 rad:
   filename: rad.gif
   response: Ooh, wee! That was totally rad, bro! You're cool!
@@ -187,6 +202,9 @@ shakira:
 shoo:
   filename: shoo.gif
   response: Go 'way. Shoo.
+shutup:
+  filename: shutup.gif
+  response: Ooh, wee! Someone needs to SHUUUUUUUUUUUUUT UUUUUUUUUUUUUUUP!
 slap:
   filenames:
   - slap.gif
@@ -195,12 +213,18 @@ slap:
 sleep:
   filename: sleep.png
   response: Ooh, wee! Looks like somebody needs their beauty sleep!
+smile:
+  filename: smile.gif
+  response: :-D
 sorry:
   filename: sorry.png
   response: 'Ooh, wee! Let me guess: you didn''t mean to shoot him, did you?'
 stfu:
   filename: stfu.jpg
   response: Ooh, wee! Someone is running their mouth and really need to give it a break!
+thumbsup:
+  filename: thumbsup.gif
+  response: Who has two thumbs and approves? THIS GUY! OOOH, WEE!
 torvalds:
   filename: torvalds.jpg
   response: Ooh, wee! Even Linus Torvalds hates you!

@@ -191,6 +191,14 @@ rubber:
   - dust
   - rubber
   response: Let's burn some dust here. Eat my rubber! Ooh, wee!
+shit:
+  filename: shit.gif
+  matches:
+  - shit
+  - shiat
+  - crap
+  - poop
+  response: Someone's talking shit...LITERALLY! Ooooooh, wee!
 spicyboi:
   filename: spicyboi.jpg
   matches:
