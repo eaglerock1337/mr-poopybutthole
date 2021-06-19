@@ -38,6 +38,9 @@ chris:
   - chris.jpg
   - chris2.jpg
   - chris3.jpg
+  - okay.gif
+  - okay.gif
+  - okay.gif
   matches:
   - chris
   response: Ooh, wee!
@@ -145,11 +148,16 @@ nukem:
 okay:
   filename: okay.gif
   matches:
-  - ok
   - okay
   - sure
   - whatever
   response: Okay...whatever you say there, big guy! Sure!
+orange:
+  filename: orangewhip.gif
+  matches:
+  - orange
+  - whip
+  response: Who want's an orange whip? Ooh, wee!
 peloton:
   filename: peloton.jpg
   matches:
@@ -163,6 +171,7 @@ peter:
   - peter3.jpg
   - peter4.jpg
   - peter5.jpg
+  - peter6.jpg
   matches:
   - peter
   response: Ooh, wee!

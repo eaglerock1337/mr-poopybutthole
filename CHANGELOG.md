@@ -1,6 +1,29 @@
 # changelog for mr-poopybutthole
 
+## 1.0.7 - 6/19/21
+
+Mission from God Edition
+
+### 1.0.7 - added
+
+- Two new commands!
+- One new listener!
+- Four new images!
+- Me giving the finger!
+
+### 1.0.7 - fixed
+
+- Minor code updates to keep things neat
+- The `ok` listener will not trigger as much anymore, since Chris kept complaining
+
+### 1.0.7 - changed
+
+- Chris won't be able to completely get away from the ok gif!
+- Improved `Makefile` and `make` functionality
+
 ## 1.0.6 - 4/29/21
+
+Extreme Maturity Edition
 
 ### 1.0.6 - added
 

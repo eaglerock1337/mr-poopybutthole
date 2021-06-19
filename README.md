@@ -49,25 +49,37 @@ This bot is configured to run locally in a Docker container for Python 3.8.
 
 ### requirements
 
-- Python 3.6 or later installed locally
+- Python 3.6 or later installed locally (for f-string support)
 - Docker
 - Make
 
 ### installation
 
 - Copy `template.env` to `.env` and fill in your Discord token and main channel ID, optionally adding your dev token and ID as well.
-- Run `make` to build the docker container and run the bot
-- Run `make all` to restart the bot (e.g. for updating)
+- Run `make start` to build the docker container and run the bot
+- Run `make restart` to restart the bot (e.g. for updating)
 - Run `make stop` to stop the bot
+- Run `make` to see more options for running the bot
 
 ## development
 
 To set up a development environment, you can use the different commands build in the `Makefile` to do the following:
 
+Make Aliases:
+
+- `make` or `make help` - display all make options
 - `make start` - build container and run bot
+- `make restart` - stop, build, and start containerized bot
+
+Docker Options:
+
+- `make build` - build the bot's image
+- `make run` - run the containerized bot
 - `make stop` - stop containerized bot
-- `make logs` - tap into container logs and output to `mr-poopybutthole.log`
-- `make restart` - stop and start containerized bot
+- `make log` - tap into container logs and output to `mr-poopybutthole.log`
+
+Development Options:
+
 - `make env` - prepare your local Python environment
 - `make local` - run the bot on your system locally
 - `make dev` - run the bot locally in development mode
@@ -88,6 +100,15 @@ For more details on how the bot works, check the [makefile](Makefile) to see wha
 - Add support for randomized files to `Command` and `Listener` classes
 
 ## future plans
+
+### short term plans
+
+- Add new slash command support for `!help`, `!snowflake`, and future commands
+  - Available through <https://pypi.org/project/discord-py-slash-command/>
+- Allow commands and listeners to respond directly to the user instead of "someone"
+- Add Eagleworld API support for built-in games and other fun stuff
+
+### long term plans
 
 - Voice channel support for posting sound memes
 - Either encapsulate in Kubernetes or use docker-compose for quicker reloading of the application

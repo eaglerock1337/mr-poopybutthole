@@ -17,7 +17,6 @@ from .constants import (
     MAIN_CHANNEL,
     NAME,
     REPO_URL,
-    RESOURCES_DIR,
     VERSION,
 )
 

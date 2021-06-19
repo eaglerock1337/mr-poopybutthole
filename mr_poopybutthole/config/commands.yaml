@@ -106,6 +106,9 @@ halp:
 hattip:
   filename: hattip.gif
   response: Ooh, wee! I tip my hat to you, sir!
+hitit:
+  filename: hitit.gif
+  response: Ooh, wee! Are you on a mission from God?
 idgaf:
   filename: idgaf.gif
   response: On a scale of one to I don't give a fuck, I don't give a fuck! Ooh, wee!
@@ -127,6 +130,9 @@ latifi:
 letsgo:
   filename: letsgo.gif
   response: Ooh, wee! Someone needs to take their goddamn shot, already!
+light:
+  filename: thelight.gif
+  response: Ooh, wee! Someone has seen the light!
 list:
   filename: thelist.jpg
   response: Ooh, wee! You know what happens to people who type this command? YOU JUST MADE THE LIST!
