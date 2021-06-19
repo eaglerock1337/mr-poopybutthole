@@ -12,7 +12,7 @@ help: ## help information about make commands
 start: build run ## ALIAS: build, run
 
 .PHONY: restart
-restart: stop run ## ALIAS: stop, build, run
+restart: stop build, run ## ALIAS: stop, build, run
 
 .PHONY: stop
 stop: ## stop the Docker container
