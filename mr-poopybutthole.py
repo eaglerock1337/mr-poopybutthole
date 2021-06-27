@@ -10,6 +10,7 @@ from mr_poopybutthole.oohwee import Oohwee
 from mr_poopybutthole.command import Command
 from mr_poopybutthole.listener import Listener
 from mr_poopybutthole.snowflake import Snowflake
+from mr_poopybutthole.api import EagleworldApi
 
 
 def get_logger():
@@ -57,6 +58,7 @@ def oohwee():
     bot.add_cog(Command(bot))
     bot.add_cog(Listener(bot))
     bot.add_cog(Snowflake(bot))
+    bot.add_cog(EagleworldApi(bot))
     bot.run(token)
 
 

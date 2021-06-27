@@ -4,7 +4,7 @@ from datetime import datetime
 
 # Constants for Mr. Poopybutthole module
 
-VERSION = "1.0.7"
+VERSION = "1.1.0"
 
 if os.getenv("DEV_CHANNEL"):
     from git import Repo
@@ -35,3 +35,5 @@ HELP_FILE = os.path.join(CONFIG_DIR, "help.yaml")
 LISTENERS_FILE = os.path.join(CONFIG_DIR, "listeners.yaml")
 SNOWFLAKES_FILE = os.path.join(CONFIG_DIR, "snowflakes.yaml")
 SNOWFLAKE_EMOJI = ["🇸", "🇳", "🇴", "🇼", "🇫", "🇱", "🇦", "🇰", "🇪"]
+
+EAGLEWORLD_API_URL = "http://api.eagleworld.net/api"

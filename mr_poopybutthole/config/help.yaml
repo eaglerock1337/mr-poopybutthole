@@ -21,6 +21,9 @@ main:
     snowflake:
       name: "!help snowflake"
       value: Get more details on how Snowflake Mode works! Ooh, wee!
+    fortune:
+      name: "!help fortune"
+      value: How to get your fortune!
 snowflake:
   title: Mr. Poopybutthole Snowflake Mode
   description: |-2
@@ -54,6 +57,23 @@ snowflake:
     safephrase:
       name: "Saying the Safe Phrase"
       value: Another way to retreat to your safe space... Type `!snowflake` to see the current safe phrase!
+fortune:
+  title: Mr. Poopybutthole's Fortune Service
+  description: "Mr. Poopybutthole now works with the Eagleworld API, which can give you your fortune! Here are the different options you can use:"
+  image: False
+  fields:
+    plain:
+      name: "!fortune` or `!fortune plain"
+      value: Just get a plain, simple fortune! Best for mobile Discord users!
+    cow:
+      name: "!fortune cow"
+      value: Get your fortune, but have a cow say it to you! Very Debian apt-like!
+    tux:
+      name: "!fortune tux"
+      value: Get your fortune from Tux, the Linux penguin! Ooh, wee!
+    more:
+      name: "More to come"
+      value: The Eagleworld API is just getting started, so more options will be available soon!
 commands:
   title: Mr. Poopybutthole Commands
   description: Here's all the general meme commands I support! Ooh, wee!

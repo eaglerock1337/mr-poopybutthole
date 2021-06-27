@@ -15,6 +15,9 @@ pyyaml = "*"
 numpy = "*"
 jinja2 = "*"
 gitpython = "*"
+discord-py-slash-command = "*"
+requests = "*"
+typing-extensions = "*"
 
 [requires]
 python_version = "3"

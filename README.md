@@ -38,6 +38,9 @@ This is a very troll-tastic bot, but it actually has some decent features:
   - Snowflakes can only turn off Snowflake Mode if they first retreat to their safe space with `!snowflake safespace`
   - Snowflakes can choose to rejoin the fun with `!snowflake brave`
   - Snowflakes (not all members) can also use the power `!snowflake force` to override everyone and re-enable Snowflake Mode
+- `EagleworldApi` class - interactions with the Eagleworld API
+  - `!fortune` - a command for getting your fortune
+  - Will support many more features in the future! Stay tuned!
 
 ## contributing
 

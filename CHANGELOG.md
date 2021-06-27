@@ -1,5 +1,15 @@
 # changelog for mr-poopybutthole
 
+## 1.1.0 - 6/27/21
+
+Fortune Edition
+
+### 1.1.0 - Added
+
+- Added the new `!fortune` command for requesting fortunes from the Eagleworld API
+- Added support for multiple display options
+- Added `api` class for all interaction with the Eagleworld API for future expansion
+
 ## 1.0.7 - 6/19/21
 
 Mission from God Edition
