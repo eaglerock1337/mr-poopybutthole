@@ -29,7 +29,7 @@ build-micro: ## build the bot's Docker image for local microk8s repository
 
 .PHONY: promote-micro
 promote-micro: ## promote the image to stable on microk8s repository
-	docker image tag eaglerock/mr-poopybutthole:${VERSION} eaglerock/mr-poopybutthole:stable-arm
+	docker image tag eaglerock/mr-poopybutthole:${VERSION}-arm eaglerock/mr-poopybutthole:stable-arm
 	docker image push eaglerock/mr-poopybutthole:stable-arm
 
 .PHONY: push
