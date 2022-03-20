@@ -23,13 +23,13 @@ build: ## build the bot's Docker image
 	docker build --tag mr-poopybutthole:${VERSION} .
 
 .PHONY: build-micro
-build: ## build the bot's Docker image for local microk8s repository
+build-micro: ## build the bot's Docker image for local microk8s repository
 	docker image build --tag localhost:32000/eagleworld-core-api:${VERSION} .
 	docker image tag localhost:32000/eagleworld-core-api:${VERSION}
 	docker image push localhost:32000/eagleworld-core-api:${VERSION}
 
 .PHONY: promote-micro
-promote: ## promote the image to stable on microk8s repository
+promote-micro: ## promote the image to stable on microk8s repository
 	docker image tag localhost:32000/eagleworld-core-api:${VERSION} localhost:32000/eagleworld-core-api:stable
 	docker image push localhost:32000/eagleworld-core-api:${VERSION}
 
