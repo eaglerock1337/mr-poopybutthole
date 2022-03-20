@@ -24,13 +24,13 @@ build: ## build the bot's Docker image
 
 .PHONY: build-micro
 build-micro: ## build the bot's Docker image for local microk8s repository
-	docker image build --tag localhost:32000/eagleworld-core-api:${VERSION} .
-	docker image push localhost:32000/eagleworld-core-api:${VERSION}
+	docker image build --tag eaglerock/eagleworld-core-api:${VERSION}-arm .
+	docker image push eaglerock/eagleworld-core-api:${VERSION}-arm
 
 .PHONY: promote-micro
 promote-micro: ## promote the image to stable on microk8s repository
-	docker image tag localhost:32000/eagleworld-core-api:${VERSION} localhost:32000/eagleworld-core-api:stable
-	docker image push localhost:32000/eagleworld-core-api:${VERSION}
+	docker image tag eaglerock/eagleworld-core-api:${VERSION} eaglerock/eagleworld-core-api:stable-arm
+	docker image push eaglerock/eagleworld-core-api:stable-arm
 
 .PHONY: push
 push: ## push the version to Docker hub
@@ -40,7 +40,7 @@ push: ## push the version to Docker hub
 .PHONY: promote
 promote: ## promote the image to stable
 	docker image tag eaglerock/eagleworld-core-api:${VERSION} eaglerock/eagleworld-core-api:stable
-	docker image push eaglerock/eagleworld-core-api:${VERSION}
+	docker image push eaglerock/eagleworld-core-api:stable
 
 
 .PHONY: run

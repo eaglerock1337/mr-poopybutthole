@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: mr-poopybutthole
-        image: localhost:32000/mr-poopybutthole:stable
+        image: eaglerock/mr-poopybutthole:stable-arm
         env:
           - name: DISCORD_TOKEN
             valueFrom:
