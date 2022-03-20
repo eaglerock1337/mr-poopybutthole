@@ -25,7 +25,6 @@ build: ## build the bot's Docker image
 .PHONY: build-micro
 build-micro: ## build the bot's Docker image for local microk8s repository
 	docker image build --tag localhost:32000/eagleworld-core-api:${VERSION} .
-	docker image tag localhost:32000/eagleworld-core-api:${VERSION}
 	docker image push localhost:32000/eagleworld-core-api:${VERSION}
 
 .PHONY: promote-micro

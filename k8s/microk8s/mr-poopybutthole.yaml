@@ -1,0 +1,45 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: mr-poopybutthole
+  labels:
+    name: mr-poopybutthole
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mr-poopybutthole
+  namespace: mr-poopybutthole
+  labels:
+    app: mr-poopybutthole
+    domain: eagleworld.net
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mr-poopybutthole
+      domain: eagleworld.net
+  template:
+    metadata:
+      labels:
+        app: mr-poopybutthole
+        domain: eagleworld.net
+    spec:
+      containers:
+      - name: mr-poopybutthole
+        image: localhost:32000/mr-poopybutthole:stable
+        env:
+          - name: DISCORD_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: github-token
+                key: prod
+          - name: MAIN_CHANNEL
+            value: "362982581068890113"
+        resources:
+          requests:
+            memory: 256Mi
+            cpu: 250m
+          limits:
+            memory: 512Mi
+            cpu: 500m
