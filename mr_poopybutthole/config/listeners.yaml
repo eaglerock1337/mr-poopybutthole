@@ -121,7 +121,7 @@ help:
   - halp
   - pls
   - plz
-  response: Ooh, wee! If you want some help from me, you should probably try the `help` command!
+  response: Ooh, wee! If you want some help from me, you should probably try the `!help` command!
 hmmm:
   filename: hmmm.gif
   matches:
