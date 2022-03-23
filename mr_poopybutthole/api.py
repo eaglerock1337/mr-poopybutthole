@@ -6,6 +6,7 @@ from discord.ext import commands
 
 from .constants import EAGLEWORLD_API_URL, ICON_URL, REPO_URL, FOOTER_TEXT
 
+
 class EagleworldApi(commands.Cog):
     """
     The Eagleworld API class for the Mr. Poopybutthole Discord bot.
@@ -28,17 +29,32 @@ class EagleworldApi(commands.Cog):
         - cow - Return the fortune piped through `cowsay`
         - tux - Return the fortune piped through `tuxsay`
         """
-        options = ''
-        if arg == 'cow':
-            options = '?option=cowsay'
-        elif arg == 'tux':
-            options = '?option=tuxsay'
+        options = ""
+        if arg == "cow":
+            options = "?option=cowsay"
+        elif arg == "tux":
+            options = "?option=tuxsay"
 
-        fortune = requests.get(f'{EAGLEWORLD_API_URL}/fortune{options}')
+        try:
+            fortune = requests.get(f"{EAGLEWORLD_API_URL}/fortune{options}", timeout=5)
+        except requests.exceptions.ReadTimeout:
+            response = (
+                f"Ooh, wee, {ctx.message.author.name}! The Eagleworld API didn't respond, "
+                + "so no fortune for you!"
+            )
+            await ctx.channel.send(response)
+            self.logger.warn(
+                f"Member {ctx.message.author.name} attempted to send !fortune {arg} "
+                + f"to the {ctx.channel.name} channel, but the Eagleworld API timed out!"
+            )
+            return
+
         if fortune.status_code == 200:
-            response = fortune.json()['fortune']
+            response = fortune.json()["fortune"]
         else:
-            response = f"Got response code {fortune.response} trying to get fortune: {fortune}"
+            response = (
+                f"Got response code {fortune.response} trying to get fortune: {fortune}"
+            )
 
         embed = discord.Embed(
             title=f"Here's your fortune:",
