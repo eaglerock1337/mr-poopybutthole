@@ -34,6 +34,7 @@ promote-micro: ## promote the image to stable on microk8s repository
 
 .PHONY: push
 push: ## push the version to Docker hub
+	docker image tag eaglerock/mr-poopybutthole:${VERSION} eaglerock/mr-poopybutthole:latest
 	docker image push eaglerock/mr-poopybutthole:${VERSION}
 	docker image push eaglerock/mr-poopybutthole:latest
 
