@@ -2,25 +2,28 @@
 
 ## 1.2.0 - 8/9/22
 
-The People's Edition
+The People's Edition™️
 
 ### 1.2.0 - added
 
 - Eight more commands! That makes 96 altogether! Ooh, wee!
 - Two more listeners! Ooh, wee!
 - Ten new images! Ooh, wee!
-- Added full Kubernetes support
+- Added ARM support
+- Added Kubernetes support
 
 ### 1.2.0 - changed
 
 - Listeners now need to hit a whole word, not just any part of the string
-- Tweaked some listeners to handle new behavior correctly
+- Added some extra matches to listeners to preserve old behavior
+- Removed some listeners that were triggering too much
+- Revamped build system to support amd64 and arm64 architectures
 
 ### 1.2.0 - fixed
 
-- Optimized Docker image - saved over 100MB
-- Fixed Makefile issues
-- Fixed typos
+- Optimized Docker image - reduced size from 390MB to 230MB
+- Fixed Makefile issues with some untested commands
+- Fixed some dumb typos
 
 ## 1.1.0 - 6/27/21
 
