@@ -48,7 +48,7 @@ chrome:
   filename: chrome.png
   matches:
   - chrome
-  - google
+  - ram
   response: Ooh, wee! Someone must really hate their RAM!
 clever:
   filename: clever.gif
@@ -68,6 +68,7 @@ dumbass:
   matches:
   - dumb
   - ass
+  - dumbass
   - dumass
   response: Ooh, wee! Good job there, dumbass!
 fucks:
@@ -95,6 +96,12 @@ goodbot:
   matches:
   - good bot
   response: You like me! You really like me! Oooooooooh, wee!
+goodjob:
+  filename: goodjob.gif
+  matches:
+  - good
+  - job
+  response: _CLAP_ _CLAP_ _CLAP_ Good job, dumbass! Ooh, wee!
 gud:
   filename: gud.gif
   matches:
@@ -221,6 +228,13 @@ suez:
   - suez
   - canal
   response: Ooh, wee! Gotta hit that 20,000 container drift, yo!
+sup:
+  filename: sup.gif
+  matches:
+  - sup
+  - what's up
+  - whats up
+  response: Heeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeyyyyyyyy! Ooh, wee!
 twisted:
   filename: m16.jpg
   matches:

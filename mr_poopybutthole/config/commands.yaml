@@ -4,6 +4,9 @@ ace:
 alrighty:
   filename: alrighty.jpg
   response: Allllllllllllllllllllllllllllllllllllrighty, then! Ooh, wee!
+bitch:
+  filename: bitch.jpg
+  response: Ooh, wee! Someone forgot to take their bitch pills today!
 blyat:
   filename: blyat.gif
   response: RUSH B, CYKA BLYAT! OOOOOOOH, WEEEEE!
@@ -25,6 +28,9 @@ cage:
   - cage5.gif
   - cage6.gif
   response: Ooh, wee! Time to pay homage to the Internet's One True God!
+closed:
+  filename: sorryfolks.jpg
+  response: Park's closed, bitch! Ooh, wee!
 coldone:
   filename: coldone.jpg
   response: The Oneitude is directly proportional to the Colditude of the One! Ooh, wee!
@@ -70,6 +76,9 @@ fail:
 fired:
   filename: fired.gif
   response: Ooh, wee! Looks like the Jitz found out, didn't he?
+fireworks:
+  filename: fireworks.gif
+  response: Ooh, wee! Time for a celebration! Time to celebrate with an ass-kicking!
 ffs:
   filename: ffs.gif
   response: Ooh, wee! That didn't quite go as planned!
@@ -106,6 +115,9 @@ halp:
 hattip:
   filename: hattip.gif
   response: Ooh, wee! I tip my hat to you, sir!
+high:
+  filename: high.gif
+  response: Ooh, wee! I think that brownie had something in it!
 hitit:
   filename: hitit.gif
   response: Ooh, wee! Are you on a mission from God?
@@ -160,6 +172,9 @@ notsorry:
 nowai:
   filename: nowai.jpg
   response: Someone had to see the owl memes all the way through! Ooh, wee!
+nuke:
+  filename: nuke.gif
+  response: The time-honored traditional way to give someone the middle finger in Shellshock! Oooooooooh, wee!
 ole:
   filename: ole.jpg
   response: Ooh, wee! Time for a fiesta!
@@ -190,6 +205,9 @@ poop:
   - poop5.gif
   - poop5.gif
   response: Ooh, wee! Aren't we just the bastion of maturity?
+race:
+  filename: race.gif
+  response: Ooh, wee! I feel the need! The NEED...for SPEED! Just watch out for danger to manifold!
 rad:
   filename: rad.gif
   response: Ooh, wee! That was totally rad, bro! You're cool!
@@ -202,6 +220,9 @@ sarcasm:
 scotch:
   filename: scotch.jpg
   response: Ooh, wee! I love scotch! Scotchy-scotch-scotch!
+seal:
+  filename: seal.gif
+  response: If you see the seal moving, it's your imagination! Ooh, wee!
 shakira:
   filename: shakira.mp4
   response: Ooh, wee! I hear her hips don't lie!
@@ -237,6 +258,9 @@ torvalds:
 triggered:
   filename: triggered.gif
   response: Ooh, wee! Someone better retreat to their safe space right away!
+victory:
+  filename: victory.gif
+  response: Ooh, wee! I love a good victory this time of year!
 waiting:
   filename: waiting.gif
   response: Ooh, wee! Someone's taking their sweet-ass time today!
