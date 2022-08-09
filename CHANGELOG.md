@@ -11,6 +11,7 @@ The People's Edition™️
 - Ten new images! Ooh, wee!
 - Added ARM support
 - Added Kubernetes support
+- Added BSD 3-clause license
 
 ### 1.2.0 - changed
 
@@ -21,7 +22,10 @@ The People's Edition™️
 
 ### 1.2.0 - fixed
 
-- Optimized Docker image - reduced size from 390MB to 230MB
+- Docker optimizations:
+  - Staged Docker image to remove build artifacts from image
+  - Minimized files copied to the image from the repo
+  - Reduced Docker image size from 390MB to 230MB
 - Fixed Makefile issues with some untested commands
 - Fixed some dumb typos
 
