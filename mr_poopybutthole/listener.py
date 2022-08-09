@@ -2,6 +2,7 @@ import discord
 import os
 import logging
 import random
+import re
 import yaml
 
 from discord.ext import commands
@@ -33,27 +34,28 @@ class Listener(commands.Cog):
         list under `filenames`.
         """
         lst = self.listeners[listener]
-        if any(c in message.content.lower() for c in lst["matches"]):
-            await message.channel.send(lst["response"])
+        for c in lst["matches"]:
+            if re.search(r"\b" + re.escape(c) + r"\b", message.content.lower()):
+                await message.channel.send(lst["response"])
 
-            if "filename" in lst:
-                with open(os.path.join(RESOURCES_DIR, lst["filename"]), "rb") as file:
-                    picture = discord.File(file)
-                    await message.channel.send(file=picture)
+                if "filename" in lst:
+                    with open(os.path.join(RESOURCES_DIR, lst["filename"]), "rb") as file:
+                        picture = discord.File(file)
+                        await message.channel.send(file=picture)
 
-            if "filenames" in lst:
-                with open(
-                    os.path.join(RESOURCES_DIR, random.choice(lst["filenames"])),
-                    "rb",
-                ) as file:
-                    picture = discord.File(file)
-                    await message.channel.send(file=picture)
+                if "filenames" in lst:
+                    with open(
+                        os.path.join(RESOURCES_DIR, random.choice(lst["filenames"])),
+                        "rb",
+                    ) as file:
+                        picture = discord.File(file)
+                        await message.channel.send(file=picture)
 
-            self.logger.info(
-                f"Sent {listener} listener to {message.channel.name} "
-                + f"channel due to {message.author.name}!"
-            )
-            return True
+                self.logger.info(
+                    f"Sent {listener} listener to {message.channel.name} "
+                    + f"channel due to {message.author.name}!"
+                )
+                return True
         else:
             return False
 

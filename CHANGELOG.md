@@ -1,5 +1,27 @@
 # changelog for mr-poopybutthole
 
+## 1.2.0 - 8/9/22
+
+The People's Edition
+
+### 1.2.0 - added
+
+- Eight more commands! That makes 96 altogether! Ooh, wee!
+- Two more listeners! Ooh, wee!
+- Ten new images! Ooh, wee!
+- Added full Kubernetes support
+
+### 1.2.0 - changed
+
+- Listeners now need to hit a whole word, not just any part of the string
+- Tweaked some listeners to handle new behavior correctly
+
+### 1.2.0 - fixed
+
+- Optimized Docker image - saved over 100MB
+- Fixed Makefile issues
+- Fixed typos
+
 ## 1.1.0 - 6/27/21
 
 Fortune Edition

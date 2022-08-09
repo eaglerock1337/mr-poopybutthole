@@ -113,7 +113,7 @@ For more details on how the bot works, check the [makefile](Makefile) to see wha
 
 ### long term plans
 
+- Fix envvar ingestion and consumption to not be hacky and to work local and on k8s
 - Voice channel support for posting sound memes
-- Either encapsulate in Kubernetes or use docker-compose for quicker reloading of the application
 - Complete test coverage of module
 - CI/CD pipeline support through Jenkins or another tool

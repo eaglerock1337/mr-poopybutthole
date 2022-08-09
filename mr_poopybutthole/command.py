@@ -72,7 +72,7 @@ class Command(commands.Cog):
 
         Finally, check the command against the imported command list, and
         invoke the `send_command()` function if found. Otherwise, raise the error
-        normally and avoid swallowing unnecesary errors.
+        normally and avoid swallowing unnecessary errors.
         """
         if isinstance(error, CommandNotFound):
             # Grab command name from the error output

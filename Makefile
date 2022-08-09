@@ -20,10 +20,10 @@ stop: ## stop the Docker container
 
 .PHONY: build
 build: ## build the bot's Docker image
-	docker build --tag mr-poopybutthole:${VERSION} .
+	docker image build --tag eaglerock/mr-poopybutthole:${VERSION} .
 
 .PHONY: build-micro
-build-micro: ## build the bot's Docker image for local microk8s repository
+build-micro: ## build and push the bot's Docker image for local microk8s repository
 	docker image build --tag eaglerock/mr-poopybutthole:${VERSION}-arm .
 	docker image push eaglerock/mr-poopybutthole:${VERSION}-arm
 
