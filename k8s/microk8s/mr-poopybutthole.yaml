@@ -28,6 +28,7 @@ spec:
       containers:
       - name: mr-poopybutthole
         image: eaglerock/mr-poopybutthole:stable-arm
+        imagePullPolicy: Always
         env:
           - name: DISCORD_TOKEN
             valueFrom:
