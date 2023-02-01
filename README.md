@@ -106,6 +106,7 @@ For more details on how the bot works, check the [makefile](Makefile) to see wha
 
 ### short term plans
 
+- Rework help system to make finding commands faster and easier
 - Add new slash command support for `!help`, `!snowflake`, and future commands
   - Available through <https://pypi.org/project/discord-py-slash-command/>
 - Allow commands and listeners to respond directly to the user instead of "someone"

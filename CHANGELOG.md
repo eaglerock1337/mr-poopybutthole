@@ -1,5 +1,20 @@
 # changelog for mr-poopybutthole
 
+## 1.2.1 - 2/1/23
+
+The Not Quite as Annoying Edition
+
+### 1.2.1 - added
+
+- Nine more commands, up to 105 in total! Ooh, wee!
+- One new listener!
+- Ten new images!
+
+### 1.2.1 - changed
+
+- Removed listeners that triggered too much
+- 
+
 ## 1.2.0 - 8/9/22
 
 The People's Edition™️

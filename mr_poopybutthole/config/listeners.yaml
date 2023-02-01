@@ -33,6 +33,11 @@ bork:
   - bork
   - lazer
   response: IMMA FIRIN' MAH BORK LAZER!!! OOOOOOOOOH, WEEEEE!
+bruh:
+  filename: bruh.gif
+  matches:
+  - bruh
+  response: Ooh, wee, bruh...
 chris:
   filenames:
   - chris.jpg
@@ -67,7 +72,6 @@ dumbass:
   filename: dumbass.gif
   matches:
   - dumb
-  - ass
   - dumbass
   - dumass
   response: Ooh, wee! Good job there, dumbass!
@@ -75,7 +79,8 @@ fucks:
   filename: fucks.jpg
   matches:
   - guys
-  - shut
+  - shut up
+  - stfu
   - fuck
   response: Ooh, wee! Someone needs to shut their fucks!
 garfielf:
@@ -99,8 +104,8 @@ goodbot:
 goodjob:
   filename: goodjob.gif
   matches:
-  - good
   - job
+  - jorb
   response: _CLAP_ _CLAP_ _CLAP_ Good job, dumbass! Ooh, wee!
 gud:
   filename: gud.gif
