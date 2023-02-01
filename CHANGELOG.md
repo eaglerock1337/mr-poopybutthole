@@ -13,7 +13,7 @@ The Not Quite as Annoying Edition
 ### 1.2.1 - changed
 
 - Removed listeners that triggered too much
-- 
+- Updated README
 
 ## 1.2.0 - 8/9/22
 
