@@ -4,7 +4,7 @@ from datetime import datetime
 
 # Constants for Mr. Poopybutthole module
 
-VERSION = "1.2.1"
+VERSION = "1.3.0"
 
 if os.getenv("DEV_CHANNEL"):
     from git import Repo

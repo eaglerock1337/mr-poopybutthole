@@ -4,6 +4,13 @@ ace:
 alrighty:
   filename: alrighty.jpg
   response: Allllllllllllllllllllllllllllllllllllrighty, then! Ooh, wee!
+andretti:
+  filename: andretti.webp
+  response: |-2
+    Ooh-wee! Everyone come near,
+    for I have word of a terrible war!
+    Gather 'round so you may hear,
+    the Team Andretti War of 2024.
 ass:
   filename: ass.gif
   response: Ooh, wee! Certainly sounds like ass to me!
@@ -79,6 +86,9 @@ f1fail:
 fail:
   filename: fail.jpg
   response: That was certainly a fail, wasn't it, folks? Ooooooh, wee!
+ferrari:
+  filename: ferrari.webp
+  response: Its-a time-a for Plan P! PEPPERONI! Ooh-a, wee-a!
 fine:
   filename: fine.gif
   response: Sometimes it's just easier to agree with someone just to shut them up! Ooh, wee!
@@ -86,7 +96,9 @@ fired:
   filename: fired.gif
   response: Ooh, wee! Looks like the Jitz found out, didn't he?
 fireworks:
-  filename: fireworks.gif
+  filenames:
+  - firework.gif
+  - fireworks.gif
   response: Ooh, wee! Time for a celebration! Time to celebrate with an ass-kicking!
 ffs:
   filename: ffs.gif
@@ -109,6 +121,9 @@ gay:
   - gay5.jpg
   - gay6.jpg
   response: Ooh, wee! Here's how gay that shot was!
+goatifi:
+  filename: goatifi.gif
+  response: Goatifi is still gonna win, he's just pacing himself! Ooh, wee!
 goodshow:
   filename: goodshow.jpg
   response: Ooh, wee! Eetsa gooda show!
@@ -133,6 +148,9 @@ high:
 hitit:
   filename: hitit.gif
   response: Ooh, wee! Are you on a mission from God?
+hlc:
+  filename: hlc.gif
+  response: Coming to you live from the Happy Little Cloud! Ooh, wee!
 idgaf:
   filename: idgaf.gif
   response: On a scale of one to I don't give a fuck, I don't give a fuck! Ooh, wee!
@@ -160,18 +178,24 @@ light:
 list:
   filename: thelist.jpg
   response: Ooh, wee! You know what happens to people who type this command? YOU JUST MADE THE LIST!
+look:
+  filename: ಠ_ಠ.gif
+  response: Ooh, wtf? ಠ_ಠ
 more:
   filename: more.jpg
   response: Ooh, wee! Sounds like the shots just aren't gonna stop!
 neener:
   filename: neener.jpg
   response: Neener neener foo foo! I iz cute so stfu! Ooh, wee!
+newey:
+  filename: newey.webp
+  response: Ooh, wee! Our Lady of Blessed Aerodynamics, don't fail me now!
 nice:
   filename: nice.gif
   response: Ooh, wee! That was pretty nice!
 "no":
   filename: no.png
-  response: The word no has two letters in it and you still can't understand what it means! Ooooooh, wee!
+  response: The word no has two letters in it and you still can't figure it out! Ooooooh, wee!
 nofucks:
   filename: nofucks.jpg
   response: Ooh, wee! On a scale of 1 to your mom's a whore, I really don't give a fuck!
@@ -184,6 +208,9 @@ notgood:
 notsorry:
   filename: notsorry.gif
   response: Sorry, not sorry! Ooh, wee!
+notsorryping:
+  filename: notsorryping.jpg
+  response: My non-sincere apologies for the ping asswipe...Ooh, wee!
 nowai:
   filename: nowai.jpg
   response: Someone had to see the owl memes all the way through! Ooh, wee!
@@ -267,9 +294,15 @@ smile:
 sorry:
   filename: sorry.png
   response: 'Ooh, wee! Let me guess: you didn''t mean to shoot him, did you?'
+sorryping:
+  filename: sorryping.jpg
+  response: My sincere apologies for the ping...Ooh, wee!
 stfu:
   filename: stfu.jpg
   response: Ooh, wee! Someone is running their mouth and really need to give it a break!
+tankyou:
+  filename: tank-you.gif
+  response: Thanks for the save! Ooh, wee...I was almost toast!
 thumbsup:
   filename: thumbsup.gif
   response: Who has two thumbs and approves? THIS GUY! OOOH, WEE!

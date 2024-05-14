@@ -1,5 +1,27 @@
 # changelog for mr-poopybutthole
 
+## 1.3.0 - 5/14/24
+
+The Long Overdue F1 Meme Edition
+
+### 1.3.0 - added
+
+- Nine more commands, up to 114 in total! Ooh, wee!
+- Multiple F1 memes added, including custom-made AI memes!
+- Two new listeners!
+- Eleven new images!
+
+### 1.3.0 - changed
+
+- Now running off the Happy Little Cloud kubernetes cluster!
+- Changed docs to reflect running on Happy Little Cloud
+- Updated README
+
+### 1.3.0 - fixed
+
+- Fixed `sure` listener since it triggered way too much
+- Fixed env file in Dockerfile
+
 ## 1.2.1 - 2/1/23
 
 The Not Quite as Annoying Edition
