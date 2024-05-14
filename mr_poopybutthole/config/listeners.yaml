@@ -37,7 +37,7 @@ bruh:
   filename: bruh.gif
   matches:
   - bruh
-  response: Ooh, wee, bruh...
+  response: Ooh wee, bruh...
 chris:
   filenames:
   - chris.jpg
@@ -107,19 +107,25 @@ goodjob:
   - job
   - jorb
   response: _CLAP_ _CLAP_ _CLAP_ Good job, dumbass! Ooh, wee!
+godlonso:
+  filename: godlonso.gif
+  matches:
+  - fernando
+  - alonso
+  - godlonso
 gud:
   filename: gud.gif
   matches:
   - dis
   - gud
-  response: Ooh, wee! Dis gon b gud, isn't it?
+  response: Ooh, wee! Dis gun b gud, isn't it?
 hackerman:
   filename: hackerman.gif
   matches:
   - kung
   - fury
   - hackerman
-  response: Grab your power glove, the most powerful hacker of all time is gonna hack time itself! Ooh, wee!
+  response: Grab your power glove, it's time to hack the planet! Ooh, wee!
 hotsack:
   filename: hotsack.png
   matches:
@@ -149,6 +155,11 @@ ladida:
   - frickin
   - dah
   response: Ooh, wee! Well LA DI FRICKIN' DA!
+look:
+  filename: ಠ_ಠ.gif
+  matches:
+  - ._.
+  - ಠ_ಠ
 nukem:
   filename: nukem.png
   matches:
@@ -161,7 +172,6 @@ okay:
   filename: okay.gif
   matches:
   - okay
-  - sure
   - whatever
   response: Okay...whatever you say there, big guy! Sure!
 orange:

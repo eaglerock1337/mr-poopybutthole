@@ -36,7 +36,8 @@ class Listener(commands.Cog):
         lst = self.listeners[listener]
         for c in lst["matches"]:
             if re.search(r"\b" + re.escape(c) + r"\b", message.content.lower()):
-                await message.channel.send(lst["response"])
+                if "response" in lst:
+                    await message.channel.send(lst["response"])
 
                 if "filename" in lst:
                     with open(os.path.join(RESOURCES_DIR, lst["filename"]), "rb") as file:
@@ -75,6 +76,9 @@ class Listener(commands.Cog):
         for listener in self.listeners.keys():
             if await self._send_message(message, listener):
                 return
+
+        if message.content.lower() in "._.":
+            await message.channel.send("ಠ_ಠ")
 
         matches = ["ooh", "wee"]
 
