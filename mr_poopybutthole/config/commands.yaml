@@ -112,6 +112,9 @@ fu2:
 fuckmas:
   filename: fuckmas.jpg
   response: Ooh, wee! Ho, ho ho, motherfuckers!
+gagootz:
+  filename: gagootz.png
+  response: Ooh, wee! Look at this gagootz!
 gay:
   filenames:
   - gay1.jpg

@@ -1,5 +1,13 @@
 # changelog for mr-poopybutthole
 
+## 1.3.1 - 9/19/25
+
+The Gagootz Edition
+
+### 1.3.1 - added
+
+- One more command, bringing it to 115...but one that's worth it!
+
 ## 1.3.0 - 5/14/24
 
 The Long Overdue F1 Meme Edition
